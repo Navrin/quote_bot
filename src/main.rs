@@ -54,7 +54,7 @@ use config::Config;
 fn main() {
     let mut config = String::new();
 
-    let mut file = File::open("example_config.toml").unwrap();
+    let mut file = File::open("config.toml").unwrap();
     file.read_to_string(&mut config).unwrap();
 
 
