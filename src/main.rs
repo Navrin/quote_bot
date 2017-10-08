@@ -40,8 +40,32 @@
 //!
 //! !quote from @Bep list amount = 5 page = 1
 //! ```
-//!
+
+#[macro_use]
+extern crate serde_derive;
+extern crate toml;
+
+use std::io::prelude::*;
+use std::fs::File;
+
+pub mod config;
+use config::Config;
 
 fn main() {
-    println!("Hello, world!");
+    let mut config = String::new();
+
+    let mut file = File::open("example_config.toml").unwrap();
+    file.read_to_string(&mut config).unwrap();
+
+
+    let parsed_config: Config = toml::from_str(&config).unwrap();
+
+    println!("Token: {}", parsed_config.discord.token);
+    println!(
+        "Postgres DB: postgres://{}:{}@{}/{}",
+        parsed_config.database.name,
+        parsed_config.database.password,
+        parsed_config.database.location,
+        parsed_config.database.name
+    );
 }

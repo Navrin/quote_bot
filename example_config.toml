@@ -1,0 +1,10 @@
+# An example config in toml for the minimum requirements for the bot to run.
+
+[discord]
+token = "uwuwuwuwuwu"
+
+[database]
+username = "user"
+password = "hunter2"
+location = "127.0.0.1:3050"
+name     = "quotes"
