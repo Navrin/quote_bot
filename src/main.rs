@@ -1,5 +1,6 @@
 #![cfg_attr(feature = "clippy", feature(plugin))]
 #![cfg_attr(feature = "clippy", plugin(clippy))]
+#![doc(html_root_url = "https://navrin.github.io/quote_bot/")]
 
 //! # A discord quote bot!
 //!
