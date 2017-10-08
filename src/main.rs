@@ -43,29 +43,35 @@
 
 #[macro_use]
 extern crate serde_derive;
+#[macro_use]
+extern crate serenity;
 extern crate toml;
+
+use serenity::client::Client;
+use serenity::framework::standard::StandardFramework;
 
 use std::io::prelude::*;
 use std::fs::File;
 
 pub mod config;
+pub mod interactions;
 use config::Config;
+use interactions::handler::Handler;
 
 fn main() {
-    let mut config = String::new();
+    let mut raw_config = String::new();
 
     let mut file = File::open("config.toml").unwrap();
-    file.read_to_string(&mut config).unwrap();
+    file.read_to_string(&mut raw_config).unwrap();
 
 
-    let parsed_config: Config = toml::from_str(&config).unwrap();
+    let config: Config = toml::from_str(&raw_config).unwrap();
 
-    println!("Token: {}", parsed_config.discord.token);
-    println!(
-        "Postgres DB: postgres://{}:{}@{}/{}",
-        parsed_config.database.name,
-        parsed_config.database.password,
-        parsed_config.database.location,
-        parsed_config.database.name
-    );
+    let mut client = Client::new(&config.discord.token, Handler);
+
+    println!("invite! https://discordapp.com/api/oauth2/authorize?client_id=366186820347625472&scope=bot&permissions=0");
+
+    if let Err(why) = client.start() {
+        println!("Client error: {:?}", why);
+    }
 }
