@@ -73,6 +73,7 @@ pub mod db;
 use db::Connector;
 use config::Config;
 use interactions::handler::Handler;
+use interactions::commands::command_from;
 
 fn main() {
     let mut raw_config = String::new();
@@ -90,6 +91,18 @@ fn main() {
         let mut data = client.data.lock();
         data.insert::<Connector>(connector);
     }
+
+    client.with_framework(StandardFramework::new()
+        .configure(|c| {
+            c.on_mention(true)
+             .prefix("!quote ")
+             .allow_dm(false)
+             .case_insensitivity(true)
+        })
+        .command("from", |c| {
+            c.exec(command_from)
+        })
+    );
 
     println!("invite! https://discordapp.com/api/oauth2/authorize?client_id=366186820347625472&scope=bot&permissions=0");
 
