@@ -128,8 +128,6 @@ fn list_quotes(ctx: &mut Context, message: &Message, author: &User, mut args: Ar
 
     let set = get_values(&rest)?;
 
-    println!("{:?}", set);
-
     let amount = match set.get(&"amount".to_string()) {
         Some(v) => Some(v.as_str().parse::<i64>().map_err(|_| "Could not parse the amount into a number!")?),
         None => None,

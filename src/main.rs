@@ -60,6 +60,7 @@ extern crate typemap;
 extern crate chrono;
 
 use serenity::client::Client;
+use serenity::framework::standard::help_commands;
 use serenity::framework::standard::StandardFramework;
 
 use diesel::prelude::{PgConnection};
@@ -100,8 +101,12 @@ fn main() {
              .allow_dm(false)
              .case_insensitivity(true)
         })
+        .command("help", |c| c.exec_help(help_commands::with_embeds))
         .command("from", |c| {
-            c.exec(command_from)
+            c.desc("Gets a command from the user, can be either `list`, `rand` or `contains`")
+             .example("\n!quote from @user list amount = 10 \n!quote from @user rand \n!quote from @user contains puppies")
+             .guild_only(true)
+             .exec(command_from)
         })
     );
 

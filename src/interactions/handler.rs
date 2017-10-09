@@ -82,6 +82,11 @@ impl EventHandler for Handler {
                             .join(" ")
                     };
 
+                    if quote.len() <= 0 {
+                        let _ = message.reply("This message is empty (maybe just an embed?)");
+                        return;
+                    }
+
                     let save_result = create_quote(&conn, &NewQuote {
                         message_id: &message.id.0.to_string(),
                         quote: &quote,
