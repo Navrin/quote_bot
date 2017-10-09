@@ -61,7 +61,7 @@ pub fn find_contains_quotes(
 ) -> Result<Vec<Quote>, DieselError> {
     let author = find_author(conn, author_id)?;
     Quote::belonging_to(&author)
-        .filter(quotes::quote.eq(format!("%{}%", query)))
+        .filter(quotes::quote.ilike(format!("%{}%", query)))
         .filter(quotes::guild_id.eq(guild_id))
         .limit(5)
         .get_results::<Quote>(conn)

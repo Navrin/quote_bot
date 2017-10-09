@@ -1,10 +1,11 @@
 use db::Connector;
 use db::actions::*;
 use db::models::*;
+use interactions::parsing::get_values;
 
 use serenity::builder::CreateEmbedField;
 use serenity::prelude::*;
-use serenity::model::{Message, User, Embed};
+use serenity::model::{Message, User, GuildId, MessageId};
 use serenity::framework::standard::Args;
 use serenity::framework::standard::CommandError;
 
@@ -50,7 +51,7 @@ pub fn command_from(
     }
 }
 
-fn rand_quote(ctx: &mut Context, message: &Message, author: &User, mut args: Args) -> Result<(), String> {
+fn rand_quote(ctx: &mut Context, message: &Message, author: &User, _: Args) -> Result<(), String> {
     let data = ctx.data.lock();
     let connector = data.get::<Connector>().unwrap();
     let conn = connector
@@ -71,7 +72,7 @@ fn rand_quote(ctx: &mut Context, message: &Message, author: &User, mut args: Arg
         .send_message(|reply| reply.embed(|f| 
             f.thumbnail(&author.avatar_url().unwrap_or(DEFAULT_DISCORD_AVATAR.to_string()))
              .title(format!("A random quote from the lovely {}.", author.name))
-             .fields(create_quote_embed_section(vec![quotes]))
+             .fields(create_quote_embed_section(vec![quotes], &guild_id))
         ))
         .map_err(|e| format!("Could not send message! Error: {:?}", e))?;
     
@@ -79,19 +80,111 @@ fn rand_quote(ctx: &mut Context, message: &Message, author: &User, mut args: Arg
 }
 
 fn contains_quotes(ctx: &mut Context, message: &Message, author: &User, mut args: Args) -> Result<(), String> {
+    let data = ctx.data.lock();
+    let connector = data.get::<Connector>().unwrap();
+    let conn = connector
+        .get_conn()
+        .map_err(|_| "Could not get a connection to the db!")?;
+
+    let guild_id = message
+        .guild_id()
+        .ok_or("This isn't a real channel. You're not real.")?;
+
+    let query = args.single_quoted::<String>()
+        .map_err(|_| "No query was given!")?;
+
+    let quotes = find_contains_quotes(&conn, &author.id.to_string(), &guild_id.to_string(), &query)
+        .map_err(|_| "Could not read the quote database.")?;
+
+    if quotes.len() <= 0 {
+        return Err(format!("No quotes that match {} found :(", query));
+    }
+
+    message
+        .channel()
+        .ok_or("This channel is fake!")?
+        .send_message(|reply| reply.embed(|f| 
+            f.thumbnail(&author.avatar_url().unwrap_or(DEFAULT_DISCORD_AVATAR.to_string()))
+             .title(format!("A collection of quotes that contain {} from {}.", query, author.name))
+             .fields(create_quote_embed_section(quotes, &guild_id))
+        ))
+        .map_err(|e| format!("Could not send message! Error: {:?}", e))?;
+    
     Ok(())
 }
 
 fn list_quotes(ctx: &mut Context, message: &Message, author: &User, mut args: Args) -> Result<(), String> {
+    let data = ctx.data.lock();
+    let connector = data.get::<Connector>().unwrap();
+    let conn = connector
+        .get_conn()
+        .map_err(|_| "Could not get a connection to the db!")?;
+
+    let guild_id = message
+        .guild_id()
+        .ok_or("This isn't a real channel. You're not real.")?;
+
+    let rest = args.full();
+
+    let set = get_values(&rest)?;
+
+    println!("{:?}", set);
+
+    let amount = match set.get(&"amount".to_string()) {
+        Some(v) => Some(v.as_str().parse::<i64>().map_err(|_| "Could not parse the amount into a number!")?),
+        None => None,
+    };
+
+    let page = match set.get(&"page".to_string()) {
+        Some(v) => Some(v.as_str().parse::<i64>().map_err(|_| "Could not parse the page into a number!")?),
+        None => None,
+    };
+
+    let quotes = find_listed_quotes(&conn, &author.id.to_string(), &guild_id.to_string(), ListParams {
+        amount,
+        page,
+    })
+        .map_err(|_| "Could not read the quote database.")?;
+
+    if quotes.len() <= 0 {
+        return Err("No quotes found :(".to_string());
+    }
+
+    message
+        .channel()
+        .ok_or("This channel is fake!")?
+        .send_message(|reply| reply.embed(|f| 
+            f.thumbnail(&author.avatar_url().unwrap_or(DEFAULT_DISCORD_AVATAR.to_string()))
+             .title(format!("A collection of quotes from {} page {} amount {}.", author.name, page.unwrap_or(1), amount.unwrap_or(5)))
+             .fields(create_quote_embed_section(quotes, &guild_id))
+        ))
+        .map_err(|e| format!("Could not send message! Error: {:?}", e))?;
+    
     Ok(())
 }
 
 
-fn create_quote_embed_section(quotes: Vec<Quote>) -> Vec<CreateEmbedField> {
+fn create_quote_embed_section(quotes: Vec<Quote>, guild: &GuildId) -> Vec<CreateEmbedField> {
     quotes
         .iter()
         .map(|quote| {
-            CreateEmbedField::default().value(quote.quote.to_string()).inline(false).name("A quote.")
+            CreateEmbedField::default()
+                .value(quote.quote.to_string())
+                .inline(false)
+                .name(
+                    format!(
+                        "{}, quoted by {}", 
+                        MessageId(quote.message_id
+                            .parse::<u64>()
+                            .unwrap())
+                            .created_at()
+                            .format("%m-%d @ %H:%S"), 
+                        guild
+                            .member(quote.quoted_by_id.parse::<u64>().unwrap())
+                            .map(|m| m.display_name().to_string())
+                            .unwrap_or("<user left>".to_string())
+                    )
+                )
         })
         .collect()
 }

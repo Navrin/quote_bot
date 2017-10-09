@@ -16,15 +16,15 @@ pub struct Handler;
 
 impl EventHandler for Handler {
     fn on_reaction_add(&self, ctx: Context, react: Reaction) {
-        match react.user_id.get() {
+        let user = match react.user_id.get() {
             Ok(user) => {
                 if user.bot {
                     return; 
                 }
+                user
             }
             Err(_) => return,
-        }
-
+        };
 
         let emoji: &str = &react.emoji.as_data();
 
@@ -34,6 +34,11 @@ impl EventHandler for Handler {
                     Ok(v) => v,
                     Err(_) => return, // message was deleted before we could even log it! someone must really dislike that quote.
                 };
+
+                if message.author.id == user.id {
+                    let _ = react.channel_id.say("You can't quote yourself >:(");
+                    return;
+                }
 
                 let guild = match message.channel() {
                     Some(Channel::Guild(_)) => message.channel().unwrap(),
@@ -67,9 +72,19 @@ impl EventHandler for Handler {
                         }   
                     }; 
 
+                    let quote = if message.content.len() > 0 {
+                        message.content.to_string()
+                    } else {
+                        message.attachments
+                            .iter()
+                            .map(|att| att.url.to_string())
+                            .collect::<Vec<String>>()
+                            .join(" ")
+                    };
+
                     let save_result = create_quote(&conn, &NewQuote {
                         message_id: &message.id.0.to_string(),
-                        quote: &message.content,
+                        quote: &quote,
                         created_by_id: &message.author.id.0.to_string(),
                         quoted_by_id: &react.user_id.0.to_string(),
                         guild_id: &guild.id().0.to_string(),

@@ -57,6 +57,7 @@ extern crate rand;
 extern crate r2d2;
 extern crate r2d2_diesel;
 extern crate typemap;
+extern crate chrono;
 
 use serenity::client::Client;
 use serenity::framework::standard::StandardFramework;
