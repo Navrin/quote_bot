@@ -4,6 +4,8 @@ name = "quote-bot"
 version = "0.1.0"
 
 [dependencies]
+dotenv = "0.10.1"
+rand = "0.3.17"
 serde = "1.0.15"
 serde_derive = "1.0.15"
 toml = "0.4.5"
@@ -11,6 +13,14 @@ toml = "0.4.5"
 [dependencies.clippy]
 optional = true
 version = "*"
+
+[dependencies.diesel]
+features = ["postgres"]
+version = "0.16.0"
+
+[dependencies.diesel_codegen]
+features = ["postgres"]
+version = "0.16.0"
 
 [dependencies.serenity]
 branch = "v0.5.0"

@@ -5,8 +5,8 @@ extern crate toml;
 pub struct Config {
     /// Discord config object
     pub discord: Discord,
-    /// Database config object
-    pub database: Database,
+    // /// Database config object
+    // pub database: Database,
 }
 
 
@@ -17,14 +17,15 @@ pub struct Discord {
     pub token: String,
 }
 
-/// Database login config for postgresql.
-/// will be parsed into `postgres://username:password@location/name`
-#[derive(Deserialize)]
-pub struct Database {
-    pub username: String,
-    pub password: String,
-    /// The IP location for the database
-    pub location: String,
-    /// The name of the database in psql
-    pub name: String,
-}
+// # Use dotenv instead, works better for infer_schema!
+// /// Database login config for postgresql.
+// /// will be parsed into `postgres://username:password@location/name`
+// #[derive(Deserialize)]
+// pub struct Database {
+//     pub username: String,
+//     pub password: String,
+//     /// The IP location for the database
+//     pub location: String,
+//     /// The name of the database in psql
+//     pub name: String,
+// }

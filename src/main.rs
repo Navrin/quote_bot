@@ -46,7 +46,13 @@
 extern crate serde_derive;
 #[macro_use]
 extern crate serenity;
+#[macro_use]
+extern crate diesel;
+#[macro_use]
+extern crate diesel_codegen;
 extern crate toml;
+extern crate dotenv;
+extern crate rand;
 
 use serenity::client::Client;
 use serenity::framework::standard::StandardFramework;
@@ -56,6 +62,9 @@ use std::fs::File;
 
 pub mod config;
 pub mod interactions;
+pub mod db;
+
+use db::create_connection;
 use config::Config;
 use interactions::handler::Handler;
 
@@ -68,6 +77,7 @@ fn main() {
 
     let config: Config = toml::from_str(&raw_config).unwrap();
 
+    create_connection();
     let mut client = Client::new(&config.discord.token, Handler);
 
     println!("invite! https://discordapp.com/api/oauth2/authorize?client_id=366186820347625472&scope=bot&permissions=0");

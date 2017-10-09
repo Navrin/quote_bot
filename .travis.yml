@@ -1,4 +1,12 @@
 language: rust
+services: 
+  - postgresql
+before_script:
+- psql -c "CREATE DATABASE travis_ci_test;" -U postgres
+- psql -c "CREATE USER tester WITH PASSWORD 'password';" -U postgres
+- echo "DATABASE_URL=postgres://tester:password@localhost/travis_ci_test" > .env
+- cargo install diesel
+- diesel migration run
 after_success: |
   [ $TRAVIS_BRANCH = master ] &&
   [ $TRAVIS_PULL_REQUEST = false ] &&
