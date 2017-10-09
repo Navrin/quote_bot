@@ -1,6 +1,7 @@
 #![cfg_attr(feature = "clippy", feature(plugin))]
 #![cfg_attr(feature = "clippy", plugin(clippy))]
 #![doc(html_root_url = "https://navrin.github.io/quote_bot/")]
+#![recursion_limit="128"]
 
 //! # A discord quote bot!
 //!
@@ -53,9 +54,14 @@ extern crate diesel_codegen;
 extern crate toml;
 extern crate dotenv;
 extern crate rand;
+extern crate r2d2;
+extern crate r2d2_diesel;
+extern crate typemap;
 
 use serenity::client::Client;
 use serenity::framework::standard::StandardFramework;
+
+use diesel::prelude::{PgConnection};
 
 use std::io::prelude::*;
 use std::fs::File;
@@ -64,7 +70,7 @@ pub mod config;
 pub mod interactions;
 pub mod db;
 
-use db::create_connection;
+use db::Connector;
 use config::Config;
 use interactions::handler::Handler;
 
@@ -77,8 +83,13 @@ fn main() {
 
     let config: Config = toml::from_str(&raw_config).unwrap();
 
-    create_connection();
+    let connector = Connector::new();
+
     let mut client = Client::new(&config.discord.token, Handler);
+    {
+        let mut data = client.data.lock();
+        data.insert::<Connector>(connector);
+    }
 
     println!("invite! https://discordapp.com/api/oauth2/authorize?client_id=366186820347625472&scope=bot&permissions=0");
 

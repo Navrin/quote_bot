@@ -18,6 +18,8 @@ pub struct Quote {
     pub created_by_id: String,
     /// The person who starred the message, the person who *quoted*.
     pub quoted_by_id: String,
+
+    pub guild_id: String,
 }
 
 impl Clone for Quote {
@@ -28,6 +30,7 @@ impl Clone for Quote {
             quote: self.quote.to_string(),
             created_by_id: self.created_by_id.to_string(),
             quoted_by_id: self.quoted_by_id.to_string(),
+            guild_id: self.guild_id.to_string(),
         }
     }
 }
@@ -39,6 +42,7 @@ pub struct NewQuote<'a> {
     pub quote: &'a str,
     pub created_by_id: &'a str,
     pub quoted_by_id: &'a str,
+    pub guild_id: &'a str,
 }
 
 #[derive(Insertable)]

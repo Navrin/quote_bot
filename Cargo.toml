@@ -5,10 +5,13 @@ version = "0.1.0"
 
 [dependencies]
 dotenv = "0.10.1"
+r2d2 = "0.7.4"
+r2d2-diesel = "0.16.0"
 rand = "0.3.17"
 serde = "1.0.15"
 serde_derive = "1.0.15"
 toml = "0.4.5"
+typemap = "0.3.3"
 
 [dependencies.clippy]
 optional = true

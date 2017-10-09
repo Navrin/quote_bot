@@ -7,5 +7,6 @@ CREATE TABLE quotes (
     message_id VARCHAR UNIQUE NOT NULL,
     quote VARCHAR NOT NULL,
     created_by_id VARCHAR REFERENCES authors(id) NOT NULL,
-    quoted_by_id VARCHAR REFERENCES authors(id) NOT NULL
+    quoted_by_id VARCHAR REFERENCES authors(id) NOT NULL,
+    guild_id VARCHAR NOT NULL
 );

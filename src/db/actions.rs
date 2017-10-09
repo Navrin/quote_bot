@@ -29,11 +29,17 @@ pub fn find_author(conn: &PgConnection, author_id: &str) -> Result<Author, diese
 }
 
 /// Finds a random quote from the user.
-pub fn find_rand_quote(conn: &PgConnection, author_id: &str) -> Result<Option<Quote>, DieselError> {
+pub fn find_rand_quote(
+    conn: &PgConnection,
+    author_id: &str,
+    guild_id: &str,
+) -> Result<Option<Quote>, DieselError> {
     let mut rng = thread_rng();
 
     let author = find_author(conn, author_id)?;
-    let mut quotes = Quote::belonging_to(&author).load::<Quote>(conn)?;
+    let mut quotes = Quote::belonging_to(&author)
+        .filter(quotes::guild_id.eq(guild_id))
+        .load::<Quote>(conn)?;
 
     let mut quotes = quotes.as_mut_slice();
 
@@ -50,11 +56,13 @@ pub fn find_rand_quote(conn: &PgConnection, author_id: &str) -> Result<Option<Qu
 pub fn find_contains_quotes(
     conn: &PgConnection,
     author_id: &str,
+    guild_id: &str,
     query: &str,
 ) -> Result<Vec<Quote>, DieselError> {
     let author = find_author(conn, author_id)?;
     Quote::belonging_to(&author)
         .filter(quotes::quote.eq(format!("%{}%", query)))
+        .filter(quotes::guild_id.eq(guild_id))
         .limit(5)
         .get_results::<Quote>(conn)
 }
@@ -68,6 +76,7 @@ pub struct ListParams {
 pub fn find_listed_quotes(
     conn: &PgConnection,
     author_id: &str,
+    guild_id: &str,
     params: ListParams,
 ) -> Result<Vec<Quote>, DieselError> {
     let author = find_author(conn, author_id)?;
@@ -75,6 +84,7 @@ pub fn find_listed_quotes(
 
     Quote::belonging_to(&author)
         .limit(limit)
+        .filter(quotes::guild_id.eq(guild_id))
         .offset((params.page.unwrap_or(1) * limit) - limit)
         .get_results::<Quote>(conn)
 }
@@ -82,11 +92,12 @@ pub fn find_listed_quotes(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use db::*;
+    use db::Connector;
 
     #[test]
     fn it_can_make_quotes() {
-        let conn = create_connection();
+        let connector = Connector::new();
+        let conn = connector.get_conn().unwrap();
 
         conn.begin_test_transaction().unwrap();
 
@@ -100,17 +111,19 @@ mod tests {
                 quoted_by_id: user_2,
                 quote: "Hello world!",
                 message_id: "12345",
+                guild_id: "1",
             },
         ).unwrap();
 
-        let quote = find_rand_quote(&conn, user_1).unwrap();
+        let quote = find_rand_quote(&conn, user_1, "1").unwrap();
 
         assert_eq!(quote.unwrap().quote, "Hello world!");
     }
 
     #[test]
     fn it_can_list_quotes() {
-        let conn = create_connection();
+        let connector = Connector::new();
+        let conn = connector.get_conn().unwrap();
         conn.begin_test_transaction().unwrap();
 
         let user_1 = "1";
@@ -125,6 +138,7 @@ mod tests {
                 quoted_by_id: user_2,
                 quote: quote_1,
                 message_id: "12345",
+                guild_id: "1",
             },
         ).unwrap();
 
@@ -135,12 +149,14 @@ mod tests {
                 quoted_by_id: user_2,
                 quote: quote_2,
                 message_id: "56789",
+                guild_id: "1",
             },
         ).unwrap();
 
         let quotes = find_listed_quotes(
             &conn,
             user_1,
+            "1",
             ListParams {
                 amount: Some(2),
                 page: Some(1),
