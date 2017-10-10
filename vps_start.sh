@@ -1,0 +1,1 @@
+./target/release/quote_bot
