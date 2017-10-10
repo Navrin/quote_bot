@@ -64,7 +64,6 @@ use serenity::framework::standard::StandardFramework;
 
 use std::io::prelude::*;
 use std::fs::File;
-use std::env;
 
 pub mod config;
 pub mod interactions;
@@ -76,11 +75,9 @@ use interactions::handler::Handler;
 use interactions::commands::{command_from, invite_link};
 
 fn main() {
-    let root = env::args().skip(1).next().unwrap_or("".to_string());
-
     let mut raw_config = String::new();
 
-    let mut file = File::open(format!("{}{}", root, "config.toml")).unwrap();
+    let mut file = File::open("config.toml").unwrap();
     file.read_to_string(&mut raw_config).unwrap();
 
 
