@@ -1,2 +1,3 @@
 #!/bin/bash -
+cd $QUOTE_BOT_ROOT
 ./target/release/quote-bot
