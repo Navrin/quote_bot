@@ -1,9 +1,6 @@
 use std::fmt;
-use std::collections::{HashMap, VecDeque};
+use std::collections::HashMap;
 
-const EQ_SIGN: &str = "=";
-
-#[derive(Debug)]
 enum Token {
     Name(String),
     // Assignment,

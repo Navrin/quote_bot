@@ -3,6 +3,13 @@ use serenity::model::*;
 use db::actions::create_quote;
 use db::models::NewQuote;
 use db::Connector;
+use typemap::Key;
+
+pub struct InviteUrl(pub String);
+
+impl Key for InviteUrl {
+    type Value = InviteUrl;
+}
 
 const SHOOTING_STAR_EMOJI: &str = "🌠";
 const SMALL_STAR_EMOJI: &str = "⭐";
@@ -109,6 +116,17 @@ impl EventHandler for Handler {
                 };
             }
             _ => return (),
+        }
+    }
+
+    fn on_ready(&self, ctx: Context, ready: Ready) {
+        let url = format!("https://discordapp.com/api/oauth2/authorize?client_id={}&scope=bot&permissions=0", ready.user.id);
+        println!("{}", url);
+
+        let url_holder = InviteUrl(url);
+        {
+            let mut data = ctx.data.lock();
+            data.insert::<InviteUrl>(url_holder);
         }
     }
 }

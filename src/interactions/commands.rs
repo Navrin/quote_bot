@@ -1,6 +1,8 @@
 use db::Connector;
 use db::actions::*;
 use db::models::*;
+
+use interactions::handler::InviteUrl;
 use interactions::parsing::get_values;
 
 use serenity::builder::CreateEmbedField;
@@ -10,6 +12,22 @@ use serenity::framework::standard::Args;
 use serenity::framework::standard::CommandError;
 
 const DEFAULT_DISCORD_AVATAR: &str = "http://is1.mzstatic.com/image/thumb/Purple118/v4/98/0d/81/980d8181-c84b-4c21-cef8-126464197968/source/300x300bb.jpg";
+
+pub fn invite_link(ctx: &mut Context, message: &Message, _: Args) -> Result<(), CommandError> {
+    let data = ctx.data.lock();
+    let inv_container = data.get::<InviteUrl>();
+
+    match inv_container {
+        Some(c) => {
+            message.reply(&c.0)?;
+        },
+        None => {
+            message.reply("The invite link could not be obtained at this time :(")?;
+        }
+    }
+
+    Ok(())
+}
 
 pub fn command_from(
     ctx: &mut Context,
@@ -113,7 +131,7 @@ fn contains_quotes(ctx: &mut Context, message: &Message, author: &User, mut args
     Ok(())
 }
 
-fn list_quotes(ctx: &mut Context, message: &Message, author: &User, mut args: Args) -> Result<(), String> {
+fn list_quotes(ctx: &mut Context, message: &Message, author: &User, args: Args) -> Result<(), String> {
     let data = ctx.data.lock();
     let connector = data.get::<Connector>().unwrap();
     let conn = connector
