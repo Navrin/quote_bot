@@ -80,7 +80,7 @@ fn main() {
 
     let mut raw_config = String::new();
 
-    let mut file = File::open(format!("{}/{}", root, "config.toml")).unwrap();
+    let mut file = File::open(format!("{}{}", root, "config.toml")).unwrap();
     file.read_to_string(&mut raw_config).unwrap();
 
 
