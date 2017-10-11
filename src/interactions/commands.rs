@@ -97,7 +97,7 @@ fn rand_quote(ctx: &mut Context, message: &Message, author: &User, _: Args) -> R
     Ok(())
 }
 
-fn contains_quotes(ctx: &mut Context, message: &Message, author: &User, mut args: Args) -> Result<(), String> {
+fn contains_quotes(ctx: &mut Context, message: &Message, author: &User, args: Args) -> Result<(), String> {
     let data = ctx.data.lock();
     let connector = data.get::<Connector>().unwrap();
     let conn = connector
@@ -108,8 +108,8 @@ fn contains_quotes(ctx: &mut Context, message: &Message, author: &User, mut args
         .guild_id()
         .ok_or("This isn't a real channel. You're not real.")?;
 
-    let query = args.single_quoted::<String>()
-        .map_err(|_| "No query was given!")?;
+    let query = args.full();
+    let query = query.trim_matches(|c| c == '\"' || c == '"' || c == ' ');
 
     let quotes = find_contains_quotes(&conn, &author.id.to_string(), &guild_id.to_string(), &query)
         .map_err(|_| "Could not read the quote database.")?;
