@@ -48,7 +48,14 @@ impl EventHandler for Handler {
                 }
 
                 let guild = match message.channel() {
-                    Some(Channel::Guild(_)) => message.channel().unwrap(),
+                    Some(Channel::Guild(g)) => {
+                        let guild = g.clone();
+                        let guild = match guild.read() {
+                            Ok(v) => v,
+                            Err(_) => return (),   
+                        };   
+                        guild.guild_id.clone()
+                    },
                     _ => {
                         let _ = react.channel_id.say("I have no idea how I got here, please stop messaging me");
                         return;
@@ -99,7 +106,7 @@ impl EventHandler for Handler {
                         quote: &quote,
                         created_by_id: &message.author.id.0.to_string(),
                         quoted_by_id: &react.user_id.0.to_string(),
-                        guild_id: &guild.id().0.to_string(),
+                        guild_id: &guild.0.to_string(),
                     });
 
                     if let Err(_) = save_result {
