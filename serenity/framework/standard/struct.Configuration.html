@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Configuration` struct in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Configuration">
+
+    <title>serenity::framework::standard::Configuration - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct Configuration</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../../index.html'>serenity</a>::<wbr><a href='../index.html'>framework</a>::<wbr><a href='index.html'>standard</a></p><script>window.sidebarCurrent = {name: 'Configuration', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>serenity</a>::<wbr><a href='../index.html'>framework</a>::<wbr><a href='index.html'>standard</a>::<wbr><a class="struct" href=''>Configuration</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#35-50' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Configuration { /* fields omitted */ }</pre><div class='docblock'><p>The configuration to use for a <a href="struct.Framework.html"><code>Framework</code></a> associated with a <a href="../../client/struct.Client.html"><code>Client</code></a>
+instance.</p>
+
+<p>This allows setting configurations like the depth to search for commands,
+whether to treat mentions like a command prefix, etc.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>Responding to mentions and setting a command prefix of <code>&quot;~&quot;</code>:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">struct</span> <span class="ident">Handler</span>;
+
+<span class="kw">impl</span> <span class="ident">EventHandler</span> <span class="kw">for</span> <span class="ident">Handler</span> {}
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">Client</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>;
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">Client</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">env</span>::<span class="ident">var</span>(<span class="string">&quot;DISCORD_BOT_TOKEN&quot;</span>).<span class="ident">unwrap</span>(), <span class="ident">Handler</span>);
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>()
+    .<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>.<span class="ident">on_mention</span>(<span class="bool-val">true</span>).<span class="ident">prefix</span>(<span class="string">&quot;~&quot;</span>)));</pre>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../serenity/framework/standard/struct.Configuration.html" title="struct serenity::framework::standard::Configuration">Configuration</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#52-420' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.allow_dm' class="method"><span id='allow_dm.v' class='invisible'><code>fn <a href='#method.allow_dm' class='fnname'>allow_dm</a>(self, allow_dm: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#54-58' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>If set to false, bot will ignore any private messages.</p>
+</div><h4 id='method.allow_whitespace' class="method"><span id='allow_whitespace.v' class='invisible'><code>fn <a href='#method.allow_whitespace' class='fnname'>allow_whitespace</a>(self, allow_whitespace: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#84-88' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Whether to allow whitespace being optional between a mention/prefix and
+a command.</p>
+
+<p><strong>Note</strong>: Defaults to <code>false</code>.</p>
+
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<p>Setting this to <code>false</code> will <em>only</em> allow this scenario to occur:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="op">&lt;</span>@<span class="number">245571012924538880</span><span class="op">&gt;</span> <span class="ident">about</span>
+<span class="op">!</span><span class="ident">about</span>
+
+<span class="comment">// bot processes and executes the &quot;about&quot; command if it exists</span></pre>
+
+<p>while setting this to <code>true</code> will <em>also</em> allow this scenario to occur:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="op">&lt;</span>@<span class="number">245571012924538880</span><span class="op">&gt;</span><span class="ident">about</span>
+<span class="op">!</span> <span class="ident">about</span>
+
+<span class="comment">// bot processes and executes the &quot;about&quot; command if it exists</span></pre>
+</div><h4 id='method.blocked_guilds' class="method"><span id='blocked_guilds.v' class='invisible'><code>fn <a href='#method.blocked_guilds' class='fnname'>blocked_guilds</a>(self, guilds: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="struct" href="../../../serenity/model/struct.GuildId.html" title="struct serenity::model::GuildId">GuildId</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#108-112' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>HashSet of guild Ids where commands will be ignored.</p>
+
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
+<p>Create a HashSet in-place:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::<span class="ident">GuildId</span>;
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>().<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>
+    .<span class="ident">blocked_guilds</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="ident">GuildId</span>(<span class="number">7</span>), <span class="ident">GuildId</span>(<span class="number">77</span>)].<span class="ident">into_iter</span>().<span class="ident">collect</span>())));</pre>
+</div><h4 id='method.blocked_users' class="method"><span id='blocked_users.v' class='invisible'><code>fn <a href='#method.blocked_users' class='fnname'>blocked_users</a>(self, users: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="struct" href="../../../serenity/model/struct.UserId.html" title="struct serenity::model::UserId">UserId</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#133-137' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>HashSet of user Ids whose commands will be ignored.
+Guilds owned by user Ids will also be ignored.</p>
+
+<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
+<p>Create a HashSet in-place:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::<span class="ident">UserId</span>;
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>().<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>
+    .<span class="ident">blocked_users</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="ident">UserId</span>(<span class="number">7</span>), <span class="ident">UserId</span>(<span class="number">77</span>)].<span class="ident">into_iter</span>().<span class="ident">collect</span>())));</pre>
+</div><h4 id='method.depth' class="method"><span id='depth.v' class='invisible'><code>fn <a href='#method.depth' class='fnname'>depth</a>(self, depth: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#147-151' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>The default depth of the message to check for commands. Defaults to 5.
+This determines how &quot;far&quot; into a message to check for a valid command.</p>
+
+<h1 id='examples-4' class='section-header'><a href='#examples-4'>Examples</a></h1>
+<p>If you set a depth of <code>1</code>, and make a command of <code>&quot;music play&quot;</code>, but
+not a <code>&quot;music&quot;</code> command, then the former command will never be
+triggered, as its &quot;depth&quot; is <code>2</code>.</p>
+</div><h4 id='method.disabled_commands' class="method"><span id='disabled_commands.v' class='invisible'><code>fn <a href='#method.disabled_commands' class='fnname'>disabled_commands</a>(self, commands: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#173-177' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>HashSet of command names that won&#39;t be run.</p>
+
+<h1 id='examples-5' class='section-header'><a href='#examples-5'>Examples</a></h1>
+<p>Ignore a set of commands, assuming they exist:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="kw">let</span> <span class="ident">disabled</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="string">&quot;ping&quot;</span>].<span class="ident">into_iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>.<span class="ident">to_owned</span>()).<span class="ident">collect</span>();
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>()
+    .<span class="ident">command</span>(<span class="string">&quot;ping&quot;</span>, <span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>.<span class="ident">exec_str</span>(<span class="string">&quot;pong!&quot;</span>))
+    .<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>.<span class="ident">disabled_commands</span>(<span class="ident">disabled</span>)));</pre>
+</div><h4 id='method.dynamic_prefix' class="method"><span id='dynamic_prefix.v' class='invisible'><code>fn <a href='#method.dynamic_prefix' class='fnname'>dynamic_prefix</a>&lt;F&gt;(self, dynamic_prefix: F) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(&amp;mut <a class="struct" href="../../../serenity/prelude/struct.Context.html" title="struct serenity::prelude::Context">Context</a>, &amp;<a class="struct" href="../../../serenity/model/struct.Message.html" title="struct serenity::model::Message">Message</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt; + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> + 'static,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#207-212' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sets the prefix to respond to dynamically based on conditions.</p>
+
+<p>Return <code>None</code> to not have a special prefix for the dispatch, and to
+instead use the inherited prefix.</p>
+
+<h1 id='examples-6' class='section-header'><a href='#examples-6'>Examples</a></h1>
+<p>If the Id of the channel is divisible by 5, return a prefix of <code>&quot;!&quot;</code>,
+otherwise return a prefix of <code>&quot;~&quot;</code>.</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>()
+    .<span class="ident">command</span>(<span class="string">&quot;ping&quot;</span>, <span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>.<span class="ident">exec_str</span>(<span class="string">&quot;Pong!&quot;</span>))
+    .<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>.<span class="ident">dynamic_prefix</span>(<span class="op">|</span>_, <span class="ident">msg</span><span class="op">|</span> {
+        <span class="prelude-val">Some</span>(<span class="kw">if</span> <span class="ident">msg</span>.<span class="ident">channel_id</span>.<span class="number">0</span> <span class="op">%</span> <span class="number">5</span> <span class="op">==</span> <span class="number">0</span> {
+            <span class="string">&quot;!&quot;</span>
+        } <span class="kw">else</span> {
+            <span class="string">&quot;~&quot;</span>
+        }.<span class="ident">to_owned</span>())
+    })));</pre>
+</div><h4 id='method.ignore_bots' class="method"><span id='ignore_bots.v' class='invisible'><code>fn <a href='#method.ignore_bots' class='fnname'>ignore_bots</a>(self, ignore_bots: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#218-222' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Whether the bot should respond to other bots.</p>
+
+<p>For example, if this is set to false, then the bot will respond to any
+other bots including itself.</p>
+</div><h4 id='method.ignore_webhooks' class="method"><span id='ignore_webhooks.v' class='invisible'><code>fn <a href='#method.ignore_webhooks' class='fnname'>ignore_webhooks</a>(self, ignore_webhooks: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#226-230' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>If set to true, bot will ignore all commands called by webhooks.
+True by default.</p>
+</div><h4 id='method.on_mention' class="method"><span id='on_mention.v' class='invisible'><code>fn <a href='#method.on_mention' class='fnname'>on_mention</a>(self, on_mention: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#253-266' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Whether or not to respond to commands initiated with a mention. Note
+that this can be used in conjunction with <a href="#method.prefix"><code>prefix</code></a>.</p>
+
+<p>By default this is set to <code>false</code>.</p>
+
+<h1 id='examples-7' class='section-header'><a href='#examples-7'>Examples</a></h1>
+<p>Setting this to <code>true</code> will allow the following types of mentions to be
+responded to:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="op">&lt;</span>@<span class="number">245571012924538880</span><span class="op">&gt;</span> <span class="ident">about</span>
+<span class="op">&lt;</span>@<span class="op">!</span><span class="number">245571012924538880</span><span class="op">&gt;</span> <span class="ident">about</span></pre>
+
+<p>The former is a direct mention, while the latter is a nickname mention,
+which aids mobile devices in determining whether to display a user&#39;s
+nickname. It has no real meaning for your bot, and the library
+encourages you to ignore differentiating between the two.</p>
+</div><h4 id='method.owners' class="method"><span id='owners.v' class='invisible'><code>fn <a href='#method.owners' class='fnname'>owners</a>(self, user_ids: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="struct" href="../../../serenity/model/struct.UserId.html" title="struct serenity::model::UserId">UserId</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#305-309' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>A <code>HashSet</code> of user Ids checks won&#39;t apply to.</p>
+
+<h1 id='examples-8' class='section-header'><a href='#examples-8'>Examples</a></h1>
+<p>Create a HashSet in-place:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::<span class="ident">UserId</span>;
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>().<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>
+    .<span class="ident">owners</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="ident">UserId</span>(<span class="number">7</span>), <span class="ident">UserId</span>(<span class="number">77</span>)].<span class="ident">into_iter</span>().<span class="ident">collect</span>())));</pre>
+
+<p>Create a HashSet beforehand:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::<span class="ident">UserId</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">HashSet</span>;
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">set</span> <span class="op">=</span> <span class="ident">HashSet</span>::<span class="ident">new</span>();
+<span class="ident">set</span>.<span class="ident">insert</span>(<span class="ident">UserId</span>(<span class="number">7</span>));
+<span class="ident">set</span>.<span class="ident">insert</span>(<span class="ident">UserId</span>(<span class="number">77</span>));
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>().<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>.<span class="ident">owners</span>(<span class="ident">set</span>)));</pre>
+</div><h4 id='method.prefix' class="method"><span id='prefix.v' class='invisible'><code>fn <a href='#method.prefix' class='fnname'>prefix</a>(self, prefix: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#330-334' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sets the prefix to respond to. A prefix can be a string slice of any
+non-zero length.</p>
+
+<h1 id='examples-9' class='section-header'><a href='#examples-9'>Examples</a></h1>
+<p>Assign a basic prefix:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>().<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>
+    .<span class="ident">prefix</span>(<span class="string">&quot;!&quot;</span>)));</pre>
+</div><h4 id='method.prefixes' class="method"><span id='prefixes.v' class='invisible'><code>fn <a href='#method.prefixes' class='fnname'>prefixes</a>(self, prefixes: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#355-359' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sets the prefixes to respond to. Each can be a string slice of any
+non-zero length.</p>
+
+<h1 id='examples-10' class='section-header'><a href='#examples-10'>Examples</a></h1>
+<p>Assign a set of prefixes the bot can respond to:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>().<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>
+    .<span class="ident">prefixes</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="string">&quot;!&quot;</span>, <span class="string">&quot;&gt;&quot;</span>, <span class="string">&quot;+&quot;</span>])));</pre>
+</div><h4 id='method.delimiter' class="method"><span id='delimiter.v' class='invisible'><code>fn <a href='#method.delimiter' class='fnname'>delimiter</a>(self, delimiter: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#379-383' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sets a delimiter to be used when splitting the content after a command.</p>
+
+<h1 id='examples-11' class='section-header'><a href='#examples-11'>Examples</a></h1>
+<p>Have the args be seperated by a comma and a space:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>().<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>
+    .<span class="ident">delimiter</span>(<span class="string">&quot;, &quot;</span>)));</pre>
+</div><h4 id='method.delimiters' class="method"><span id='delimiters.v' class='invisible'><code>fn <a href='#method.delimiters' class='fnname'>delimiters</a>(self, delimiters: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#404-410' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sets multiple delimiters to be used when splitting the content after a command.
+Additionally cleans the default delimiter from the vector.</p>
+
+<h1 id='examples-12' class='section-header'><a href='#examples-12'>Examples</a></h1>
+<p>Have the args be seperated by a comma and a space; and a regular space:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">framework</span>::<span class="ident">StandardFramework</span>;
+
+<span class="ident">client</span>.<span class="ident">with_framework</span>(<span class="ident">StandardFramework</span>::<span class="ident">new</span>().<span class="ident">configure</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>
+    .<span class="ident">delimiters</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="string">&quot;, &quot;</span>, <span class="string">&quot; &quot;</span>])));</pre>
+</div><h4 id='method.case_insensitivity' class="method"><span id='case_insensitivity.v' class='invisible'><code>fn <a href='#method.case_insensitivity' class='fnname'>case_insensitivity</a>(self, cs: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#415-419' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Whether the framework shouldn&#39;t care about the user&#39;s input if it&#39;s: <code>~command</code>,
+<code>~Command</code>, <code>~COMMAND</code>.
+Setting this to <code>true</code> will result in <em>all</em> command names to be case insensitive.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Default' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../../../serenity/framework/standard/struct.Configuration.html" title="struct serenity::framework::standard::Configuration">Configuration</a></code><a href='#impl-Default' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#422-449' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../../../serenity/framework/standard/struct.Configuration.html" title="struct serenity::framework::standard::Configuration">Configuration</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/configuration.rs.html#431-448' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Builds a default framework configuration, setting the following:</p>
+
+<ul>
+<li><strong>allow_whitespace</strong> to <code>false</code></li>
+<li><strong>depth</strong> to <code>5</code></li>
+<li><strong>on_mention</strong> to <code>false</code> (basically)</li>
+<li><strong>prefix</strong> to <code>None</code></li>
+<li><strong>delimiters</strong> to vec![&quot; &quot;]</li>
+<li><strong>case_insensitive</strong> to <code>false</code></li>
+</ul>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Member` struct in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Member">
+
+    <title>serenity::model::Member - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct Member</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>serenity</a>::<wbr><a href='index.html'>model</a></p><script>window.sidebarCurrent = {name: 'Member', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>serenity</a>::<wbr><a href='index.html'>model</a>::<wbr><a class="struct" href=''>Member</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#50-68' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Member {
+    pub deaf: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    pub guild_id: <a class="struct" href="../../serenity/model/struct.GuildId.html" title="struct serenity::model::GuildId">GuildId</a>,
+    pub joined_at: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../chrono/datetime/struct.DateTime.html" title="struct chrono::datetime::DateTime">DateTime</a>&lt;<a class="struct" href="../../chrono/offset/fixed/struct.FixedOffset.html" title="struct chrono::offset::fixed::FixedOffset">FixedOffset</a>&gt;&gt;,
+    pub mute: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    pub nick: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;,
+    pub roles: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a>&gt;,
+    pub user: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.User.html" title="struct serenity::model::User">User</a>&gt;&gt;,
+}</pre><div class='docblock'><p>Information about a member of a guild.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id='structfield.deaf' class="structfield">
+                           <span id='deaf.v' class='invisible'>
+                           <code>deaf: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span><div class='docblock'><p>Indicator of whether the member can hear in voice channels.</p>
+</div><span id='structfield.guild_id' class="structfield">
+                           <span id='guild_id.v' class='invisible'>
+                           <code>guild_id: <a class="struct" href="../../serenity/model/struct.GuildId.html" title="struct serenity::model::GuildId">GuildId</a></code>
+                           </span></span><div class='docblock'><p>The unique Id of the guild that the member is a part of.</p>
+</div><span id='structfield.joined_at' class="structfield">
+                           <span id='joined_at.v' class='invisible'>
+                           <code>joined_at: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../chrono/datetime/struct.DateTime.html" title="struct chrono::datetime::DateTime">DateTime</a>&lt;<a class="struct" href="../../chrono/offset/fixed/struct.FixedOffset.html" title="struct chrono::offset::fixed::FixedOffset">FixedOffset</a>&gt;&gt;</code>
+                           </span></span><div class='docblock'><p>Timestamp representing the date when the member joined.</p>
+</div><span id='structfield.mute' class="structfield">
+                           <span id='mute.v' class='invisible'>
+                           <code>mute: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span><div class='docblock'><p>Indicator of whether the member can speak in voice channels.</p>
+</div><span id='structfield.nick' class="structfield">
+                           <span id='nick.v' class='invisible'>
+                           <code>nick: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The member&#39;s nickname, if present.</p>
+
+<p>Can&#39;t be longer than 32 characters.</p>
+</div><span id='structfield.roles' class="structfield">
+                           <span id='roles.v' class='invisible'>
+                           <code>roles: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Vector of Ids of [<code>Role</code>]s given to the member.</p>
+</div><span id='structfield.user' class="structfield">
+                           <span id='user.v' class='invisible'>
+                           <code>user: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.User.html" title="struct serenity::model::User">User</a>&gt;&gt;</code>
+                           </span></span><div class='docblock'><p>Attached User struct.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../serenity/model/struct.Member.html" title="struct serenity::model::Member">Member</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#71-421' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.add_role' class="method"><span id='add_role.v' class='invisible'><code>fn <a href='#method.add_role' class='fnname'>add_role</a>&lt;R:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a>&gt;&gt;(&amp;mut self, role_id: R) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#80-95' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Adds a <a href="struct.Role.html"><code>Role</code></a> to the member, editing its roles in-place if the request
+was successful.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.MANAGE_ROLES.html">Manage Roles</a> permission.</p>
+</div><h4 id='method.add_roles' class="method"><span id='add_roles.v' class='invisible'><code>fn <a href='#method.add_roles' class='fnname'>add_roles</a>(&amp;mut self, role_ids: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#105-118' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Adds one or multiple <a href="struct.Role.html"><code>Role</code></a>s to the member, editing
+its roles in-place if the request was successful.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.MANAGE_ROLES.html">Manage Roles</a> permission.</p>
+</div><h4 id='method.ban' class="method"><span id='ban.v' class='invisible'><code>fn <a href='#method.ban' class='fnname'>ban</a>&lt;BO:&nbsp;<a class="trait" href="../../serenity/model/trait.BanOptions.html" title="trait serenity::model::BanOptions">BanOptions</a>&gt;(&amp;self, ban_options: BO) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#134-152' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Ban the member from its guild, deleting the last X number of
+days&#39; worth of messages.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.BAN_MEMBERS.html">Ban Members</a> permission.</p>
+
+<h1 id='errors' class='section-header'><a href='#errors'>Errors</a></h1>
+<p>Returns a <a href="enum.ModelError.html#variant.GuildNotFound"><code>ModelError::GuildNotFound</code></a> if the guild could not be
+found.</p>
+</div><h4 id='method.colour' class="method"><span id='colour.v' class='invisible'><code>fn <a href='#method.colour' class='fnname'>colour</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../serenity/utils/struct.Colour.html" title="struct serenity::utils::Colour">Colour</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#156-175' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Determines the member&#39;s colour.</p>
+</div><h4 id='method.default_channel' class="method"><span id='default_channel.v' class='invisible'><code>fn <a href='#method.default_channel' class='fnname'>default_channel</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.GuildChannel.html" title="struct serenity::model::GuildChannel">GuildChannel</a>&gt;&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#180-195' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the &quot;default channel&quot; of the guild for the member.
+(This returns the first channel that can be read by the member, if there isn&#39;t
+one returns <code>None</code>)</p>
+</div><h4 id='method.display_name' class="method"><span id='display_name.v' class='invisible'><code>fn <a href='#method.display_name' class='fnname'>display_name</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/alloc/borrow/enum.Cow.html" title="enum alloc::borrow::Cow">Cow</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#201-206' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Calculates the member&#39;s display name.</p>
+
+<p>The nickname takes priority over the member&#39;s username if it exists.</p>
+</div><h4 id='method.distinct' class="method"><span id='distinct.v' class='invisible'><code>fn <a href='#method.distinct' class='fnname'>distinct</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#210-216' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the DiscordTag of a Member, taking possible nickname into account.</p>
+</div><h4 id='method.edit' class="method"><span id='edit.v' class='invisible'><code>fn <a href='#method.edit' class='fnname'>edit</a>&lt;F:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="struct" href="../../serenity/builder/struct.EditMember.html" title="struct serenity::builder::EditMember">EditMember</a>) -&gt; <a class="struct" href="../../serenity/builder/struct.EditMember.html" title="struct serenity::builder::EditMember">EditMember</a>&gt;(&amp;self, f: F) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#227-231' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Edits the member with the given data. See <a href="../model/struct.Guild.html#method.edit_member"><code>Guild::edit_member</code></a> for
+more information.</p>
+
+<p>See <a href="../builder/struct.EditMember.html"><code>EditMember</code></a> for the permission(s) required for separate builder
+methods, as well as usage of this.</p>
+</div><h4 id='method.kick' class="method"><span id='kick.v' class='invisible'><code>fn <a href='#method.kick' class='fnname'>kick</a>(&amp;self) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#266-284' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Kick the member from the guild.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.KICK_MEMBERS.html">Kick Members</a> permission.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>Kick a member from its guild:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="comment">// assuming a `member` has already been bound</span>
+<span class="kw">match</span> <span class="ident">member</span>.<span class="ident">kick</span>() {
+    <span class="prelude-val">Ok</span>(()) <span class="op">=&gt;</span> <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Successfully kicked member&quot;</span>),
+    <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">Model</span>(<span class="ident">ModelError</span>::<span class="ident">GuildNotFound</span>)) <span class="op">=&gt;</span> {
+        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Couldn&#39;t determine guild of member&quot;</span>);
+    },
+    <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">Model</span>(<span class="ident">ModelError</span>::<span class="ident">InvalidPermissions</span>(<span class="ident">missing_perms</span>))) <span class="op">=&gt;</span> {
+        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Didn&#39;t have permissions; missing: {:?}&quot;</span>, <span class="ident">missing_perms</span>);
+    },
+    _ <span class="op">=&gt;</span> {},
+}</pre>
+
+<h1 id='errors-1' class='section-header'><a href='#errors-1'>Errors</a></h1>
+<p>Returns a <a href="enum.ModelError.html#variant.GuildNotFound"><code>ModelError::GuildNotFound</code></a> if the Id of the member&#39;s guild
+could not be determined.</p>
+
+<p>If the <code>cache</code> is enabled, returns a <a href="enum.ModelError.html#variant.InvalidPermissions"><code>ModelError::InvalidPermissions</code></a>
+if the current user does not have permission to perform the kick.</p>
+</div><h4 id='method.permissions' class="method"><span id='permissions.v' class='invisible'><code>fn <a href='#method.permissions' class='fnname'>permissions</a>(&amp;self) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#307-326' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the permissions for the member.</p>
+
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<pre class="rust rust-example-rendered">
+<span class="comment">// assuming there&#39;s a `member` variable gotten from anything.</span>
+<span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;The permission bits for the member are: {}&quot;</span>,
+<span class="ident">member</span>.<span class="ident">permissions</span>().<span class="ident">expect</span>(<span class="string">&quot;permissions&quot;</span>).<span class="ident">bits</span>);</pre>
+
+<h1 id='errors-2' class='section-header'><a href='#errors-2'>Errors</a></h1>
+<p>Returns a <a href="enum.ModelError.html#variant.GuildNotFound"><code>ModelError::GuildNotFound</code></a> if the guild the member&#39;s in could not be
+found in the cache.</p>
+
+<p>And/or returns <a href="enum.ModelError.html#variant.ItemMissing"><code>ModelError::ItemMissing</code></a> if the &quot;default channel&quot; of the guild is not
+found.</p>
+</div><h4 id='method.remove_role' class="method"><span id='remove_role.v' class='invisible'><code>fn <a href='#method.remove_role' class='fnname'>remove_role</a>&lt;R:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a>&gt;&gt;(&amp;mut self, role_id: R) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#336-351' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Removes a <a href="struct.Role.html"><code>Role</code></a> from the member, editing its roles in-place if the
+request was successful.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.MANAGE_ROLES.html">Manage Roles</a> permission.</p>
+</div><h4 id='method.remove_roles' class="method"><span id='remove_roles.v' class='invisible'><code>fn <a href='#method.remove_roles' class='fnname'>remove_roles</a>(&amp;mut self, role_ids: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#360-373' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Removes one or multiple <a href="struct.Role.html"><code>Role</code></a>s from the member.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.MANAGE_ROLES.html">Manage Roles</a> permission.</p>
+</div><h4 id='method.roles' class="method"><span id='roles.v-1' class='invisible'><code>fn <a href='#method.roles' class='fnname'>roles</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../serenity/model/struct.Role.html" title="struct serenity::model::Role">Role</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#381-403' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Retrieves the full role data for the user&#39;s roles.</p>
+
+<p>This is shorthand for manually searching through the CACHE.</p>
+
+<p>If role data can not be found for the member, then <code>None</code> is returned.</p>
+</div><h4 id='method.unban' class="method"><span id='unban.v' class='invisible'><code>fn <a href='#method.unban' class='fnname'>unban</a>(&amp;self) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#418-420' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Unbans the <a href="struct.User.html"><code>User</code></a> from the guild.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.BAN_MEMBERS.html">Ban Members</a> permission.</p>
+
+<h1 id='errors-3' class='section-header'><a href='#errors-3'>Errors</a></h1>
+<p>If the <code>cache</code> is enabled, returns a <a href="enum.ModelError.html#variant.InvalidPermissions"><code>ModelError::InvalidPermissions</code></a>
+if the current user does not have permission to perform bans.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../serenity/model/struct.Member.html" title="struct serenity::model::Member">Member</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#49' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../serenity/model/struct.Member.html" title="struct serenity::model::Member">Member</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#49' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../serenity/model/struct.Member.html" title="struct serenity::model::Member">Member</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#49' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#49' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="../../serenity/model/struct.Member.html" title="struct serenity::model::Member">Member</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#423-437' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">FmtResult</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/member.rs.html#434-436' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Mentions the user so that they receive a notification.</p>
+
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
+<pre class="rust rust-example-rendered">
+<span class="comment">// assumes a `member` has already been bound</span>
+<span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{} is a member!&quot;</span>, <span class="ident">member</span>);</pre>
+</div></div><h3 id='impl-Mentionable' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../serenity/model/trait.Mentionable.html" title="trait serenity::model::Mentionable">Mentionable</a> for <a class="struct" href="../../serenity/model/struct.Member.html" title="struct serenity::model::Member">Member</a></code><a href='#impl-Mentionable' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/misc.rs.html#43-45' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.mention' class="method"><span id='mention.v' class='invisible'><code>fn <a href='../../serenity/model/trait.Mentionable.html#tymethod.mention' class='fnname'>mention</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/misc.rs.html#44' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Creates a mentionable string, that will be able to notify and/or create a link to the item. <a href="../../serenity/model/trait.Mentionable.html#tymethod.mention">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

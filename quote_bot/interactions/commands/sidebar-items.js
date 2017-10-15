@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["command_delete_quote",""],["command_from",""],["invite_link",""]]});

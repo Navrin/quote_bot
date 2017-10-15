@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `http` mod in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, http">
+
+    <title>serenity::http - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Module http</p><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>serenity</a></p><script>window.sidebarCurrent = {name: 'http', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>serenity</a>::<wbr><a class="mod" href=''>http</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/http/mod.rs.html#1-1871' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>The HTTP module which provides functions for performing requests to
+endpoints in Discord&#39;s API.</p>
+
+<p>An important function of the REST API is ratelimiting. Requests to endpoints
+are ratelimited to prevent spam, and once ratelimited Discord will stop
+performing requests. The library implements protection to pre-emptively
+ratelimit, to ensure that no wasted requests are made.</p>
+
+<p>The HTTP module comprises of two types of requests:</p>
+
+<ul>
+<li>REST API requests, which require an authorization token;</li>
+<li>Other requests, which do not require an authorization token.</li>
+</ul>
+
+<p>The former require a <a href="../struct.Client.html"><code>Client</code></a> to have logged in, while the latter may be
+made regardless of any other usage of the library.</p>
+
+<p>If a request spuriously fails, it will be retried once.</p>
+
+<p>Note that you may want to perform requests through a <a href="../model/index.html">model</a>s&#39;
+instance methods where possible, as they each offer different
+levels of a high-level interface to the HTTP module.</p>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="ratelimiting/index.html"
+                                  title='mod serenity::http::ratelimiting'>ratelimiting</a></td>
+                           <td class='docblock-short'>
+                                <p>Routes are used for ratelimiting. These are to differentiate between the
+different <em>types</em> of routes - such as getting the current user&#39;s channels -
+for the most part, with the exception being major parameters.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.AttachmentType.html"
+                                  title='enum serenity::http::AttachmentType'>AttachmentType</a></td>
+                           <td class='docblock-short'>
+                                <p>Enum that allows a user to pass a <code>Path</code> or a <code>File</code> type to <code>send_files</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.GuildPagination.html"
+                                  title='enum serenity::http::GuildPagination'>GuildPagination</a></td>
+                           <td class='docblock-short'>
+                                <p>Representation of the method of a query to send for the <a href="fn.get_guilds.html"><code>get_guilds</code></a>
+function.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.HttpError.html"
+                                  title='enum serenity::http::HttpError'>HttpError</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.LightMethod.html"
+                                  title='enum serenity::http::LightMethod'>LightMethod</a></td>
+                           <td class='docblock-short'>
+                                <p>An method used for ratelimiting special routes.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.StatusClass.html"
+                                  title='enum serenity::http::StatusClass'>StatusClass</a></td>
+                           <td class='docblock-short'>
+                                <p>The class of an HTTP <code>status-code</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.StatusCode.html"
+                                  title='enum serenity::http::StatusCode'>StatusCode</a></td>
+                           <td class='docblock-short'>
+                                <p>An HTTP status code (<code>status-code</code> in RFC 7230 et al.).</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.add_group_recipient.html"
+                                  title='fn serenity::http::add_group_recipient'>add_group_recipient</a></td>
+                           <td class='docblock-short'>
+                                <p>Adds a <a href="../model/struct.User.html"><code>User</code></a> as a recipient to a <a href="../model/struct.Group.html"><code>Group</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.add_member_role.html"
+                                  title='fn serenity::http::add_member_role'>add_member_role</a></td>
+                           <td class='docblock-short'>
+                                <p>Adds a single <a href="../model/struct.Role.html"><code>Role</code></a> to a <a href="../model/struct.Member.html"><code>Member</code></a> in a <a href="../model/struct.Guild.html"><code>Guild</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ban_user.html"
+                                  title='fn serenity::http::ban_user'>ban_user</a></td>
+                           <td class='docblock-short'>
+                                <p>Bans a <a href="../model/struct.User.html"><code>User</code></a> from a <a href="../model/struct.Guild.html"><code>Guild</code></a>, removing their messages sent in the last
+X number of days.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.broadcast_typing.html"
+                                  title='fn serenity::http::broadcast_typing'>broadcast_typing</a></td>
+                           <td class='docblock-short'>
+                                <p>Broadcasts that the current user is typing in the given <a href="../model/enum.Channel.html"><code>Channel</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_channel.html"
+                                  title='fn serenity::http::create_channel'>create_channel</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates a <a href="../model/struct.GuildChannel.html"><code>GuildChannel</code></a> in the <a href="../model/struct.Guild.html"><code>Guild</code></a> given its Id.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_emoji.html"
+                                  title='fn serenity::http::create_emoji'>create_emoji</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates an emoji in the given <a href="../model/struct.Guild.html"><code>Guild</code></a> with the given data.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_guild.html"
+                                  title='fn serenity::http::create_guild'>create_guild</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates a guild with the data provided.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_guild_integration.html"
+                                  title='fn serenity::http::create_guild_integration'>create_guild_integration</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates an <a href="../model/struct.Integration.html"><code>Integration</code></a> for a <a href="../model/struct.Guild.html"><code>Guild</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_invite.html"
+                                  title='fn serenity::http::create_invite'>create_invite</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates a <a href="../model/struct.RichInvite.html"><code>RichInvite</code></a> for the given <a href="../model/struct.GuildChannel.html">channel</a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_permission.html"
+                                  title='fn serenity::http::create_permission'>create_permission</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates a permission override for a member or a role in a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_private_channel.html"
+                                  title='fn serenity::http::create_private_channel'>create_private_channel</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates a private channel with a user.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_reaction.html"
+                                  title='fn serenity::http::create_reaction'>create_reaction</a></td>
+                           <td class='docblock-short'>
+                                <p>Reacts to a message.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_role.html"
+                                  title='fn serenity::http::create_role'>create_role</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates a role.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.create_webhook.html"
+                                  title='fn serenity::http::create_webhook'>create_webhook</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates a webhook for the given <a href="../model/struct.GuildChannel.html">channel</a>&#39;s Id, passing in
+the given data.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_channel.html"
+                                  title='fn serenity::http::delete_channel'>delete_channel</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a private channel or a channel in a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_emoji.html"
+                                  title='fn serenity::http::delete_emoji'>delete_emoji</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes an emoji from a server.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_guild.html"
+                                  title='fn serenity::http::delete_guild'>delete_guild</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a guild, only if connected account owns it.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_guild_integration.html"
+                                  title='fn serenity::http::delete_guild_integration'>delete_guild_integration</a></td>
+                           <td class='docblock-short'>
+                                <p>Remvoes an integration from a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_invite.html"
+                                  title='fn serenity::http::delete_invite'>delete_invite</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes an invite by code.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_message.html"
+                                  title='fn serenity::http::delete_message'>delete_message</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a message if created by us or we have
+specific permissions.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_message_reactions.html"
+                                  title='fn serenity::http::delete_message_reactions'>delete_message_reactions</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes all of the <a href="../model/struct.Reaction.html"><code>Reaction</code></a>s associated with a <a href="../model/struct.Message.html"><code>Message</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_messages.html"
+                                  title='fn serenity::http::delete_messages'>delete_messages</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a bunch of messages, only works for bots.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_permission.html"
+                                  title='fn serenity::http::delete_permission'>delete_permission</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a permission override from a role or a member in a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_reaction.html"
+                                  title='fn serenity::http::delete_reaction'>delete_reaction</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a reaction from a message if owned by us or
+we have specific permissions.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_role.html"
+                                  title='fn serenity::http::delete_role'>delete_role</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a role from a server. Can&#39;t remove the default everyone role.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_webhook.html"
+                                  title='fn serenity::http::delete_webhook'>delete_webhook</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a <a href="../model/struct.Webhook.html"><code>Webhook</code></a> given its Id.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.delete_webhook_with_token.html"
+                                  title='fn serenity::http::delete_webhook_with_token'>delete_webhook_with_token</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a <a href="../model/struct.Webhook.html"><code>Webhook</code></a> given its Id and unique token.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_channel.html"
+                                  title='fn serenity::http::edit_channel'>edit_channel</a></td>
+                           <td class='docblock-short'>
+                                <p>Changes channel information.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_emoji.html"
+                                  title='fn serenity::http::edit_emoji'>edit_emoji</a></td>
+                           <td class='docblock-short'>
+                                <p>Changes emoji information.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_guild.html"
+                                  title='fn serenity::http::edit_guild'>edit_guild</a></td>
+                           <td class='docblock-short'>
+                                <p>Changes guild information.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_guild_embed.html"
+                                  title='fn serenity::http::edit_guild_embed'>edit_guild_embed</a></td>
+                           <td class='docblock-short'>
+                                <p>Edits a <a href="../model/struct.Guild.html"><code>Guild</code></a>&#39;s embed setting.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_member.html"
+                                  title='fn serenity::http::edit_member'>edit_member</a></td>
+                           <td class='docblock-short'>
+                                <p>Does specific actions to a member.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_message.html"
+                                  title='fn serenity::http::edit_message'>edit_message</a></td>
+                           <td class='docblock-short'>
+                                <p>Edits a message by Id.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_nickname.html"
+                                  title='fn serenity::http::edit_nickname'>edit_nickname</a></td>
+                           <td class='docblock-short'>
+                                <p>Edits the current user&#39;s nickname for the provided <a href="../model/struct.Guild.html"><code>Guild</code></a> via its Id.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_profile.html"
+                                  title='fn serenity::http::edit_profile'>edit_profile</a></td>
+                           <td class='docblock-short'>
+                                <p>Edits the current user&#39;s profile settings.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_role.html"
+                                  title='fn serenity::http::edit_role'>edit_role</a></td>
+                           <td class='docblock-short'>
+                                <p>Changes a role in a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_webhook.html"
+                                  title='fn serenity::http::edit_webhook'>edit_webhook</a></td>
+                           <td class='docblock-short'>
+                                <p>Edits a the webhook with the given data.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.edit_webhook_with_token.html"
+                                  title='fn serenity::http::edit_webhook_with_token'>edit_webhook_with_token</a></td>
+                           <td class='docblock-short'>
+                                <p>Edits the webhook with the given data.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.execute_webhook.html"
+                                  title='fn serenity::http::execute_webhook'>execute_webhook</a></td>
+                           <td class='docblock-short'>
+                                <p>Executes a webhook, posting a <a href="../model/struct.Message.html"><code>Message</code></a> in the webhook&#39;s associated
+<a href="../model/enum.Channel.html"><code>Channel</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_active_maintenances.html"
+                                  title='fn serenity::http::get_active_maintenances'>get_active_maintenances</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets the active maintenances from Discord&#39;s Status API.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_audit_logs.html"
+                                  title='fn serenity::http::get_audit_logs'>get_audit_logs</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets all audit logs in a specific guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_bans.html"
+                                  title='fn serenity::http::get_bans'>get_bans</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets all the users that are banned in specific guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_bot_gateway.html"
+                                  title='fn serenity::http::get_bot_gateway'>get_bot_gateway</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets current bot gateway.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_channel.html"
+                                  title='fn serenity::http::get_channel'>get_channel</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets channel information.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_channel_invites.html"
+                                  title='fn serenity::http::get_channel_invites'>get_channel_invites</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets all invites for a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_channel_webhooks.html"
+                                  title='fn serenity::http::get_channel_webhooks'>get_channel_webhooks</a></td>
+                           <td class='docblock-short'>
+                                <p>Retrieves the webhooks for the given <a href="../model/struct.GuildChannel.html">channel</a>&#39;s Id.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_channels.html"
+                                  title='fn serenity::http::get_channels'>get_channels</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets all channels in a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_current_application_info.html"
+                                  title='fn serenity::http::get_current_application_info'>get_current_application_info</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets information about the current application.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_current_user.html"
+                                  title='fn serenity::http::get_current_user'>get_current_user</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets information about the user we&#39;re connected with.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_gateway.html"
+                                  title='fn serenity::http::get_gateway'>get_gateway</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets current gateway.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild.html"
+                                  title='fn serenity::http::get_guild'>get_guild</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets guild information.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild_embed.html"
+                                  title='fn serenity::http::get_guild_embed'>get_guild_embed</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets a guild embed information.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild_integrations.html"
+                                  title='fn serenity::http::get_guild_integrations'>get_guild_integrations</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets integrations that a guild has.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild_invites.html"
+                                  title='fn serenity::http::get_guild_invites'>get_guild_invites</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets all invites to a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild_members.html"
+                                  title='fn serenity::http::get_guild_members'>get_guild_members</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets the members of a guild. Optionally pass a <code>limit</code> and the Id of the
+user to offset the result by.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild_prune_count.html"
+                                  title='fn serenity::http::get_guild_prune_count'>get_guild_prune_count</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets the amount of users that can be pruned.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild_regions.html"
+                                  title='fn serenity::http::get_guild_regions'>get_guild_regions</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets regions that a guild can use. If a guild has <a href="../model/enum.Feature.html#variant.VipRegions"><code>Feature::VipRegions</code></a>
+enabled, then additional VIP-only regions are returned.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild_roles.html"
+                                  title='fn serenity::http::get_guild_roles'>get_guild_roles</a></td>
+                           <td class='docblock-short'>
+                                <p>Retrieves a list of roles in a <a href="../model/struct.Guild.html"><code>Guild</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guild_webhooks.html"
+                                  title='fn serenity::http::get_guild_webhooks'>get_guild_webhooks</a></td>
+                           <td class='docblock-short'>
+                                <p>Retrieves the webhooks for the given <a href="../model/struct.Guild.html">guild</a>&#39;s Id.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_guilds.html"
+                                  title='fn serenity::http::get_guilds'>get_guilds</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets a paginated list of the current user&#39;s guilds.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_invite.html"
+                                  title='fn serenity::http::get_invite'>get_invite</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets information about a specific invite.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_member.html"
+                                  title='fn serenity::http::get_member'>get_member</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets member of a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_message.html"
+                                  title='fn serenity::http::get_message'>get_message</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets a message by an Id, bots only.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_messages.html"
+                                  title='fn serenity::http::get_messages'>get_messages</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets X messages from a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_pins.html"
+                                  title='fn serenity::http::get_pins'>get_pins</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets all pins of a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_reaction_users.html"
+                                  title='fn serenity::http::get_reaction_users'>get_reaction_users</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets user Ids based on their reaction to a message. This endpoint is dumb.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_unresolved_incidents.html"
+                                  title='fn serenity::http::get_unresolved_incidents'>get_unresolved_incidents</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets the current unresolved incidents from Discord&#39;s Status API.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_upcoming_maintenances.html"
+                                  title='fn serenity::http::get_upcoming_maintenances'>get_upcoming_maintenances</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets the upcoming (planned) maintenances from Discord&#39;s Status API.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_user.html"
+                                  title='fn serenity::http::get_user'>get_user</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets a user by Id.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_user_dm_channels.html"
+                                  title='fn serenity::http::get_user_dm_channels'>get_user_dm_channels</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets our DM channels.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_voice_regions.html"
+                                  title='fn serenity::http::get_voice_regions'>get_voice_regions</a></td>
+                           <td class='docblock-short'>
+                                <p>Gets all voice regions.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_webhook.html"
+                                  title='fn serenity::http::get_webhook'>get_webhook</a></td>
+                           <td class='docblock-short'>
+                                <p>Retrieves a webhook given its Id.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_webhook_with_token.html"
+                                  title='fn serenity::http::get_webhook_with_token'>get_webhook_with_token</a></td>
+                           <td class='docblock-short'>
+                                <p>Retrieves a webhook given its Id and unique token.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.kick_member.html"
+                                  title='fn serenity::http::kick_member'>kick_member</a></td>
+                           <td class='docblock-short'>
+                                <p>Kicks a member from a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.leave_group.html"
+                                  title='fn serenity::http::leave_group'>leave_group</a></td>
+                           <td class='docblock-short'>
+                                <p>Leaves a group DM.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.leave_guild.html"
+                                  title='fn serenity::http::leave_guild'>leave_guild</a></td>
+                           <td class='docblock-short'>
+                                <p>Leaves a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.pin_message.html"
+                                  title='fn serenity::http::pin_message'>pin_message</a></td>
+                           <td class='docblock-short'>
+                                <p>Pins a message in a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.remove_ban.html"
+                                  title='fn serenity::http::remove_ban'>remove_ban</a></td>
+                           <td class='docblock-short'>
+                                <p>Unbans a user from a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.remove_group_recipient.html"
+                                  title='fn serenity::http::remove_group_recipient'>remove_group_recipient</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a user from group DM.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.remove_member_role.html"
+                                  title='fn serenity::http::remove_member_role'>remove_member_role</a></td>
+                           <td class='docblock-short'>
+                                <p>Deletes a single <a href="../model/struct.Role.html"><code>Role</code></a> from a <a href="../model/struct.Member.html"><code>Member</code></a> in a <a href="../model/struct.Guild.html"><code>Guild</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.send_files.html"
+                                  title='fn serenity::http::send_files'>send_files</a></td>
+                           <td class='docblock-short'>
+                                <p>Sends file(s) to a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.send_message.html"
+                                  title='fn serenity::http::send_message'>send_message</a></td>
+                           <td class='docblock-short'>
+                                <p>Sends a message to a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.set_token.html"
+                                  title='fn serenity::http::set_token'>set_token</a></td>
+                           <td class='docblock-short'>
+                                <p>Sets the token to be used across all requests which require authentication.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.start_guild_prune.html"
+                                  title='fn serenity::http::start_guild_prune'>start_guild_prune</a></td>
+                           <td class='docblock-short'>
+                                <p>Starts removing some members from a guild based on the last time they&#39;ve been online.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.start_integration_sync.html"
+                                  title='fn serenity::http::start_integration_sync'>start_integration_sync</a></td>
+                           <td class='docblock-short'>
+                                <p>Starts syncing an integration with a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.unpin_message.html"
+                                  title='fn serenity::http::unpin_message'>unpin_message</a></td>
+                           <td class='docblock-short'>
+                                <p>Unpins a message from a channel.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `model` mod in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, model">
+
+    <title>serenity::model - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Module model</p><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../index.html'>serenity</a></p><script>window.sidebarCurrent = {name: 'model', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>serenity</a>::<wbr><a class="mod" href=''>model</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/model/mod.rs.html#1-256' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Mappings of objects received from the API, with optional helper methods for
+ease of use.</p>
+
+<p>Models can optionally have additional helper methods compiled, by enabling
+the <code>model</code> feature.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class="mod" href="./permissions/index.html">permissions</a>::<a class="struct" href="../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="event/index.html"
+                                  title='mod serenity::model::event'>event</a></td>
+                           <td class='docblock-short'>
+                                <p>All the events this library handles.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="permissions/index.html"
+                                  title='mod serenity::model::permissions'>permissions</a></td>
+                           <td class='docblock-short'>
+                                <p>A set of permissions for a role or user. These can be assigned directly
+to a role or as a channel&#39;s permission overrides.</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.AffectedComponent.html"
+                                  title='struct serenity::model::AffectedComponent'>AffectedComponent</a></td>
+                           <td class='docblock-short'>
+                                <p>A component that was affected during a service incident.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ApplicationInfo.html"
+                                  title='struct serenity::model::ApplicationInfo'>ApplicationInfo</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about a user&#39;s application. An application does not necessarily
+have an associated bot user.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Attachment.html"
+                                  title='struct serenity::model::Attachment'>Attachment</a></td>
+                           <td class='docblock-short'>
+                                <p>A file uploaded with a message. Not to be confused with <a href="struct.Embed.html"><code>Embed</code></a>s.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.AuditLogEntry.html"
+                                  title='struct serenity::model::AuditLogEntry'>AuditLogEntry</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.AuditLogEntryId.html"
+                                  title='struct serenity::model::AuditLogEntryId'>AuditLogEntryId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for an audit log entry.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.AuditLogs.html"
+                                  title='struct serenity::model::AuditLogs'>AuditLogs</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Ban.html"
+                                  title='struct serenity::model::Ban'>Ban</a></td>
+                           <td class='docblock-short'>
+                                <p>A representation of a banning of a user.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.BotApplication.html"
+                                  title='struct serenity::model::BotApplication'>BotApplication</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about an application with an application&#39;s bot user.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.BotGateway.html"
+                                  title='struct serenity::model::BotGateway'>BotGateway</a></td>
+                           <td class='docblock-short'>
+                                <p>A representation of the data retrieved from the bot gateway endpoint.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Change.html"
+                                  title='struct serenity::model::Change'>Change</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ChannelCategory.html"
+                                  title='struct serenity::model::ChannelCategory'>ChannelCategory</a></td>
+                           <td class='docblock-short'>
+                                <p>A category of <a href="struct.GuildChannel.html"><code>GuildChannel</code></a>s.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ChannelId.html"
+                                  title='struct serenity::model::ChannelId'>ChannelId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for a Channel</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.CurrentApplicationInfo.html"
+                                  title='struct serenity::model::CurrentApplicationInfo'>CurrentApplicationInfo</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about the current application and its owner.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.CurrentUser.html"
+                                  title='struct serenity::model::CurrentUser'>CurrentUser</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about the current user.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Embed.html"
+                                  title='struct serenity::model::Embed'>Embed</a></td>
+                           <td class='docblock-short'>
+                                <p>Represents a rich embed which allows using richer markdown, multiple fields
+and more. This was heavily inspired by <a href="https://api.slack.com/docs/message-attachments">slack&#39;s attachments</a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmbedAuthor.html"
+                                  title='struct serenity::model::EmbedAuthor'>EmbedAuthor</a></td>
+                           <td class='docblock-short'>
+                                <p>An author object in an embed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmbedField.html"
+                                  title='struct serenity::model::EmbedField'>EmbedField</a></td>
+                           <td class='docblock-short'>
+                                <p>A field object in an embed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmbedFooter.html"
+                                  title='struct serenity::model::EmbedFooter'>EmbedFooter</a></td>
+                           <td class='docblock-short'>
+                                <p>Footer information for an embed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmbedImage.html"
+                                  title='struct serenity::model::EmbedImage'>EmbedImage</a></td>
+                           <td class='docblock-short'>
+                                <p>An image object in an embed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmbedProvider.html"
+                                  title='struct serenity::model::EmbedProvider'>EmbedProvider</a></td>
+                           <td class='docblock-short'>
+                                <p>The provider of an embed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmbedThumbnail.html"
+                                  title='struct serenity::model::EmbedThumbnail'>EmbedThumbnail</a></td>
+                           <td class='docblock-short'>
+                                <p>The dimensions and URL of an embed thumbnail.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmbedVideo.html"
+                                  title='struct serenity::model::EmbedVideo'>EmbedVideo</a></td>
+                           <td class='docblock-short'>
+                                <p>Video information for an embed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Emoji.html"
+                                  title='struct serenity::model::Emoji'>Emoji</a></td>
+                           <td class='docblock-short'>
+                                <p>Represents a custom guild emoji, which can either be created using the API,
+or via an integration. Emojis created using the API only work within the
+guild it was created in.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmojiId.html"
+                                  title='struct serenity::model::EmojiId'>EmojiId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for an Emoji</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.EmojiIdentifier.html"
+                                  title='struct serenity::model::EmojiIdentifier'>EmojiIdentifier</a></td>
+                           <td class='docblock-short'>
+                                <p>A version of an emoji used only when solely the Id and name are known.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Game.html"
+                                  title='struct serenity::model::Game'>Game</a></td>
+                           <td class='docblock-short'>
+                                <p>Representation of a game that a [<code>User</code>] is playing -- or streaming in the
+case that a stream URL is provided.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Gateway.html"
+                                  title='struct serenity::model::Gateway'>Gateway</a></td>
+                           <td class='docblock-short'>
+                                <p>A representation of the data retrieved from the gateway endpoint.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Group.html"
+                                  title='struct serenity::model::Group'>Group</a></td>
+                           <td class='docblock-short'>
+                                <p>A group channel - potentially including other <a href="struct.User.html"><code>User</code></a>s - separate from a
+<a href="struct.Guild.html"><code>Guild</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Guild.html"
+                                  title='struct serenity::model::Guild'>Guild</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about a Discord guild, such as channels, emojis, etc.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.GuildChannel.html"
+                                  title='struct serenity::model::GuildChannel'>GuildChannel</a></td>
+                           <td class='docblock-short'>
+                                <p>Represents a guild&#39;s text or voice channel. Some methods are available only
+for voice channels and some are only available for text channels.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.GuildEmbed.html"
+                                  title='struct serenity::model::GuildEmbed'>GuildEmbed</a></td>
+                           <td class='docblock-short'>
+                                <p>Information relating to a guild&#39;s widget embed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.GuildId.html"
+                                  title='struct serenity::model::GuildId'>GuildId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for a Guild</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.GuildInfo.html"
+                                  title='struct serenity::model::GuildInfo'>GuildInfo</a></td>
+                           <td class='docblock-short'>
+                                <p>Basic information about a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.GuildPrune.html"
+                                  title='struct serenity::model::GuildPrune'>GuildPrune</a></td>
+                           <td class='docblock-short'>
+                                <p>Representation of the number of members that would be pruned by a guild
+prune operation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.GuildUnavailable.html"
+                                  title='struct serenity::model::GuildUnavailable'>GuildUnavailable</a></td>
+                           <td class='docblock-short'>
+                                <p>Data for an unavailable guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Incident.html"
+                                  title='struct serenity::model::Incident'>Incident</a></td>
+                           <td class='docblock-short'>
+                                <p>An incident retrieved from the Discord status page.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.IncidentUpdate.html"
+                                  title='struct serenity::model::IncidentUpdate'>IncidentUpdate</a></td>
+                           <td class='docblock-short'>
+                                <p>An update to an incident from the Discord status page.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Integration.html"
+                                  title='struct serenity::model::Integration'>Integration</a></td>
+                           <td class='docblock-short'>
+                                <p>Various information about integrations.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.IntegrationAccount.html"
+                                  title='struct serenity::model::IntegrationAccount'>IntegrationAccount</a></td>
+                           <td class='docblock-short'>
+                                <p>Integration account object.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.IntegrationId.html"
+                                  title='struct serenity::model::IntegrationId'>IntegrationId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for an Integration</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Invite.html"
+                                  title='struct serenity::model::Invite'>Invite</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about an invite code.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.InviteChannel.html"
+                                  title='struct serenity::model::InviteChannel'>InviteChannel</a></td>
+                           <td class='docblock-short'>
+                                <p>A inimal information about the channel an invite points to.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.InviteGuild.html"
+                                  title='struct serenity::model::InviteGuild'>InviteGuild</a></td>
+                           <td class='docblock-short'>
+                                <p>A minimal amount of information about the guild an invite points to.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Maintenance.html"
+                                  title='struct serenity::model::Maintenance'>Maintenance</a></td>
+                           <td class='docblock-short'>
+                                <p>A Discord status maintenance message. This can be either for active
+maintenances or for scheduled maintenances.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Member.html"
+                                  title='struct serenity::model::Member'>Member</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about a member of a guild.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Message.html"
+                                  title='struct serenity::model::Message'>Message</a></td>
+                           <td class='docblock-short'>
+                                <p>A representation of a message over a guild&#39;s text channel, a group, or a
+private channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.MessageId.html"
+                                  title='struct serenity::model::MessageId'>MessageId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for a Message</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.MessageReaction.html"
+                                  title='struct serenity::model::MessageReaction'>MessageReaction</a></td>
+                           <td class='docblock-short'>
+                                <p>A representation of a reaction to a message.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.PartialGuild.html"
+                                  title='struct serenity::model::PartialGuild'>PartialGuild</a></td>
+                           <td class='docblock-short'>
+                                <p>Partial information about a <a href="struct.Guild.html"><code>Guild</code></a>. This does not include information
+like member data.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.PermissionOverwrite.html"
+                                  title='struct serenity::model::PermissionOverwrite'>PermissionOverwrite</a></td>
+                           <td class='docblock-short'>
+                                <p>A channel-specific permission overwrite for a member or role.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Presence.html"
+                                  title='struct serenity::model::Presence'>Presence</a></td>
+                           <td class='docblock-short'>
+                                <p>Information detailing the current online status of a <a href="struct.User.html"><code>User</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.PrivateChannel.html"
+                                  title='struct serenity::model::PrivateChannel'>PrivateChannel</a></td>
+                           <td class='docblock-short'>
+                                <p>A Direct Message text channel with another user.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Reaction.html"
+                                  title='struct serenity::model::Reaction'>Reaction</a></td>
+                           <td class='docblock-short'>
+                                <p>An emoji reaction to a message.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Ready.html"
+                                  title='struct serenity::model::Ready'>Ready</a></td>
+                           <td class='docblock-short'>
+                                <p>An initial set of information given after IDENTIFYing to the gateway.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.RichInvite.html"
+                                  title='struct serenity::model::RichInvite'>RichInvite</a></td>
+                           <td class='docblock-short'>
+                                <p>Detailed information about an invite.
+This information can only be retrieved by anyone with the <a href="permissions/constant.MANAGE_GUILD.html">Manage Guild</a>
+permission. Otherwise, a minimal amount of information can be retrieved via
+the <a href="struct.Invite.html"><code>Invite</code></a> struct.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Role.html"
+                                  title='struct serenity::model::Role'>Role</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about a role within a guild. A role represents a set of
+permissions, and can be attached to one or multiple users. A role has
+various miscellaneous configurations, such as being assigned a colour. Roles
+are unique per guild and do not cross over to other guilds in any way, and
+can have channel-specific permission overrides in addition to guild-level
+permissions.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.RoleId.html"
+                                  title='struct serenity::model::RoleId'>RoleId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for a Role</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.User.html"
+                                  title='struct serenity::model::User'>User</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about a user.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.UserId.html"
+                                  title='struct serenity::model::UserId'>UserId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for a User</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.VoiceRegion.html"
+                                  title='struct serenity::model::VoiceRegion'>VoiceRegion</a></td>
+                           <td class='docblock-short'>
+                                <p>Information about an available voice region.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.VoiceState.html"
+                                  title='struct serenity::model::VoiceState'>VoiceState</a></td>
+                           <td class='docblock-short'>
+                                <p>A user&#39;s state within a voice channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Webhook.html"
+                                  title='struct serenity::model::Webhook'>Webhook</a></td>
+                           <td class='docblock-short'>
+                                <p>A representation of a webhook, which is a low-effort way to post messages to
+channels. They do not necessarily require a bot user or authentication to
+use.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.WebhookId.html"
+                                  title='struct serenity::model::WebhookId'>WebhookId</a></td>
+                           <td class='docblock-short'>
+                                <p>An identifier for a <a href="struct.Webhook.html"><code>Webhook</code></a>.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Action.html"
+                                  title='enum serenity::model::Action'>Action</a></td>
+                           <td class='docblock-short'>
+                                <p>Determines the action that was done on a target.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ActionChannel.html"
+                                  title='enum serenity::model::ActionChannel'>ActionChannel</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ActionChannelOverwrite.html"
+                                  title='enum serenity::model::ActionChannelOverwrite'>ActionChannelOverwrite</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ActionEmoji.html"
+                                  title='enum serenity::model::ActionEmoji'>ActionEmoji</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ActionInvite.html"
+                                  title='enum serenity::model::ActionInvite'>ActionInvite</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ActionMember.html"
+                                  title='enum serenity::model::ActionMember'>ActionMember</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ActionRole.html"
+                                  title='enum serenity::model::ActionRole'>ActionRole</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ActionWebhook.html"
+                                  title='enum serenity::model::ActionWebhook'>ActionWebhook</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Channel.html"
+                                  title='enum serenity::model::Channel'>Channel</a></td>
+                           <td class='docblock-short'>
+                                <p>A container for any channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ChannelType.html"
+                                  title='enum serenity::model::ChannelType'>ChannelType</a></td>
+                           <td class='docblock-short'>
+                                <p>A representation of a type of channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.DefaultAvatar.html"
+                                  title='enum serenity::model::DefaultAvatar'>DefaultAvatar</a></td>
+                           <td class='docblock-short'>
+                                <p>An enum that represents a default avatar.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Feature.html"
+                                  title='enum serenity::model::Feature'>Feature</a></td>
+                           <td class='docblock-short'>
+                                <p>A special feature, such as for VIP guilds, that a <a href="struct.Guild.html"><code>Guild</code></a> has had granted
+to them.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.GameType.html"
+                                  title='enum serenity::model::GameType'>GameType</a></td>
+                           <td class='docblock-short'>
+                                <p>The type of activity that is being performed when playing a game.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.GuildContainer.html"
+                                  title='enum serenity::model::GuildContainer'>GuildContainer</a></td>
+                           <td class='docblock-short'>
+                                <p>A container for guilds.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.GuildStatus.html"
+                                  title='enum serenity::model::GuildStatus'>GuildStatus</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.IncidentStatus.html"
+                                  title='enum serenity::model::IncidentStatus'>IncidentStatus</a></td>
+                           <td class='docblock-short'>
+                                <p>The type of status update during a service incident.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.MessageType.html"
+                                  title='enum serenity::model::MessageType'>MessageType</a></td>
+                           <td class='docblock-short'>
+                                <p>Differentiates between regular and different types of system messages.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ModelError.html"
+                                  title='enum serenity::model::ModelError'>ModelError</a></td>
+                           <td class='docblock-short'>
+                                <p>An error returned from the <a href="./index.html"><code>model</code></a> module.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.NotificationLevel.html"
+                                  title='enum serenity::model::NotificationLevel'>NotificationLevel</a></td>
+                           <td class='docblock-short'>
+                                <p>Identifier for the notification level of a channel.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.OnlineStatus.html"
+                                  title='enum serenity::model::OnlineStatus'>OnlineStatus</a></td>
+                           <td class='docblock-short'>
+                                <p>The representation of a user&#39;s status.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.PermissionOverwriteType.html"
+                                  title='enum serenity::model::PermissionOverwriteType'>PermissionOverwriteType</a></td>
+                           <td class='docblock-short'>
+                                <p>The type of edit being made to a Channel&#39;s permissions.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ReactionType.html"
+                                  title='enum serenity::model::ReactionType'>ReactionType</a></td>
+                           <td class='docblock-short'>
+                                <p>The type of a <a href="struct.Reaction.html"><code>Reaction</code></a> sent.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Region.html"
+                                  title='enum serenity::model::Region'>Region</a></td>
+                           <td class='docblock-short'>
+                                <p>The name of a region that a voice server can be located in.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.RoleIdParseError.html"
+                                  title='enum serenity::model::RoleIdParseError'>RoleIdParseError</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.RoleParseError.html"
+                                  title='enum serenity::model::RoleParseError'>RoleParseError</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Target.html"
+                                  title='enum serenity::model::Target'>Target</a></td>
+                           <td class='docblock-short'>
+                                <p>Determines to what entity an action was used on.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.UserIdParseError.html"
+                                  title='enum serenity::model::UserIdParseError'>UserIdParseError</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.UserParseError.html"
+                                  title='enum serenity::model::UserParseError'>UserParseError</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.VerificationLevel.html"
+                                  title='enum serenity::model::VerificationLevel'>VerificationLevel</a></td>
+                           <td class='docblock-short'>
+                                <p>The level to set as criteria prior to a user being able to send
+messages in a <a href="struct.Guild.html"><code>Guild</code></a>.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.BanOptions.html"
+                                  title='trait serenity::model::BanOptions'>BanOptions</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Mentionable.html"
+                                  title='trait serenity::model::Mentionable'>Mentionable</a></td>
+                           <td class='docblock-short'>
+                                <p>Allows something - such as a channel or role - to be mentioned in a message.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

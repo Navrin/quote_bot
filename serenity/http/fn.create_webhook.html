@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `create_webhook` fn in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, create_webhook">
+
+    <title>serenity::http::create_webhook - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc fn">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>serenity</a>::<wbr><a href='index.html'>http</a></p><script>window.sidebarCurrent = {name: 'create_webhook', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Function <a href='../index.html'>serenity</a>::<wbr><a href='index.html'>http</a>::<wbr><a class="fn" href=''>create_webhook</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/http/mod.rs.html#420-431' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn create_webhook(channel_id: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>, map: &amp;<a class="enum" href="../../serde_json/value/enum.Value.html" title="enum serde_json::value::Value">Value</a>) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="../../serenity/model/struct.Webhook.html" title="struct serenity::model::Webhook">Webhook</a>&gt;</pre><div class='docblock'><p>Creates a webhook for the given <a href="../model/struct.GuildChannel.html">channel</a>&#39;s Id, passing in
+the given data.</p>
+
+<p>This method requires authentication.</p>
+
+<p>The Value is a map with the values of:</p>
+
+<ul>
+<li><strong>avatar</strong>: base64-encoded 128x128 image for the webhook&#39;s default avatar
+(<em>optional</em>);</li>
+<li><strong>name</strong>: the name of the webhook, limited to between 2 and 100 characters
+long.</li>
+</ul>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>Creating a webhook named <code>test</code>:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">serde_json</span>;
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">serenity</span>;
+
+<span class="kw">use</span> <span class="ident">serde_json</span>::<span class="ident">builder</span>::<span class="ident">ObjectBuilder</span>;
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">http</span>;
+
+<span class="kw">let</span> <span class="ident">channel_id</span> <span class="op">=</span> <span class="number">81384788765712384</span>;
+<span class="kw">let</span> <span class="ident">map</span> <span class="op">=</span> <span class="ident">ObjectBuilder</span>::<span class="ident">new</span>().<span class="ident">insert</span>(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;test&quot;</span>).<span class="ident">build</span>();
+
+<span class="kw">let</span> <span class="ident">webhook</span> <span class="op">=</span> <span class="ident">http</span>::<span class="ident">create_webhook</span>(<span class="ident">channel_id</span>, <span class="ident">map</span>).<span class="ident">expect</span>(<span class="string">&quot;Error creating&quot;</span>);</pre>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

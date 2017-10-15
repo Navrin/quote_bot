@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `CreateMessage` struct in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CreateMessage">
+
+    <title>serenity::builder::CreateMessage - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct CreateMessage</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>serenity</a>::<wbr><a href='index.html'>builder</a></p><script>window.sidebarCurrent = {name: 'CreateMessage', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>serenity</a>::<wbr><a href='index.html'>builder</a>::<wbr><a class="struct" href=''>CreateMessage</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#42' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct CreateMessage(pub <a class="struct" href="../../serde_json/map/struct.Map.html" title="struct serde_json::map::Map">Map</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>, <a class="enum" href="../../serde_json/value/enum.Value.html" title="enum serde_json::value::Value">Value</a>&gt;, pub <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../../serenity/model/enum.ReactionType.html" title="enum serenity::model::ReactionType">ReactionType</a>&gt;&gt;);</pre><div class='docblock'><p>A builder to specify the contents of an <a href="../http/fn.send_message.html"><code>http::send_message</code></a> request,
+primarily meant for use through <a href="../model/struct.ChannelId.html#method.send_message"><code>ChannelId::send_message</code></a>.</p>
+
+<p>There are two situations where different field requirements are present:</p>
+
+<ol>
+<li>When sending an <a href="#method.embed"><code>embed</code></a>, no other field is required;</li>
+<li>Otherwise, <a href="#method.content"><code>content</code></a> is the only required field that is required to be
+set.</li>
+</ol>
+
+<p>Note that if you only need to send the content of a message, without
+specifying other fields, then <a href="../model/struct.ChannelId.html#method.say"><code>ChannelId::say</code></a> may be a more preferable
+option.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>Sending a message with a content of <code>&quot;test&quot;</code> and applying text-to-speech:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::<span class="ident">ChannelId</span>;
+
+<span class="kw">let</span> <span class="ident">channel_id</span> <span class="op">=</span> <span class="ident">ChannelId</span>(<span class="number">7</span>);
+
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">channel_id</span>.<span class="ident">send_message</span>(<span class="op">|</span><span class="ident">m</span><span class="op">|</span> <span class="ident">m</span>
+    .<span class="ident">content</span>(<span class="string">&quot;test&quot;</span>)
+    .<span class="ident">tts</span>(<span class="bool-val">true</span>)
+    .<span class="ident">embed</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>
+        .<span class="ident">title</span>(<span class="string">&quot;This is an embed&quot;</span>)
+        .<span class="ident">description</span>(<span class="string">&quot;With a description&quot;</span>)));</pre>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#44-82' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.content' class="method"><span id='content.v' class='invisible'><code>fn <a href='#method.content' class='fnname'>content</a>&lt;D:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a>&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#48-53' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Set the content of the message.</p>
+
+<p><strong>Note</strong>: Message contents must be under 2000 unicode code points.</p>
+</div><h4 id='method.embed' class="method"><span id='embed.v' class='invisible'><code>fn <a href='#method.embed' class='fnname'>embed</a>&lt;F&gt;(self, f: F) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="struct" href="../../serenity/builder/struct.CreateEmbed.html" title="struct serenity::builder::CreateEmbed">CreateEmbed</a>) -&gt; <a class="struct" href="../../serenity/builder/struct.CreateEmbed.html" title="struct serenity::builder::CreateEmbed">CreateEmbed</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#56-63' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Set an embed for the message.</p>
+</div><h4 id='method.tts' class="method"><span id='tts.v' class='invisible'><code>fn <a href='#method.tts' class='fnname'>tts</a>(self, tts: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#70-74' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Set whether the message is text-to-speech.</p>
+
+<p>Think carefully before setting this to <code>true</code>.</p>
+
+<p>Defaults to <code>false</code>.</p>
+</div><h4 id='method.reactions' class="method"><span id='reactions.v' class='invisible'><code>fn <a href='#method.reactions' class='fnname'>reactions</a>&lt;R:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="enum" href="../../serenity/model/enum.ReactionType.html" title="enum serenity::model::ReactionType">ReactionType</a>&gt;&gt;(self, reactions: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;R&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#77-81' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Adds a list of reactions to create after the message&#39;s sent.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#41' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#41' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#41' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#41' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-Default' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a></code><a href='#impl-Default' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#84-96' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/builder/create_message.rs.html#90-95' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Creates a map for sending a <a href="../model/struct.Message.html"><code>Message</code></a>, setting <a href="#method.tts"><code>tts</code></a> to <code>false</code> by
+default.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ShardManagerMessage",""],["ShardQueuerMessage",""]],"struct":[["ShardId",""],["ShardManager",""],["ShardQueuer","The shard queuer is a simple loop that runs indefinitely to manage the startup of shards."],["ShardRunner",""],["ShardRunnerInfo",""]]});

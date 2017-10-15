@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["standard",""]],"trait":[["Framework","This trait allows for serenity to either use its builtin framework, or yours."]]});

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `gateway` mod in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, gateway">
+
+    <title>serenity::gateway - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Module gateway</p><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li></ul></div><p class='location'><a href='../index.html'>serenity</a></p><script>window.sidebarCurrent = {name: 'gateway', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>serenity</a>::<wbr><a class="mod" href=''>gateway</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/gateway/mod.rs.html#1-87' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>The gateway module contains the pieces - primarily the <code>Shard</code> -
+responsible for maintaing a WebSocket connection with Discord.</p>
+
+<p>A shard is an interface for the lower-level receiver and sender. It provides
+what can otherwise be thought of as &quot;sugar methods&quot;. A shard represents a
+single connection to Discord. If acting as a <a href="../enum.LoginType.html#variant.Bot"><code>Bot</code></a> user, you can make
+use of a method named &quot;sharding&quot; to have multiple shards, potentially
+offloading some server load to another server(s).</p>
+
+<h1 id='sharding' class='section-header'><a href='#sharding'>Sharding</a></h1>
+<p>Sharding is a method to split portions of bots into separate processes. This
+is an enforced strategy by Discord once a bot reaches a certain number of
+guilds (2500). Once this number is reached, a bot must be sharded in a way
+that only 2500 guilds maximum may be allocated per shard.</p>
+
+<p>The &quot;recommended&quot; number of guilds per shard is <em>around</em> 1000. Sharding can
+be useful for splitting processes across separate servers. Often you may
+want some or all shards to be in the same process, allowing for a shared
+State. This is possible through this library.</p>
+
+<p>See <a href="https://discordapp.com/developers/docs/topics/gateway#sharding">Discord&#39;s documentation</a> for more information.</p>
+
+<p>If you are not using a bot account or do not require sharding - such as for
+a small bot - then use <a href="../struct.Client.html#method.start"><code>Client::start</code></a>.</p>
+
+<p>There are a few methods of sharding available:</p>
+
+<ul>
+<li><a href="../struct.Client.html#method.start_autosharded"><code>Client::start_autosharded</code></a>: retrieves the number of shards Discord
+recommends using from the API, and then automatically starts that number of
+shards.</li>
+<li><a href="../struct.Client.html#method.start_shard"><code>Client::start_shard</code></a>: starts a single shard for use in the instance,
+handled by the instance of the Client. Use this if you only want 1 shard
+handled by this instance.</li>
+<li><a href="../struct.Client.html#method.start_shards"><code>Client::start_shards</code></a>: starts all shards in this instance. This is best
+for when you want a completely shared State.</li>
+<li><a href="../struct.Client.html#method.start_shard_range"><code>Client::start_shard_range</code></a>: start a range of shards within this
+instance. This should be used when you, for example, want to split 10 shards
+across 3 instances.</li>
+</ul>
+
+<p><strong>Note</strong>: User accounts can not shard. Use <a href="../struct.Client.html#method.start"><code>Client::start</code></a>.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Shard.html"
+                                  title='struct serenity::gateway::Shard'>Shard</a></td>
+                           <td class='docblock-short'>
+                                <p>A Shard is a higher-level handler for a websocket connection to Discord&#39;s
+gateway. The shard allows for sending and receiving messages over the
+websocket, such as setting the active game, reconnecting, syncing guilds,
+and more.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ConnectionStage.html"
+                                  title='enum serenity::gateway::ConnectionStage'>ConnectionStage</a></td>
+                           <td class='docblock-short'>
+                                <p>Indicates the current connection stage of a <a href="struct.Shard.html"><code>Shard</code></a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.GatewayError.html"
+                                  title='enum serenity::gateway::GatewayError'>GatewayError</a></td>
+                           <td class='docblock-short'>
+                                <p>An error that occurred while attempting to deal with the gateway.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

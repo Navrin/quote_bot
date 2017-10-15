@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["authors","The actual table struct"],["id","The `id` column of the `authors` table."]]});

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Permissions` struct in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Permissions">
+
+    <title>serenity::model::permissions::Permissions - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct Permissions</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../../index.html'>serenity</a>::<wbr><a href='../index.html'>model</a>::<wbr><a href='index.html'>permissions</a></p><script>window.sidebarCurrent = {name: 'Permissions', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>serenity</a>::<wbr><a href='../index.html'>model</a>::<wbr><a href='index.html'>permissions</a>::<wbr><a class="struct" href=''>Permissions</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span></span></h1>
+<pre class='rust struct'>pub struct Permissions { /* fields omitted */ }</pre><div class='docblock'><p>A set of permissions that can be assigned to <a href="../struct.User.html"><code>User</code></a>s and <a href="../struct.Role.html"><code>Role</code></a>s via
+<a href="../struct.PermissionOverwrite.html"><code>PermissionOverwrite</code></a>s, roles globally in a <a href="../struct.Guild.html"><code>Guild</code></a>, and to
+<a href="../struct.GuildChannel.html"><code>GuildChannel</code></a>s.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedconstant.CREATE_INVITE' class="associatedconstant"><span id='CREATE_INVITE.v' class='invisible'><code>const <a href='#associatedconstant.CREATE_INVITE' class="constant"><b>CREATE_INVITE</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">CREATE_INVITE</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">1</span>,}</pre>
+<p>Allows for the creation of <a href="../struct.RichInvite.html"><code>RichInvite</code></a>s.</p>
+</div><h4 id='associatedconstant.KICK_MEMBERS' class="associatedconstant"><span id='KICK_MEMBERS.v' class='invisible'><code>const <a href='#associatedconstant.KICK_MEMBERS' class="constant"><b>KICK_MEMBERS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">KICK_MEMBERS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">2</span>,}</pre>
+<p>Allows for the kicking of guild <a href="../struct.Member.html">member</a>s.</p>
+</div><h4 id='associatedconstant.BAN_MEMBERS' class="associatedconstant"><span id='BAN_MEMBERS.v' class='invisible'><code>const <a href='#associatedconstant.BAN_MEMBERS' class="constant"><b>BAN_MEMBERS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">BAN_MEMBERS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">4</span>,}</pre>
+<p>Allows the banning of guild <a href="../struct.Member.html">member</a>s.</p>
+</div><h4 id='associatedconstant.ADMINISTRATOR' class="associatedconstant"><span id='ADMINISTRATOR.v' class='invisible'><code>const <a href='#associatedconstant.ADMINISTRATOR' class="constant"><b>ADMINISTRATOR</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">ADMINISTRATOR</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">8</span>,}</pre>
+<p>Allows all permissions, bypassing channel <a href="../struct.PermissionOverwrite.html">permission overwrite</a>s.</p>
+</div><h4 id='associatedconstant.MANAGE_CHANNELS' class="associatedconstant"><span id='MANAGE_CHANNELS.v' class='invisible'><code>const <a href='#associatedconstant.MANAGE_CHANNELS' class="constant"><b>MANAGE_CHANNELS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MANAGE_CHANNELS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">16</span>,}</pre>
+<p>Allows management and editing of guild <a href="../struct.GuildChannel.html">channel</a>s.</p>
+</div><h4 id='associatedconstant.MANAGE_GUILD' class="associatedconstant"><span id='MANAGE_GUILD.v' class='invisible'><code>const <a href='#associatedconstant.MANAGE_GUILD' class="constant"><b>MANAGE_GUILD</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MANAGE_GUILD</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">32</span>,}</pre>
+<p>Allows management and editing of the <a href="../struct.Guild.html">guild</a>.</p>
+</div><h4 id='associatedconstant.ADD_REACTIONS' class="associatedconstant"><span id='ADD_REACTIONS.v' class='invisible'><code>const <a href='#associatedconstant.ADD_REACTIONS' class="constant"><b>ADD_REACTIONS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">ADD_REACTIONS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">64</span>,}</pre>
+<p><a href="../struct.Member.html"><code>Member</code></a>s with this permission can add new <a href="../struct.Reaction.html"><code>Reaction</code></a>s to a
+<a href="../struct.Message.html"><code>Message</code></a>. Members can still react using reactions already added
+to messages without this permission.</p>
+</div><h4 id='associatedconstant.READ_MESSAGES' class="associatedconstant"><span id='READ_MESSAGES.v' class='invisible'><code>const <a href='#associatedconstant.READ_MESSAGES' class="constant"><b>READ_MESSAGES</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">READ_MESSAGES</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">1024</span>,}</pre>
+<p>Allows reading messages in a guild channel. If a user does not have
+this permission, then they will not be able to see the channel.</p>
+</div><h4 id='associatedconstant.SEND_MESSAGES' class="associatedconstant"><span id='SEND_MESSAGES.v' class='invisible'><code>const <a href='#associatedconstant.SEND_MESSAGES' class="constant"><b>SEND_MESSAGES</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">SEND_MESSAGES</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">2048</span>,}</pre>
+<p>Allows sending messages in a guild channel.</p>
+</div><h4 id='associatedconstant.SEND_TTS_MESSAGES' class="associatedconstant"><span id='SEND_TTS_MESSAGES.v' class='invisible'><code>const <a href='#associatedconstant.SEND_TTS_MESSAGES' class="constant"><b>SEND_TTS_MESSAGES</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">SEND_TTS_MESSAGES</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">4096</span>,}</pre>
+<p>Allows the sending of text-to-speech messages in a channel.</p>
+</div><h4 id='associatedconstant.MANAGE_MESSAGES' class="associatedconstant"><span id='MANAGE_MESSAGES.v' class='invisible'><code>const <a href='#associatedconstant.MANAGE_MESSAGES' class="constant"><b>MANAGE_MESSAGES</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MANAGE_MESSAGES</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">8192</span>,}</pre>
+<p>Allows the deleting of other messages in a guild channel.</p>
+
+<p><strong>Note</strong>: This does not allow the editing of other messages.</p>
+</div><h4 id='associatedconstant.EMBED_LINKS' class="associatedconstant"><span id='EMBED_LINKS.v' class='invisible'><code>const <a href='#associatedconstant.EMBED_LINKS' class="constant"><b>EMBED_LINKS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">EMBED_LINKS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">16384</span>,}</pre>
+<p>Allows links from this user - or users of this role - to be
+embedded, with potential data such as a thumbnail, description, and
+page name.</p>
+</div><h4 id='associatedconstant.ATTACH_FILES' class="associatedconstant"><span id='ATTACH_FILES.v' class='invisible'><code>const <a href='#associatedconstant.ATTACH_FILES' class="constant"><b>ATTACH_FILES</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">ATTACH_FILES</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">32768</span>,}</pre>
+<p>Allows uploading of files.</p>
+</div><h4 id='associatedconstant.READ_MESSAGE_HISTORY' class="associatedconstant"><span id='READ_MESSAGE_HISTORY.v' class='invisible'><code>const <a href='#associatedconstant.READ_MESSAGE_HISTORY' class="constant"><b>READ_MESSAGE_HISTORY</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">READ_MESSAGE_HISTORY</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">65536</span>,}</pre>
+<p>Allows the reading of a channel&#39;s message history.</p>
+</div><h4 id='associatedconstant.MENTION_EVERYONE' class="associatedconstant"><span id='MENTION_EVERYONE.v' class='invisible'><code>const <a href='#associatedconstant.MENTION_EVERYONE' class="constant"><b>MENTION_EVERYONE</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MENTION_EVERYONE</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">131072</span>,}</pre>
+<p>Allows the usage of the <code>@everyone</code> mention, which will notify all
+users in a channel. The <code>@here</code> mention will also be available, and
+can be used to mention all non-offline users.</p>
+
+<p><strong>Note</strong>: You probably want this to be disabled for most roles and
+users.</p>
+</div><h4 id='associatedconstant.USE_EXTERNAL_EMOJIS' class="associatedconstant"><span id='USE_EXTERNAL_EMOJIS.v' class='invisible'><code>const <a href='#associatedconstant.USE_EXTERNAL_EMOJIS' class="constant"><b>USE_EXTERNAL_EMOJIS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">USE_EXTERNAL_EMOJIS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">262144</span>,}</pre>
+<p>Allows the usage of custom emojis from other guilds.</p>
+
+<p>This does not dictate whether custom emojis in this guild can be
+used in other guilds.</p>
+</div><h4 id='associatedconstant.CONNECT' class="associatedconstant"><span id='CONNECT.v' class='invisible'><code>const <a href='#associatedconstant.CONNECT' class="constant"><b>CONNECT</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">CONNECT</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">1048576</span>,}</pre>
+<p>Allows the joining of a voice channel.</p>
+</div><h4 id='associatedconstant.SPEAK' class="associatedconstant"><span id='SPEAK.v' class='invisible'><code>const <a href='#associatedconstant.SPEAK' class="constant"><b>SPEAK</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">SPEAK</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">2097152</span>,}</pre>
+<p>Allows the user to speak in a voice channel.</p>
+</div><h4 id='associatedconstant.MUTE_MEMBERS' class="associatedconstant"><span id='MUTE_MEMBERS.v' class='invisible'><code>const <a href='#associatedconstant.MUTE_MEMBERS' class="constant"><b>MUTE_MEMBERS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MUTE_MEMBERS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">4194304</span>,}</pre>
+<p>Allows the muting of members in a voice channel.</p>
+</div><h4 id='associatedconstant.DEAFEN_MEMBERS' class="associatedconstant"><span id='DEAFEN_MEMBERS.v' class='invisible'><code>const <a href='#associatedconstant.DEAFEN_MEMBERS' class="constant"><b>DEAFEN_MEMBERS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">DEAFEN_MEMBERS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">8388608</span>,}</pre>
+<p>Allows the deafening of members in a voice channel.</p>
+</div><h4 id='associatedconstant.MOVE_MEMBERS' class="associatedconstant"><span id='MOVE_MEMBERS.v' class='invisible'><code>const <a href='#associatedconstant.MOVE_MEMBERS' class="constant"><b>MOVE_MEMBERS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MOVE_MEMBERS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">16777216</span>,}</pre>
+<p>Allows the moving of members from one voice channel to another.</p>
+</div><h4 id='associatedconstant.USE_VAD' class="associatedconstant"><span id='USE_VAD.v' class='invisible'><code>const <a href='#associatedconstant.USE_VAD' class="constant"><b>USE_VAD</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">USE_VAD</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">33554432</span>,}</pre>
+<p>Allows the usage of voice-activity-detection in a <a href="../enum.ChannelType.html#variant.Voice">voice</a> channel.</p>
+
+<p>If this is disabled, then <a href="../struct.Member.html"><code>Member</code></a>s must use push-to-talk.</p>
+</div><h4 id='associatedconstant.CHANGE_NICKNAME' class="associatedconstant"><span id='CHANGE_NICKNAME.v' class='invisible'><code>const <a href='#associatedconstant.CHANGE_NICKNAME' class="constant"><b>CHANGE_NICKNAME</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">CHANGE_NICKNAME</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">67108864</span>,}</pre>
+<p>Allows members to change their own nickname in the guild.</p>
+</div><h4 id='associatedconstant.MANAGE_NICKNAMES' class="associatedconstant"><span id='MANAGE_NICKNAMES.v' class='invisible'><code>const <a href='#associatedconstant.MANAGE_NICKNAMES' class="constant"><b>MANAGE_NICKNAMES</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MANAGE_NICKNAMES</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">134217728</span>,}</pre>
+<p>Allows members to change other members&#39; nicknames.</p>
+</div><h4 id='associatedconstant.MANAGE_ROLES' class="associatedconstant"><span id='MANAGE_ROLES.v' class='invisible'><code>const <a href='#associatedconstant.MANAGE_ROLES' class="constant"><b>MANAGE_ROLES</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MANAGE_ROLES</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">268435456</span>,}</pre>
+<p>Allows management and editing of roles below their own.</p>
+</div><h4 id='associatedconstant.MANAGE_WEBHOOKS' class="associatedconstant"><span id='MANAGE_WEBHOOKS.v' class='invisible'><code>const <a href='#associatedconstant.MANAGE_WEBHOOKS' class="constant"><b>MANAGE_WEBHOOKS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MANAGE_WEBHOOKS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">536870912</span>,}</pre>
+<p>Allows management of webhooks.</p>
+</div><h4 id='associatedconstant.MANAGE_EMOJIS' class="associatedconstant"><span id='MANAGE_EMOJIS.v' class='invisible'><code>const <a href='#associatedconstant.MANAGE_EMOJIS' class="constant"><b>MANAGE_EMOJIS</b></a>: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><pre class="rust ">
+<span class="ident">MANAGE_EMOJIS</span>: <span class="ident">Permissions</span> <span class="op">=</span> <span class="ident">Permissions</span>{<span class="ident">bits</span>: <span class="number">1073741824</span>,}</pre>
+<p>Allows management of emojis created without the use of an
+<a href="../struct.Integration.html"><code>Integration</code></a>.</p>
+</div><h4 id='method.empty' class="method"><span id='empty.v' class='invisible'><code>fn <a href='#method.empty' class='fnname'>empty</a>() -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Returns an empty set of flags.</p>
+</div><h4 id='method.all' class="method"><span id='all.v' class='invisible'><code>fn <a href='#method.all' class='fnname'>all</a>() -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Returns the set containing all flags.</p>
+</div><h4 id='method.bits' class="method"><span id='bits.v' class='invisible'><code>fn <a href='#method.bits' class='fnname'>bits</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span></h4>
+<div class='docblock'><p>Returns the raw value of the flags currently stored.</p>
+</div><h4 id='method.from_bits' class="method"><span id='from_bits.v' class='invisible'><code>fn <a href='#method.from_bits' class='fnname'>from_bits</a>(bits: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>&gt;</code></span></h4>
+<div class='docblock'><p>Convert from underlying bit representation, unless that
+representation contains bits that do not correspond to a flag.</p>
+</div><h4 id='method.from_bits_truncate' class="method"><span id='from_bits_truncate.v' class='invisible'><code>fn <a href='#method.from_bits_truncate' class='fnname'>from_bits_truncate</a>(bits: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Convert from underlying bit representation, dropping any bits
+that do not correspond to flags.</p>
+</div><h4 id='method.is_empty' class="method"><span id='is_empty.v' class='invisible'><code>fn <a href='#method.is_empty' class='fnname'>is_empty</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>Returns <code>true</code> if no flags are currently stored.</p>
+</div><h4 id='method.is_all' class="method"><span id='is_all.v' class='invisible'><code>fn <a href='#method.is_all' class='fnname'>is_all</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>Returns <code>true</code> if all flags are currently set.</p>
+</div><h4 id='method.intersects' class="method"><span id='intersects.v' class='invisible'><code>fn <a href='#method.intersects' class='fnname'>intersects</a>(&amp;self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>Returns <code>true</code> if there are flags common to both <code>self</code> and <code>other</code>.</p>
+</div><h4 id='method.contains' class="method"><span id='contains.v' class='invisible'><code>fn <a href='#method.contains' class='fnname'>contains</a>(&amp;self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>Returns <code>true</code> all of the flags in <code>other</code> are contained within <code>self</code>.</p>
+</div><h4 id='method.insert' class="method"><span id='insert.v' class='invisible'><code>fn <a href='#method.insert' class='fnname'>insert</a>(&amp;mut self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>)</code></span></h4>
+<div class='docblock'><p>Inserts the specified flags in-place.</p>
+</div><h4 id='method.remove' class="method"><span id='remove.v' class='invisible'><code>fn <a href='#method.remove' class='fnname'>remove</a>(&amp;mut self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>)</code></span></h4>
+<div class='docblock'><p>Removes the specified flags in-place.</p>
+</div><h4 id='method.toggle' class="method"><span id='toggle.v' class='invisible'><code>fn <a href='#method.toggle' class='fnname'>toggle</a>(&amp;mut self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>)</code></span></h4>
+<div class='docblock'><p>Toggles the specified flags in-place.</p>
+</div><h4 id='method.set' class="method"><span id='set.v' class='invisible'><code>fn <a href='#method.set' class='fnname'>set</a>(&amp;mut self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>, value: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>)</code></span></h4>
+<div class='docblock'><p>Inserts or removes the specified flags depending on the passed value.</p>
+</div></div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#257-425' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.add_reactions' class="method"><span id='add_reactions.v' class='invisible'><code>fn <a href='#method.add_reactions' class='fnname'>add_reactions</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#262' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.ADD_REACTIONS.html">Add Reactions</a> permission.</p>
+</div><h4 id='method.administrator' class="method"><span id='administrator.v' class='invisible'><code>fn <a href='#method.administrator' class='fnname'>administrator</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.ADMINISTRATOR.html">Administrator</a> permission.</p>
+</div><h4 id='method.attach_files' class="method"><span id='attach_files.v' class='invisible'><code>fn <a href='#method.attach_files' class='fnname'>attach_files</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#274' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.ATTACH_FILES.html">Attach Files</a> permission.</p>
+</div><h4 id='method.ban_members' class="method"><span id='ban_members.v' class='invisible'><code>fn <a href='#method.ban_members' class='fnname'>ban_members</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#280' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.BAN_MEMBERS.html">Ban Members</a> permission.</p>
+</div><h4 id='method.change_nickname' class="method"><span id='change_nickname.v' class='invisible'><code>fn <a href='#method.change_nickname' class='fnname'>change_nickname</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#286' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.CHANGE_NICKNAME.html">Change Nickname</a> permission.</p>
+</div><h4 id='method.connect' class="method"><span id='connect.v' class='invisible'><code>fn <a href='#method.connect' class='fnname'>connect</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#292' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.CONNECT.html">Connect</a> permission.</p>
+</div><h4 id='method.create_invite' class="method"><span id='create_invite.v' class='invisible'><code>fn <a href='#method.create_invite' class='fnname'>create_invite</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#298' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.CREATE_INVITE.html">Create Invite</a> permission.</p>
+</div><h4 id='method.deafen_members' class="method"><span id='deafen_members.v' class='invisible'><code>fn <a href='#method.deafen_members' class='fnname'>deafen_members</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#304' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.DEAFEN_MEMBERS.html">Deafen Members</a> permission.</p>
+</div><h4 id='method.embed_links' class="method"><span id='embed_links.v' class='invisible'><code>fn <a href='#method.embed_links' class='fnname'>embed_links</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#310' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.EMBED_LINKS.html">Embed Links</a> permission.</p>
+</div><h4 id='method.external_emojis' class="method"><span id='external_emojis.v' class='invisible'><code>fn <a href='#method.external_emojis' class='fnname'>external_emojis</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#316' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.USE_EXTERNAL_EMOJIS.html">Use External Emojis</a> permission.</p>
+</div><h4 id='method.kick_members' class="method"><span id='kick_members.v' class='invisible'><code>fn <a href='#method.kick_members' class='fnname'>kick_members</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#322' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.KICK_MEMBERS.html">Kick Members</a> permission.</p>
+</div><h4 id='method.manage_channels' class="method"><span id='manage_channels.v' class='invisible'><code>fn <a href='#method.manage_channels' class='fnname'>manage_channels</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#328' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MANAGE_CHANNELS.html">Manage Channels</a> permission.</p>
+</div><h4 id='method.manage_emojis' class="method"><span id='manage_emojis.v' class='invisible'><code>fn <a href='#method.manage_emojis' class='fnname'>manage_emojis</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#334' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MANAGE_EMOJIS.html">Manage Emojis</a> permission.</p>
+</div><h4 id='method.manage_guild' class="method"><span id='manage_guild.v' class='invisible'><code>fn <a href='#method.manage_guild' class='fnname'>manage_guild</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#340' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MANAGE_GUILD.html">Manage Guild</a> permission.</p>
+</div><h4 id='method.manage_messages' class="method"><span id='manage_messages.v' class='invisible'><code>fn <a href='#method.manage_messages' class='fnname'>manage_messages</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#346' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MANAGE_MESSAGES.html">Manage Messages</a> permission.</p>
+</div><h4 id='method.manage_nicknames' class="method"><span id='manage_nicknames.v' class='invisible'><code>fn <a href='#method.manage_nicknames' class='fnname'>manage_nicknames</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#352' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MANAGE_NICKNAMES.html">Manage Nicknames</a> permission.</p>
+</div><h4 id='method.manage_roles' class="method"><span id='manage_roles.v' class='invisible'><code>fn <a href='#method.manage_roles' class='fnname'>manage_roles</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#358' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MANAGE_ROLES.html">Manage Roles</a> permission.</p>
+</div><h4 id='method.manage_webhooks' class="method"><span id='manage_webhooks.v' class='invisible'><code>fn <a href='#method.manage_webhooks' class='fnname'>manage_webhooks</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#364' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MANAGE_WEBHOOKS.html">Manage Webhooks</a> permission.</p>
+</div><h4 id='method.mention_everyone' class="method"><span id='mention_everyone.v' class='invisible'><code>fn <a href='#method.mention_everyone' class='fnname'>mention_everyone</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#370' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MENTION_EVERYONE.html">Mention Everyone</a> permission.</p>
+</div><h4 id='method.move_members' class="method"><span id='move_members.v' class='invisible'><code>fn <a href='#method.move_members' class='fnname'>move_members</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#376' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MOVE_MEMBERS.html">Move Members</a> permission.</p>
+</div><h4 id='method.mute_members' class="method"><span id='mute_members.v' class='invisible'><code>fn <a href='#method.mute_members' class='fnname'>mute_members</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#382' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.MUTE_MEMBERS.html">Mute Members</a> permission.</p>
+</div><h4 id='method.read_message_history' class="method"><span id='read_message_history.v' class='invisible'><code>fn <a href='#method.read_message_history' class='fnname'>read_message_history</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#388' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.READ_MESSAGE_HISTORY.html">Read Message History</a> permission.</p>
+</div><h4 id='method.read_messages' class="method"><span id='read_messages.v' class='invisible'><code>fn <a href='#method.read_messages' class='fnname'>read_messages</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#394' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.READ_MESSAGES.html">Read Messages</a> permission.</p>
+</div><h4 id='method.send_messages' class="method"><span id='send_messages.v' class='invisible'><code>fn <a href='#method.send_messages' class='fnname'>send_messages</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#400' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.SEND_MESSAGES.html">Send Messages</a> permission.</p>
+</div><h4 id='method.send_tts_messages' class="method"><span id='send_tts_messages.v' class='invisible'><code>fn <a href='#method.send_tts_messages' class='fnname'>send_tts_messages</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#406' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.SEND_TTS_MESSAGES.html">Send TTS Messages</a> permission.</p>
+</div><h4 id='method.speak' class="method"><span id='speak.v' class='invisible'><code>fn <a href='#method.speak' class='fnname'>speak</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#412' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.SPEAK.html">Speak</a> permission.</p>
+</div><h4 id='method.use_external_emojis' class="method"><span id='use_external_emojis.v' class='invisible'><code>fn <a href='#method.use_external_emojis' class='fnname'>use_external_emojis</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#418' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.USE_EXTERNAL_EMOJIS.html">Use External Emojis</a> permission.</p>
+</div><h4 id='method.use_vad' class="method"><span id='use_vad.v' class='invisible'><code>fn <a href='#method.use_vad' class='fnname'>use_vad</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#424' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Shorthand for checking that the set of permissions contains the
+<a href="constant.USE_VAD.html">Use VAD</a> permission.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 id='impl-Eq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html" title="trait core::cmp::Eq">Eq</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Eq' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-PartialOrd' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html" title="trait core::cmp::PartialOrd">PartialOrd</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-PartialOrd' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.partial_cmp' class="method"><span id='partial_cmp.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#tymethod.partial_cmp' class='fnname'>partial_cmp</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html" title="enum core::cmp::Ordering">Ordering</a>&gt;</code></span></h4>
+<div class='docblock'><p>This method returns an ordering between <code>self</code> and <code>other</code> values if one exists. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#tymethod.partial_cmp">Read more</a></p>
+</div><h4 id='method.lt' class="method"><span id='lt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt' class='fnname'>lt</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>This method tests less than (for <code>self</code> and <code>other</code>) and is used by the <code>&lt;</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt">Read more</a></p>
+</div><h4 id='method.le' class="method"><span id='le.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le' class='fnname'>le</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>This method tests less than or equal to (for <code>self</code> and <code>other</code>) and is used by the <code>&lt;=</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le">Read more</a></p>
+</div><h4 id='method.gt' class="method"><span id='gt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt' class='fnname'>gt</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>This method tests greater than (for <code>self</code> and <code>other</code>) and is used by the <code>&gt;</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt">Read more</a></p>
+</div><h4 id='method.ge' class="method"><span id='ge.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge' class='fnname'>ge</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>This method tests greater than or equal to (for <code>self</code> and <code>other</code>) and is used by the <code>&gt;=</code> operator. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge">Read more</a></p>
+</div></div><h3 id='impl-Ord' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html" title="trait core::cmp::Ord">Ord</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Ord' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.cmp' class="method"><span id='cmp.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html#tymethod.cmp' class='fnname'>cmp</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html" title="enum core::cmp::Ordering">Ordering</a></code></span></h4>
+<div class='docblock'><p>This method returns an <code>Ordering</code> between <code>self</code> and <code>other</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html#tymethod.cmp">Read more</a></p>
+</div><h4 id='method.max' class="method"><span id='max.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html#method.max' class='fnname'>max</a>(self, other: Self) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.21.0'>1.21.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/cmp.rs.html#460-463' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Compares and returns the maximum of two values. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html#method.max">Read more</a></p>
+</div><h4 id='method.min' class="method"><span id='min.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html#method.min' class='fnname'>min</a>(self, other: Self) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.21.0'>1.21.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/cmp.rs.html#476-479' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Compares and returns the minimum of two values. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html#method.min">Read more</a></p>
+</div></div><h3 id='impl-Hash' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html" title="trait core::hash::Hash">Hash</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Hash' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.hash' class="method"><span id='hash.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash' class='fnname'>hash</a>&lt;__H:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>&gt;(&amp;self, __arg_0: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>__H)</code></span></h4>
+<div class='docblock'><p>Feeds this value into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash">Read more</a></p>
+</div><h4 id='method.hash_slice' class="method"><span id='hash_slice.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice' class='fnname'>hash_slice</a>&lt;H&gt;(data: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[Self]</a>, state: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>H) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;H: <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.3.0'>1.3.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/hash/mod.rs.html#202-208' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Feeds a slice of this type into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-Binary' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Binary.html" title="trait core::fmt::Binary">Binary</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Binary' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Binary.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-Octal' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Octal.html" title="trait core::fmt::Octal">Octal</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Octal' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt-2' class="method"><span id='fmt.v-2' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Octal.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-LowerHex' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.LowerHex.html" title="trait core::fmt::LowerHex">LowerHex</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-LowerHex' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt-3' class="method"><span id='fmt.v-3' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.LowerHex.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-UpperHex' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.UpperHex.html" title="trait core::fmt::UpperHex">UpperHex</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-UpperHex' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt-4' class="method"><span id='fmt.v-4' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.UpperHex.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-BitOr' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitOr.html" title="trait core::ops::bit::BitOr">BitOr</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-BitOr' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output' class="type"><span id='Output.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitOr.html#associatedtype.Output' class="type">Output</a> = <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>|</code> operator.</p>
+</div><h4 id='method.bitor' class="method"><span id='bitor.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitOr.html#tymethod.bitor' class='fnname'>bitor</a>(self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Returns the union of the two sets of flags.</p>
+</div></div><h3 id='impl-BitOrAssign' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitOrAssign.html" title="trait core::ops::bit::BitOrAssign">BitOrAssign</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-BitOrAssign' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.bitor_assign' class="method"><span id='bitor_assign.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitOrAssign.html#tymethod.bitor_assign' class='fnname'>bitor_assign</a>(&amp;mut self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>)</code></span></h4>
+<div class='docblock'><p>Adds the set of flags.</p>
+</div></div><h3 id='impl-BitXor' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitXor.html" title="trait core::ops::bit::BitXor">BitXor</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-BitXor' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-1' class="type"><span id='Output.t-1' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitXor.html#associatedtype.Output' class="type">Output</a> = <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>^</code> operator.</p>
+</div><h4 id='method.bitxor' class="method"><span id='bitxor.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitXor.html#tymethod.bitxor' class='fnname'>bitxor</a>(self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Returns the left flags, but with all the right flags toggled.</p>
+</div></div><h3 id='impl-BitXorAssign' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitXorAssign.html" title="trait core::ops::bit::BitXorAssign">BitXorAssign</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-BitXorAssign' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.bitxor_assign' class="method"><span id='bitxor_assign.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitXorAssign.html#tymethod.bitxor_assign' class='fnname'>bitxor_assign</a>(&amp;mut self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>)</code></span></h4>
+<div class='docblock'><p>Toggles the set of flags.</p>
+</div></div><h3 id='impl-BitAnd' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitAnd.html" title="trait core::ops::bit::BitAnd">BitAnd</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-BitAnd' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-2' class="type"><span id='Output.t-2' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitAnd.html#associatedtype.Output' class="type">Output</a> = <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>&amp;</code> operator.</p>
+</div><h4 id='method.bitand' class="method"><span id='bitand.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitAnd.html#tymethod.bitand' class='fnname'>bitand</a>(self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Returns the intersection between the two sets of flags.</p>
+</div></div><h3 id='impl-BitAndAssign' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitAndAssign.html" title="trait core::ops::bit::BitAndAssign">BitAndAssign</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-BitAndAssign' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.bitand_assign' class="method"><span id='bitand_assign.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.BitAndAssign.html#tymethod.bitand_assign' class='fnname'>bitand_assign</a>(&amp;mut self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>)</code></span></h4>
+<div class='docblock'><p>Disables all flags disabled in the set.</p>
+</div></div><h3 id='impl-Sub' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/arith/trait.Sub.html" title="trait core::ops::arith::Sub">Sub</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Sub' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-3' class="type"><span id='Output.t-3' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/arith/trait.Sub.html#associatedtype.Output' class="type">Output</a> = <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>-</code> operator.</p>
+</div><h4 id='method.sub' class="method"><span id='sub.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/arith/trait.Sub.html#tymethod.sub' class='fnname'>sub</a>(self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Returns the set difference of the two sets of flags.</p>
+</div></div><h3 id='impl-SubAssign' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/arith/trait.SubAssign.html" title="trait core::ops::arith::SubAssign">SubAssign</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-SubAssign' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.sub_assign' class="method"><span id='sub_assign.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/arith/trait.SubAssign.html#tymethod.sub_assign' class='fnname'>sub_assign</a>(&amp;mut self, other: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>)</code></span></h4>
+<div class='docblock'><p>Disables all flags enabled in the set.</p>
+</div></div><h3 id='impl-Not' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/bit/trait.Not.html" title="trait core::ops::bit::Not">Not</a> for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Not' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Output-4' class="type"><span id='Output.t-4' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.Not.html#associatedtype.Output' class="type">Output</a> = <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>The resulting type after applying the <code>!</code> operator.</p>
+</div><h4 id='method.not' class="method"><span id='not.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/bit/trait.Not.html#tymethod.not' class='fnname'>not</a>(self) -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Returns the complement of this set of flags.</p>
+</div></div><h3 id='impl-Extend&lt;Permissions&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.Extend.html" title="trait core::iter::traits::Extend">Extend</a>&lt;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>&gt; for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Extend&lt;Permissions&gt;' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.extend' class="method"><span id='extend.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/iter/traits/trait.Extend.html#tymethod.extend' class='fnname'>extend</a>&lt;T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.IntoIterator.html" title="trait core::iter::traits::IntoIterator">IntoIterator</a>&lt;Item = <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>&gt;&gt;(&amp;mut self, iterator: T)</code></span></h4>
+<div class='docblock'><p>Extends a collection with the contents of an iterator. <a href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.Extend.html#tymethod.extend">Read more</a></p>
+</div></div><h3 id='impl-FromIterator&lt;Permissions&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.FromIterator.html" title="trait core::iter::traits::FromIterator">FromIterator</a>&lt;<a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>&gt; for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-FromIterator&lt;Permissions&gt;' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.from_iter' class="method"><span id='from_iter.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/iter/traits/trait.FromIterator.html#tymethod.from_iter' class='fnname'>from_iter</a>&lt;T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.IntoIterator.html" title="trait core::iter::traits::IntoIterator">IntoIterator</a>&lt;Item = <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>&gt;&gt;(iterator: T) -&gt; <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code></span></h4>
+<div class='docblock'><p>Creates a value from an iterator. <a href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.FromIterator.html#tymethod.from_iter">Read more</a></p>
+</div></div><h3 id='impl-Deserialize&lt;&#39;de&gt;' class='impl'><span class='in-band'><code>impl&lt;'de&gt; <a class="trait" href="../../../serde/de/trait.Deserialize.html" title="trait serde::de::Deserialize">Deserialize</a>&lt;'de&gt; for <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a></code><a href='#impl-Deserialize&lt;&#39;de&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#427-433' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.deserialize' class="method"><span id='deserialize.v' class='invisible'><code>fn <a href='../../../serde/de/trait.Deserialize.html#tymethod.deserialize' class='fnname'>deserialize</a>&lt;D:&nbsp;<a class="trait" href="../../../serde/de/trait.Deserializer.html" title="trait serde::de::Deserializer">Deserializer</a>&lt;'de&gt;&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;deserializer: D<br>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">StdResult</a>&lt;Self, D::<a class="type" href="../../../serde/de/trait.Deserializer.html#associatedtype.Error" title="type serde::de::Deserializer::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/permissions.rs.html#428-432' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Deserialize this value from the given Serde deserializer. <a href="../../../serde/de/trait.Deserialize.html#tymethod.deserialize">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

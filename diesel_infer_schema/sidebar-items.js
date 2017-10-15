@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Never",""]],"fn":[["load_foreign_key_constraints",""],["load_table_data",""],["load_table_names",""],["remove_unsafe_foreign_keys_for_codegen",""]],"struct":[["ColumnDefinition",""],["ColumnInformation",""],["ColumnType",""],["ForeignKeyConstraint",""],["TableData",""],["TableName",""]]});

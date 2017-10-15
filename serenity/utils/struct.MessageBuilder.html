@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `MessageBuilder` struct in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, MessageBuilder">
+
+    <title>serenity::utils::MessageBuilder - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct MessageBuilder</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>serenity</a>::<wbr><a href='index.html'>utils</a></p><script>window.sidebarCurrent = {name: 'MessageBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>serenity</a>::<wbr><a href='index.html'>utils</a>::<wbr><a class="struct" href=''>MessageBuilder</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#44' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct MessageBuilder(pub <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>);</pre><div class='docblock'><p>The Message Builder is an ergonomic utility to easily build a message,
+by adding text and mentioning mentionable structs.</p>
+
+<p>The finalized value can be accessed via <a href="#method.build"><code>build</code></a> or the inner value.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>Build a message, mentioning a <a href="#method.user"><code>user</code></a> and an <a href="#method.emoji"><code>emoji</code></a>, and retrieving the
+value:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="comment">// assuming an `emoji` and `user` have already been bound</span>
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+    .<span class="ident">push</span>(<span class="string">&quot;You sent a message, &quot;</span>)
+    .<span class="ident">mention</span>(<span class="ident">user</span>)
+    .<span class="ident">push</span>(<span class="string">&quot;! &quot;</span>)
+    .<span class="ident">mention</span>(<span class="ident">emoji</span>)
+    .<span class="ident">build</span>();</pre>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../serenity/utils/struct.MessageBuilder.html" title="struct serenity::utils::MessageBuilder">MessageBuilder</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#46-726' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class="struct" href="../../serenity/utils/struct.MessageBuilder.html" title="struct serenity::utils::MessageBuilder">MessageBuilder</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#61' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Creates a new, empty builder.</p>
+
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<p>Create a new <code>MessageBuilder</code>:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">message</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>();
+
+<span class="comment">// alternatively:</span>
+<span class="kw">let</span> <span class="ident">message</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">default</span>();</pre>
+</div><h4 id='method.build' class="method"><span id='build.v' class='invisible'><code>fn <a href='#method.build' class='fnname'>build</a>(self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#93' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pulls the inner value out of the builder.</p>
+
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
+<p>Create a string mentioning a channel by Id, and then suffixing <code>&quot;!&quot;</code>,
+and finally building it to retrieve the inner String:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::<span class="ident">ChannelId</span>;
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">channel_id</span> <span class="op">=</span> <span class="ident">ChannelId</span>(<span class="number">81384788765712384</span>);
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+    .<span class="ident">channel</span>(<span class="ident">channel_id</span>)
+    .<span class="ident">push</span>(<span class="string">&quot;!&quot;</span>)
+    .<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;&lt;#81384788765712384&gt;!&quot;</span>);</pre>
+
+<p>This is equivalent to simply retrieving the tuple struct&#39;s first value:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push</span>(<span class="string">&quot;test&quot;</span>).<span class="number">0</span>;
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;test&quot;</span>);</pre>
+</div><h4 id='method.channel' class="method"><span id='channel.v' class='invisible'><code>fn <a href='#method.channel' class='fnname'>channel</a>&lt;C:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.ChannelId.html" title="struct serenity::model::ChannelId">ChannelId</a>&gt;&gt;(self, channel: C) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#125-129' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Mentions the <a href="../model/struct.GuildChannel.html"><code>GuildChannel</code></a> in the built message.</p>
+
+<p>This accepts anything that converts <em>into</em> a <a href="../model/struct.ChannelId.html"><code>ChannelId</code></a>. Refer to
+<code>ChannelId</code>&#39;s documentation for more information.</p>
+
+<p>Refer to <code>ChannelId</code>&#39;s <a href="../model/struct.ChannelId.html#method.fmt-1">Display implementation</a> for more information on
+how this is formatted.</p>
+
+<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
+<p>Mentioning a <a href="../model/enum.Channel.html"><code>Channel</code></a> by Id:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::<span class="ident">ChannelId</span>;
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">channel_id</span> <span class="op">=</span> <span class="ident">ChannelId</span>(<span class="number">81384788765712384</span>);
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+    .<span class="ident">push</span>(<span class="string">&quot;The channel is: &quot;</span>)
+    .<span class="ident">channel</span>(<span class="ident">channel_id</span>)
+    .<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;The channel is: &lt;#81384788765712384&gt;&quot;</span>);</pre>
+</div><h4 id='method.emoji' class="method"><span id='emoji.v' class='invisible'><code>fn <a href='#method.emoji' class='fnname'>emoji</a>(self, emoji: <a class="struct" href="../../serenity/model/struct.Emoji.html" title="struct serenity::model::Emoji">Emoji</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#162-166' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Displays the given emoji in the built message.</p>
+
+<p>Refer to <code>Emoji</code>s <a href="../model/struct.Emoji.html#method.fmt">Display implementation</a> for more information on how
+this is formatted.</p>
+
+<h1 id='examples-4' class='section-header'><a href='#examples-4'>Examples</a></h1>
+<p>Mention an emoji in a message&#39;s content:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::{<span class="ident">Emoji</span>, <span class="ident">EmojiId</span>};
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">emoji</span> <span class="op">=</span> <span class="ident">Emoji</span> {
+    <span class="ident">id</span>: <span class="ident">EmojiId</span>(<span class="number">302516740095606785</span>),
+    <span class="ident">managed</span>: <span class="bool-val">true</span>,
+    <span class="ident">name</span>: <span class="string">&quot;smugAnimeFace&quot;</span>.<span class="ident">to_owned</span>(),
+    <span class="ident">require_colons</span>: <span class="bool-val">true</span>,
+    <span class="ident">roles</span>: <span class="macro">vec</span><span class="macro">!</span>[],
+};
+
+<span class="kw">let</span> <span class="ident">message</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+    .<span class="ident">push</span>(<span class="string">&quot;foo &quot;</span>)
+    .<span class="ident">emoji</span>(<span class="ident">emoji</span>)
+    .<span class="ident">push</span>(<span class="string">&quot;.&quot;</span>)
+    .<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">message</span>, <span class="string">&quot;foo &lt;:smugAnimeFace:302516740095606785&gt;.&quot;</span>);</pre>
+</div><h4 id='method.mention' class="method"><span id='mention.v' class='invisible'><code>fn <a href='#method.mention' class='fnname'>mention</a>&lt;M:&nbsp;<a class="trait" href="../../serenity/model/trait.Mentionable.html" title="trait serenity::model::Mentionable">Mentionable</a>&gt;(self, item: M) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#171-175' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Mentions something that implements the <a href="../model/trait.Mentionable.html"><code>Mentionable</code></a> trait.</p>
+</div><h4 id='method.push' class="method"><span id='push.v' class='invisible'><code>fn <a href='#method.push' class='fnname'>push</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#192-196' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes a string to the internal message content.</p>
+
+<p>Note that this does not mutate either the given data or the internal
+message content in anyway prior to appending the given content to the
+internal message.</p>
+
+<h1 id='examples-5' class='section-header'><a href='#examples-5'>Examples</a></h1>
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">message</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push</span>(<span class="string">&quot;test&quot;</span>);
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">message</span>.<span class="ident">push</span>(<span class="string">&quot;ing&quot;</span>).<span class="number">0</span>, <span class="string">&quot;testing&quot;</span>);</pre>
+</div><h4 id='method.push_codeblock' class="method"><span id='push_codeblock.v' class='invisible'><code>fn <a href='#method.push_codeblock' class='fnname'>push_codeblock</a>&lt;D:&nbsp;I&gt;(self, content: D, language: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#237-249' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes a codeblock to the content, with optional syntax highlighting.</p>
+
+<h1 id='examples-6' class='section-header'><a href='#examples-6'>Examples</a></h1>
+<p>Pushing a Rust codeblock:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">code</span> <span class="op">=</span> <span class="string">r#&quot;
+fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+&quot;#</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+    .<span class="ident">push_codeblock</span>(<span class="ident">code</span>, <span class="prelude-val">Some</span>(<span class="string">&quot;rust&quot;</span>))
+    .<span class="ident">build</span>();
+
+<span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="string">r#&quot;```rust
+fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+```&quot;#</span>;
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="ident">expected</span>);</pre>
+
+<p>Pushing a codeblock without a language:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+    .<span class="ident">push_codeblock</span>(<span class="string">&quot;hello&quot;</span>, <span class="prelude-val">None</span>)
+    .<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;```\nhello\n```&quot;</span>);</pre>
+</div><h4 id='method.push_mono' class="method"><span id='push_mono.v' class='invisible'><code>fn <a href='#method.push_mono' class='fnname'>push_mono</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#277-283' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes inlined monospaced text to the content.</p>
+
+<h1 id='examples-7' class='section-header'><a href='#examples-7'>Examples</a></h1>
+<p>Display a server configuration value to the user:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">key</span> <span class="op">=</span> <span class="string">&quot;prefix&quot;</span>;
+<span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="string">&quot;&amp;&quot;</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+    .<span class="ident">push</span>(<span class="string">&quot;The setting &quot;</span>)
+    .<span class="ident">push_mono</span>(<span class="ident">key</span>)
+    .<span class="ident">push</span>(<span class="string">&quot; for this server is &quot;</span>)
+    .<span class="ident">push_mono</span>(<span class="ident">value</span>)
+    .<span class="ident">push</span>(<span class="string">&quot;.&quot;</span>)
+    .<span class="ident">build</span>();
+
+<span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;The setting `{}` for this server is `{}`.&quot;</span>,
+                       <span class="ident">key</span>,
+                       <span class="ident">value</span>);
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="ident">expected</span>);</pre>
+</div><h4 id='method.push_italic' class="method"><span id='push_italic.v' class='invisible'><code>fn <a href='#method.push_italic' class='fnname'>push_italic</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#306-312' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes inlined italicized text to the content.</p>
+
+<h1 id='examples-8' class='section-header'><a href='#examples-8'>Examples</a></h1>
+<p>Emphasize information to the user:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+    .<span class="ident">push</span>(<span class="string">&quot;You don&#39;t &quot;</span>)
+    .<span class="ident">push_italic</span>(<span class="string">&quot;always need&quot;</span>)
+    .<span class="ident">push</span>(<span class="string">&quot; to italicize &quot;</span>)
+    .<span class="ident">push_italic</span>(<span class="string">&quot;everything&quot;</span>)
+    .<span class="ident">push</span>(<span class="string">&quot;.&quot;</span>)
+    .<span class="ident">build</span>();
+
+<span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;You don&#39;t _always need_ to italicize _everything_.&quot;</span>;
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="ident">expected</span>);</pre>
+</div><h4 id='method.push_bold' class="method"><span id='push_bold.v' class='invisible'><code>fn <a href='#method.push_bold' class='fnname'>push_bold</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#315-321' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inline bold text to the content.</p>
+</div><h4 id='method.push_underline' class="method"><span id='push_underline.v' class='invisible'><code>fn <a href='#method.push_underline' class='fnname'>push_underline</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#324-330' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an underlined inline text to the content.</p>
+</div><h4 id='method.push_strike' class="method"><span id='push_strike.v' class='invisible'><code>fn <a href='#method.push_strike' class='fnname'>push_strike</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#333-339' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes a strikethrough inline text to the content.</p>
+</div><h4 id='method.push_line' class="method"><span id='push_line.v' class='invisible'><code>fn <a href='#method.push_line' class='fnname'>push_line</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#354-359' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes the given text with a newline appended to the content.</p>
+
+<h1 id='examples-9' class='section-header'><a href='#examples-9'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push_line</span>(<span class="string">&quot;hello&quot;</span>).<span class="ident">push</span>(<span class="string">&quot;world&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;hello\nworld&quot;</span>);</pre>
+</div><h4 id='method.push_mono_line' class="method"><span id='push_mono_line.v' class='invisible'><code>fn <a href='#method.push_mono_line' class='fnname'>push_mono_line</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#374-379' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes inlined monospace text with an added newline to the content.</p>
+
+<h1 id='examples-10' class='section-header'><a href='#examples-10'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push_mono_line</span>(<span class="string">&quot;hello&quot;</span>).<span class="ident">push</span>(<span class="string">&quot;world&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;`hello`\nworld&quot;</span>);</pre>
+</div><h4 id='method.push_italic_line' class="method"><span id='push_italic_line.v' class='invisible'><code>fn <a href='#method.push_italic_line' class='fnname'>push_italic_line</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#394-399' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inlined italicized text with an added newline to the content.</p>
+
+<h1 id='examples-11' class='section-header'><a href='#examples-11'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push_italic_line</span>(<span class="string">&quot;hello&quot;</span>).<span class="ident">push</span>(<span class="string">&quot;world&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;_hello_\nworld&quot;</span>);</pre>
+</div><h4 id='method.push_bold_line' class="method"><span id='push_bold_line.v' class='invisible'><code>fn <a href='#method.push_bold_line' class='fnname'>push_bold_line</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#414-419' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inline bold text with an added newline to the content.</p>
+
+<h1 id='examples-12' class='section-header'><a href='#examples-12'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push_bold_line</span>(<span class="string">&quot;hello&quot;</span>).<span class="ident">push</span>(<span class="string">&quot;world&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;**hello**\nworld&quot;</span>);</pre>
+</div><h4 id='method.push_underline_line' class="method"><span id='push_underline_line.v' class='invisible'><code>fn <a href='#method.push_underline_line' class='fnname'>push_underline_line</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#434-439' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an underlined inline text with an added newline to the content.</p>
+
+<h1 id='examples-13' class='section-header'><a href='#examples-13'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push_underline_line</span>(<span class="string">&quot;hello&quot;</span>).<span class="ident">push</span>(<span class="string">&quot;world&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;__hello__\nworld&quot;</span>);</pre>
+</div><h4 id='method.push_strike_line' class="method"><span id='push_strike_line.v' class='invisible'><code>fn <a href='#method.push_strike_line' class='fnname'>push_strike_line</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#454-459' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes a strikethrough inline text with a newline added to the content.</p>
+
+<h1 id='examples-14' class='section-header'><a href='#examples-14'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push_strike_line</span>(<span class="string">&quot;hello&quot;</span>).<span class="ident">push</span>(<span class="string">&quot;world&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;~~hello~~\nworld&quot;</span>);</pre>
+</div><h4 id='method.push_safe' class="method"><span id='push_safe.v' class='invisible'><code>fn <a href='#method.push_safe' class='fnname'>push_safe</a>&lt;C:&nbsp;I&gt;(self, content: C) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#463-475' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes text to your message, but normalizing content - that means
+ensuring that there&#39;s no unwanted formatting, mention spam etc.</p>
+</div><h4 id='method.push_codeblock_safe' class="method"><span id='push_codeblock_safe.v' class='invisible'><code>fn <a href='#method.push_codeblock_safe' class='fnname'>push_codeblock_safe</a>&lt;D:&nbsp;I&gt;(self, content: D, language: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#478-493' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes a code-block to your message normalizing content.</p>
+</div><h4 id='method.push_mono_safe' class="method"><span id='push_mono_safe.v' class='invisible'><code>fn <a href='#method.push_mono_safe' class='fnname'>push_mono_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#496-506' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inline monospaced text to the content normalizing content.</p>
+</div><h4 id='method.push_italic_safe' class="method"><span id='push_italic_safe.v' class='invisible'><code>fn <a href='#method.push_italic_safe' class='fnname'>push_italic_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#509-519' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inline italicized text to the content normalizing content.</p>
+</div><h4 id='method.push_bold_safe' class="method"><span id='push_bold_safe.v' class='invisible'><code>fn <a href='#method.push_bold_safe' class='fnname'>push_bold_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#522-532' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inline bold text to the content normalizing content.</p>
+</div><h4 id='method.push_underline_safe' class="method"><span id='push_underline_safe.v' class='invisible'><code>fn <a href='#method.push_underline_safe' class='fnname'>push_underline_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#535-545' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an underlined inline text to the content normalizing content.</p>
+</div><h4 id='method.push_strike_safe' class="method"><span id='push_strike_safe.v' class='invisible'><code>fn <a href='#method.push_strike_safe' class='fnname'>push_strike_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#548-558' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes a strikethrough inline text to the content normalizing content.</p>
+</div><h4 id='method.push_line_safe' class="method"><span id='push_line_safe.v' class='invisible'><code>fn <a href='#method.push_line_safe' class='fnname'>push_line_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#575-580' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes text with a newline appended to the content normalizing content.</p>
+
+<h1 id='examples-15' class='section-header'><a href='#examples-15'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>().<span class="ident">push_line_safe</span>(<span class="string">&quot;Hello @everyone&quot;</span>)
+                                   .<span class="ident">push</span>(<span class="string">&quot;How are you?&quot;</span>)
+                                   .<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;Hello @\u{200B}everyone\nHow are you?&quot;</span>);</pre>
+</div><h4 id='method.push_mono_line_safe' class="method"><span id='push_mono_line_safe.v' class='invisible'><code>fn <a href='#method.push_mono_line_safe' class='fnname'>push_mono_line_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#597-602' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inline monospaced text with added newline to the content normalizing content.</p>
+
+<h1 id='examples-16' class='section-header'><a href='#examples-16'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+                .<span class="ident">push_mono_line_safe</span>(<span class="string">&quot;`hello @everyone`&quot;</span>)
+                .<span class="ident">push</span>(<span class="string">&quot;world&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;`&#39;hello @\u{200B}everyone&#39;`\nworld&quot;</span>);</pre>
+</div><h4 id='method.push_italic_line_safe' class="method"><span id='push_italic_line_safe.v' class='invisible'><code>fn <a href='#method.push_italic_line_safe' class='fnname'>push_italic_line_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#619-624' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inline italicized text with added newline to the content normalizing content.</p>
+
+<h1 id='examples-17' class='section-header'><a href='#examples-17'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+                .<span class="ident">push_italic_line_safe</span>(<span class="string">&quot;@everyone&quot;</span>)
+                .<span class="ident">push</span>(<span class="string">&quot;Isn&#39;t a mention.&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;_@\u{200B}everyone_\nIsn&#39;t a mention.&quot;</span>);</pre>
+</div><h4 id='method.push_bold_line_safe' class="method"><span id='push_bold_line_safe.v' class='invisible'><code>fn <a href='#method.push_bold_line_safe' class='fnname'>push_bold_line_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#641-646' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an inline bold text with added newline to the content normalizing content.</p>
+
+<h1 id='examples-18' class='section-header'><a href='#examples-18'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+                .<span class="ident">push_bold_line_safe</span>(<span class="string">&quot;@everyone&quot;</span>)
+                .<span class="ident">push</span>(<span class="string">&quot;Isn&#39;t a mention.&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;**@\u{200B}everyone**\nIsn&#39;t a mention.&quot;</span>);</pre>
+</div><h4 id='method.push_underline_line_safe' class="method"><span id='push_underline_line_safe.v' class='invisible'><code>fn <a href='#method.push_underline_line_safe' class='fnname'>push_underline_line_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#663-668' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes an underlined inline text with added newline to the content normalizing content.</p>
+
+<h1 id='examples-19' class='section-header'><a href='#examples-19'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+                .<span class="ident">push_underline_line_safe</span>(<span class="string">&quot;@everyone&quot;</span>)
+                .<span class="ident">push</span>(<span class="string">&quot;Isn&#39;t a mention.&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;__@\u{200B}everyone__\nIsn&#39;t a mention.&quot;</span>);</pre>
+</div><h4 id='method.push_strike_line_safe' class="method"><span id='push_strike_line_safe.v' class='invisible'><code>fn <a href='#method.push_strike_line_safe' class='fnname'>push_strike_line_safe</a>&lt;D:&nbsp;I&gt;(self, content: D) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#686-691' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Pushes a strikethrough inline text with added newline to the content normalizing
+content.</p>
+
+<h1 id='examples-20' class='section-header'><a href='#examples-20'>Examples</a></h1>
+<p>Push content and then append a newline:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+
+<span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">MessageBuilder</span>::<span class="ident">new</span>()
+                .<span class="ident">push_strike_line_safe</span>(<span class="string">&quot;@everyone&quot;</span>)
+                .<span class="ident">push</span>(<span class="string">&quot;Isn&#39;t a mention.&quot;</span>).<span class="ident">build</span>();
+
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">content</span>, <span class="string">&quot;~~@\u{200B}everyone~~\nIsn&#39;t a mention.&quot;</span>);</pre>
+</div><h4 id='method.role' class="method"><span id='role.v' class='invisible'><code>fn <a href='#method.role' class='fnname'>role</a>&lt;R:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a>&gt;&gt;(self, role: R) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#704-708' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Mentions the <a href="../model/struct.Role.html"><code>Role</code></a> in the built message.</p>
+
+<p>This accepts anything that converts <em>into</em> a <a href="../model/struct.RoleId.html"><code>RoleId</code></a>. Refer to
+<code>RoleId</code>&#39;s documentation for more information.</p>
+
+<p>Refer to <code>RoleId</code>&#39;s <a href="../model/struct.RoleId.html#method.fmt-1">Display implementation</a> for more information on how
+this is formatted.</p>
+</div><h4 id='method.user' class="method"><span id='user.v' class='invisible'><code>fn <a href='#method.user' class='fnname'>user</a>&lt;U:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.UserId.html" title="struct serenity::model::UserId">UserId</a>&gt;&gt;(self, user: U) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#721-725' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Mentions the <a href="../model/struct.User.html"><code>User</code></a> in the built message.</p>
+
+<p>This accepts anything that converts <em>into</em> a <a href="../model/struct.UserId.html"><code>UserId</code></a>. Refer to
+<code>UserId</code>&#39;s documentation for more information.</p>
+
+<p>Refer to <code>UserId</code>&#39;s <a href="../model/struct.UserId.html#method.fmt-1">Display implementation</a> for more information on how
+this is formatted.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../serenity/utils/struct.MessageBuilder.html" title="struct serenity::utils::MessageBuilder">MessageBuilder</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#43' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../serenity/utils/struct.MessageBuilder.html" title="struct serenity::utils::MessageBuilder">MessageBuilder</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#43' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../serenity/utils/struct.MessageBuilder.html" title="struct serenity::utils::MessageBuilder">MessageBuilder</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#43' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#43' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-Default' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../../serenity/utils/struct.MessageBuilder.html" title="struct serenity::utils::MessageBuilder">MessageBuilder</a></code><a href='#impl-Default' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#43' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../../serenity/utils/struct.MessageBuilder.html" title="struct serenity::utils::MessageBuilder">MessageBuilder</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#43' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="../../serenity/utils/struct.MessageBuilder.html" title="struct serenity::utils::MessageBuilder">MessageBuilder</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#728-744' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/utils/message_builder.rs.html#743' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the message builder into a string.</p>
+
+<p>This is done by simply taking the internal value of the tuple-struct and
+writing it into the formatter.</p>
+
+<h1 id='examples-21' class='section-header'><a href='#examples-21'>Examples</a></h1>
+<p>Create a message builder, and format it into a string via the <code>format!</code>
+macro:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">utils</span>::<span class="ident">MessageBuilder</span>;
+</pre>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Error` enum in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Error">
+
+    <title>serenity::Error - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Enum Error</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>serenity</a></p><script>window.sidebarCurrent = {name: 'Error', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>serenity</a>::<wbr><a class="enum" href=''>Error</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/serenity/error.rs.html#49-108' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum Error {
+    Decode(&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,&nbsp;<a class="enum" href="../serde_json/value/enum.Value.html" title="enum serde_json::value::Value">Value</a>),
+    Format(<a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html" title="struct core::fmt::Error">FormatError</a>),
+    Io(<a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">IoError</a>),
+    Json(<a class="struct" href="../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">JsonError</a>),
+    Model(<a class="enum" href="../serenity/model/enum.ModelError.html" title="enum serenity::model::ModelError">ModelError</a>),
+    Num(<a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.ParseIntError.html" title="struct core::num::ParseIntError">ParseIntError</a>),
+    ExceededLimit(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>),
+    Other(&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>),
+    Url(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>),
+    Client(<a class="enum" href="../serenity/prelude/enum.ClientError.html" title="enum serenity::prelude::ClientError">ClientError</a>),
+    Gateway(<a class="enum" href="../serenity/prelude/enum.GatewayError.html" title="enum serenity::prelude::GatewayError">GatewayError</a>),
+    Http(<a class="enum" href="../serenity/prelude/enum.HttpError.html" title="enum serenity::prelude::HttpError">HttpError</a>),
+    Hyper(<a class="enum" href="../hyper/error/enum.Error.html" title="enum hyper::error::Error">HyperError</a>),
+    Tls(<a class="struct" href="../native_tls/struct.Error.html" title="struct native_tls::Error">TlsError</a>),
+    WebSocket(<a class="enum" href="../evzht9h3nznqzwl/result/enum.WebSocketError.html" title="enum evzht9h3nznqzwl::result::WebSocketError">WebSocketError</a>),
+}</pre><div class='docblock'><p>A common error enum returned by most of the library&#39;s functionality within a
+custom <a href="type.Result.html"><code>Result</code></a>.</p>
+
+<p>The most common error types, the <a href="client/enum.ClientError.html"><code>ClientError</code></a> and <a href="gateway/enum.GatewayError.html"><code>GatewayError</code></a>
+enums, are both wrapped around this in the form of the <a href="#variant.Client"><code>Client</code></a> and
+<a href="#variant.Gateway"><code>Gateway</code></a> variants.</p>
+</div><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id='variant.Decode' class='variant'><span id='Decode.v' class='invisible'><code>Decode(&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,&nbsp;<a class="enum" href="../serde_json/value/enum.Value.html" title="enum serde_json::value::Value">Value</a>)</code></span></span><div class='docblock'><p>An error while decoding a payload.</p>
+</div><span id='variant.Format' class='variant'><span id='Format.v' class='invisible'><code>Format(<a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html" title="struct core::fmt::Error">FormatError</a>)</code></span></span><div class='docblock'><p>There was an error with a format.</p>
+</div><span id='variant.Io' class='variant'><span id='Io.v' class='invisible'><code>Io(<a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">IoError</a>)</code></span></span><div class='docblock'><p>An <code>std::io</code> error.</p>
+</div><span id='variant.Json' class='variant'><span id='Json.v' class='invisible'><code>Json(<a class="struct" href="../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">JsonError</a>)</code></span></span><div class='docblock'><p>An error from the <code>serde_json</code> crate.</p>
+</div><span id='variant.Model' class='variant'><span id='Model.v' class='invisible'><code>Model(<a class="enum" href="../serenity/model/enum.ModelError.html" title="enum serenity::model::ModelError">ModelError</a>)</code></span></span><div class='docblock'><p>An error from the <a href="model/index.html"><code>model</code></a> module.</p>
+</div><span id='variant.Num' class='variant'><span id='Num.v' class='invisible'><code>Num(<a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.ParseIntError.html" title="struct core::num::ParseIntError">ParseIntError</a>)</code></span></span><div class='docblock'><p>An error occurred while parsing an integer.</p>
+</div><span id='variant.ExceededLimit' class='variant'><span id='ExceededLimit.v' class='invisible'><code>ExceededLimit(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>)</code></span></span><div class='docblock'><p>Input exceeded a limit.
+Providing the input and the limit that&#39;s not supposed to be exceeded.</p>
+
+<p><em>This only exists for the <code>GuildId::ban</code> and <code>Member::ban</code> functions. For their cases,
+it&#39;s the &quot;reason&quot;.</em></p>
+</div><span id='variant.Other' class='variant'><span id='Other.v' class='invisible'><code>Other(&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>)</code></span></span><div class='docblock'><p>Some other error. This is only used for &quot;Expected value <TYPE>&quot; errors,
+when a more detailed error can not be easily provided via the
+<a href="#variant.Decode"><code>Error::Decode</code></a> variant.</p>
+</div><span id='variant.Url' class='variant'><span id='Url.v' class='invisible'><code>Url(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>)</code></span></span><div class='docblock'><p>An error from the <code>url</code> crate.</p>
+</div><span id='variant.Client' class='variant'><span id='Client.v' class='invisible'><code>Client(<a class="enum" href="../serenity/prelude/enum.ClientError.html" title="enum serenity::prelude::ClientError">ClientError</a>)</code></span></span><div class='docblock'><p>A <a href="client/index.html">client</a> error.</p>
+</div><span id='variant.Gateway' class='variant'><span id='Gateway.v' class='invisible'><code>Gateway(<a class="enum" href="../serenity/prelude/enum.GatewayError.html" title="enum serenity::prelude::GatewayError">GatewayError</a>)</code></span></span><div class='docblock'><p>An error from the <code>gateway</code> module.</p>
+</div><span id='variant.Http' class='variant'><span id='Http.v' class='invisible'><code>Http(<a class="enum" href="../serenity/prelude/enum.HttpError.html" title="enum serenity::prelude::HttpError">HttpError</a>)</code></span></span><div class='docblock'><p>An error from the <a href="http/index.html"><code>http</code></a> module.</p>
+</div><span id='variant.Hyper' class='variant'><span id='Hyper.v' class='invisible'><code>Hyper(<a class="enum" href="../hyper/error/enum.Error.html" title="enum hyper::error::Error">HyperError</a>)</code></span></span><div class='docblock'><p>An error from the <code>hyper</code> crate.</p>
+</div><span id='variant.Tls' class='variant'><span id='Tls.v' class='invisible'><code>Tls(<a class="struct" href="../native_tls/struct.Error.html" title="struct native_tls::Error">TlsError</a>)</code></span></span><div class='docblock'><p>An error from the <code>native-tls</code> crate.</p>
+</div><span id='variant.WebSocket' class='variant'><span id='WebSocket.v' class='invisible'><code>WebSocket(<a class="enum" href="../evzht9h3nznqzwl/result/enum.WebSocketError.html" title="enum evzht9h3nznqzwl::result::WebSocketError">WebSocketError</a>)</code></span></span><div class='docblock'><p>An error from the <code>rust-websocket</code> crate.</p>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#48' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#48' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-From&lt;FormatError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html" title="struct core::fmt::Error">FormatError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;FormatError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#110-112' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from' class="method"><span id='from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html" title="struct core::fmt::Error">FormatError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#111' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;GatewayError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="enum" href="../serenity/prelude/enum.GatewayError.html" title="enum serenity::prelude::GatewayError">GatewayError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;GatewayError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#115-117' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-1' class="method"><span id='from.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="enum" href="../serenity/prelude/enum.GatewayError.html" title="enum serenity::prelude::GatewayError">GatewayError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#116' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;HyperError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="enum" href="../hyper/error/enum.Error.html" title="enum hyper::error::Error">HyperError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;HyperError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#120-122' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-2' class="method"><span id='from.v-2' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="enum" href="../hyper/error/enum.Error.html" title="enum hyper::error::Error">HyperError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#121' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;IoError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">IoError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;IoError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#124-126' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-3' class="method"><span id='from.v-3' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">IoError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#125' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;JsonError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">JsonError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;JsonError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#128-130' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-4' class="method"><span id='from.v-4' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="struct" href="../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">JsonError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#129' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;ParseIntError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.ParseIntError.html" title="struct core::num::ParseIntError">ParseIntError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;ParseIntError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#132-134' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-5' class="method"><span id='from.v-5' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.ParseIntError.html" title="struct core::num::ParseIntError">ParseIntError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#133' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;ModelError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="enum" href="../serenity/model/enum.ModelError.html" title="enum serenity::model::ModelError">ModelError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;ModelError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#136-138' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-6' class="method"><span id='from.v-6' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="enum" href="../serenity/model/enum.ModelError.html" title="enum serenity::model::ModelError">ModelError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#137' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;TlsError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="../native_tls/struct.Error.html" title="struct native_tls::Error">TlsError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;TlsError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#146-148' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-7' class="method"><span id='from.v-7' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="struct" href="../native_tls/struct.Error.html" title="struct native_tls::Error">TlsError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#147' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;WebSocketError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="enum" href="../evzht9h3nznqzwl/result/enum.WebSocketError.html" title="enum evzht9h3nznqzwl::result::WebSocketError">WebSocketError</a>&gt; for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-From&lt;WebSocketError&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#151-153' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-8' class="method"><span id='from.v-8' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="enum" href="../evzht9h3nznqzwl/result/enum.WebSocketError.html" title="enum evzht9h3nznqzwl::result::WebSocketError">WebSocketError</a>) -&gt; <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#152' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#155-169' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#156-168' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-StdError' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">StdError</a> for <a class="enum" href="../serenity/enum.Error.html" title="enum serenity::Error">Error</a></code><a href='#impl-StdError' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#171-212' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.description' class="method"><span id='description.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description' class='fnname'>description</a>(&amp;self) -&gt; &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#172-199' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>A short description of the error. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description">Read more</a></p>
+</div><h4 id='method.cause' class="method"><span id='cause.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause' class='fnname'>cause</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">StdError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/serenity/error.rs.html#201-211' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>The lower-level cause of this error, if any. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

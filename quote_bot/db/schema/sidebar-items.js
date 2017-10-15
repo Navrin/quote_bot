@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["authors","Representation of the `authors` table."],["quotes","Representation of the `quotes` table."]]});

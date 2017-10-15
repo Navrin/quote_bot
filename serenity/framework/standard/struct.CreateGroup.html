@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `CreateGroup` struct in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CreateGroup">
+
+    <title>serenity::framework::standard::CreateGroup - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct CreateGroup</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../../index.html'>serenity</a>::<wbr><a href='../index.html'>framework</a>::<wbr><a href='index.html'>standard</a></p><script>window.sidebarCurrent = {name: 'CreateGroup', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>serenity</a>::<wbr><a href='../index.html'>framework</a>::<wbr><a href='index.html'>standard</a>::<wbr><a class="struct" href=''>CreateGroup</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#27' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct CreateGroup(pub <a class="struct" href="../../../serenity/framework/standard/struct.CommandGroup.html" title="struct serenity::framework::standard::CommandGroup">CommandGroup</a>);</pre><div class='docblock'><p>Used to create command groups</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>Create group named Information where all commands are prefixed with info,
+and add one command named &quot;name&quot;. For example, if prefix is &quot;~&quot;, we say &quot;~info name&quot;
+to call the &quot;name&quot; command.</p>
+
+<pre class="rust rust-example-rendered">
+<span class="ident">framework</span>.<span class="ident">group</span>(<span class="string">&quot;Information&quot;</span>, <span class="op">|</span><span class="ident">g</span><span class="op">|</span> <span class="ident">g</span>
+    .<span class="ident">prefix</span>(<span class="string">&quot;info&quot;</span>)
+    .<span class="ident">command</span>(<span class="string">&quot;name&quot;</span>, <span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>
+        .<span class="ident">exec_str</span>(<span class="string">&quot;Hakase&quot;</span>)))</pre>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../serenity/framework/standard/struct.CreateGroup.html" title="struct serenity::framework::standard::CreateGroup">CreateGroup</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#29-147' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.command' class="method"><span id='command.v' class='invisible'><code>fn <a href='#method.command' class='fnname'>command</a>&lt;F&gt;(self, command_name: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, f: F) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="struct" href="../../../serenity/framework/standard/struct.CreateCommand.html" title="struct serenity::framework::standard::CreateCommand">CreateCommand</a>) -&gt; <a class="struct" href="../../../serenity/framework/standard/struct.CreateCommand.html" title="struct serenity::framework::standard::CreateCommand">CreateCommand</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#46-70' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Adds a command to group.</p>
+</div><h4 id='method.on' class="method"><span id='on.v' class='invisible'><code>fn <a href='#method.on' class='fnname'>on</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;name: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;f: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(_: &amp;mut <a class="struct" href="../../../serenity/prelude/struct.Context.html" title="struct serenity::prelude::Context">Context</a>, _: &amp;<a class="struct" href="../../../serenity/model/struct.Message.html" title="struct serenity::model::Message">Message</a>, _: <a class="struct" href="../../../serenity/framework/standard/struct.Args.html" title="struct serenity::framework::standard::Args">Args</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>, <a class="struct" href="../../../serenity/framework/standard/struct.CommandError.html" title="struct serenity::framework::standard::CommandError">CommandError</a>&gt;<br>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#74-83' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Adds a command to group with simplified API.
+You can return Err(From::from(string)) if there&#39;s an error.</p>
+</div><h4 id='method.prefix' class="method"><span id='prefix.v' class='invisible'><code>fn <a href='#method.prefix' class='fnname'>prefix</a>(self, desc: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#92-96' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>If prefix is set, it will be required before all command names.
+For example, if bot prefix is &quot;~&quot; and group prefix is &quot;image&quot;
+we&#39;d call a subcommand named &quot;hibiki&quot; by sending &quot;~image hibiki&quot;.</p>
+
+<p><strong>Note</strong>: serenity automatically puts a space after group prefix.</p>
+
+<p><strong>Note</strong>: It&#39;s suggested to call this first when making a group.</p>
+</div><h4 id='method.bucket' class="method"><span id='bucket.v' class='invisible'><code>fn <a href='#method.bucket' class='fnname'>bucket</a>(self, bucket: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#99-103' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Adds a ratelimit bucket.</p>
+</div><h4 id='method.dm_only' class="method"><span id='dm_only.v' class='invisible'><code>fn <a href='#method.dm_only' class='fnname'>dm_only</a>(self, dm_only: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#106-110' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Whether command can be used only privately or not.</p>
+</div><h4 id='method.guild_only' class="method"><span id='guild_only.v' class='invisible'><code>fn <a href='#method.guild_only' class='fnname'>guild_only</a>(self, guild_only: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#113-117' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Whether command can be used only in guilds or not.</p>
+</div><h4 id='method.help_available' class="method"><span id='help_available.v' class='invisible'><code>fn <a href='#method.help_available' class='fnname'>help_available</a>(self, help_available: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#120-124' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Whether command should be displayed in help list or not, used by other commands.</p>
+</div><h4 id='method.owners_only' class="method"><span id='owners_only.v' class='invisible'><code>fn <a href='#method.owners_only' class='fnname'>owners_only</a>(self, owners_only: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#127-131' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Whether command can be used only privately or not.</p>
+</div><h4 id='method.required_permissions' class="method"><span id='required_permissions.v' class='invisible'><code>fn <a href='#method.required_permissions' class='fnname'>required_permissions</a>(self, permissions: <a class="struct" href="../../../serenity/model/permissions/struct.Permissions.html" title="struct serenity::model::permissions::Permissions">Permissions</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#135-139' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>The permissions that a user must have in the contextual channel in order
+for the command to be processed.</p>
+</div><h4 id='method.allowed_roles' class="method"><span id='allowed_roles.v' class='invisible'><code>fn <a href='#method.allowed_roles' class='fnname'>allowed_roles</a>(self, allowed_roles: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#142-146' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sets roles that are allowed to use the command.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Default' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../../../serenity/framework/standard/struct.CreateGroup.html" title="struct serenity::framework::standard::CreateGroup">CreateGroup</a></code><a href='#impl-Default' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#26' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../../../serenity/framework/standard/struct.CreateGroup.html" title="struct serenity::framework::standard::CreateGroup">CreateGroup</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/framework/standard/create_group.rs.html#26' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Channel` enum in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Channel">
+
+    <title>serenity::model::Channel - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Enum Channel</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>serenity</a>::<wbr><a href='index.html'>model</a></p><script>window.sidebarCurrent = {name: 'Channel', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>serenity</a>::<wbr><a href='index.html'>model</a>::<wbr><a class="enum" href=''>Channel</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#36-54' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum Channel {
+    Group(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.Group.html" title="struct serenity::model::Group">Group</a>&gt;&gt;),
+    Guild(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.GuildChannel.html" title="struct serenity::model::GuildChannel">GuildChannel</a>&gt;&gt;),
+    Private(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.PrivateChannel.html" title="struct serenity::model::PrivateChannel">PrivateChannel</a>&gt;&gt;),
+    Category(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.ChannelCategory.html" title="struct serenity::model::ChannelCategory">ChannelCategory</a>&gt;&gt;),
+}</pre><div class='docblock'><p>A container for any channel.</p>
+</div><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id='variant.Group' class='variant'><span id='Group.v' class='invisible'><code>Group(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.Group.html" title="struct serenity::model::Group">Group</a>&gt;&gt;)</code></span></span><div class='docblock'><p>A group. A group comprises of only one channel.</p>
+</div><span id='variant.Guild' class='variant'><span id='Guild.v' class='invisible'><code>Guild(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.GuildChannel.html" title="struct serenity::model::GuildChannel">GuildChannel</a>&gt;&gt;)</code></span></span><div class='docblock'><p>A <a href="enum.ChannelType.html#variant.Text">text</a> or <a href="enum.ChannelType.html#variant.Voice">voice</a> channel within a <a href="struct.Guild.html"><code>Guild</code></a>.</p>
+</div><span id='variant.Private' class='variant'><span id='Private.v' class='invisible'><code>Private(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.PrivateChannel.html" title="struct serenity::model::PrivateChannel">PrivateChannel</a>&gt;&gt;)</code></span></span><div class='docblock'><p>A private channel to another <a href="struct.User.html"><code>User</code></a>. No other users may access the
+channel. For multi-user &quot;private channels&quot;, use a group.</p>
+</div><span id='variant.Category' class='variant'><span id='Category.v' class='invisible'><code>Category(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLock.html" title="struct std::sync::rwlock::RwLock">RwLock</a>&lt;<a class="struct" href="../../serenity/model/struct.ChannelCategory.html" title="struct serenity::model::ChannelCategory">ChannelCategory</a>&gt;&gt;)</code></span></span><div class='docblock'><p>A category of <a href="struct.GuildChannel.html"><code>GuildChannel</code></a>s</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="enum" href="../../serenity/model/enum.Channel.html" title="enum serenity::model::Channel">Channel</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#56-332' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.create_reaction' class="method"><span id='create_reaction.v' class='invisible'><code>fn <a href='#method.create_reaction' class='fnname'>create_reaction</a>&lt;M, R&gt;(&amp;self, message_id: M, reaction_type: R) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;M: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.MessageId.html" title="struct serenity::model::MessageId">MessageId</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;R: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="enum" href="../../serenity/model/enum.ReactionType.html" title="enum serenity::model::ReactionType">ReactionType</a>&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#71-74' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>React to a <a href="struct.Message.html"><code>Message</code></a> with a custom <a href="struct.Emoji.html"><code>Emoji</code></a> or unicode character.</p>
+
+<p><a href="struct.Message.html#method.react"><code>Message::react</code></a> may be a more suited method of reacting in most
+cases.</p>
+
+<p>Requires the <a href="permissions/constant.ADD_REACTIONS.html">Add Reactions</a> permission, <em>if</em> the current user is the
+first user to perform a react with a certain emoji.</p>
+</div><h4 id='method.delete' class="method"><span id='delete.v' class='invisible'><code>fn <a href='#method.delete' class='fnname'>delete</a>(&amp;self) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#83-100' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Deletes the inner channel.</p>
+
+<p><strong>Note</strong>: There is no real function as <em>deleting</em> a <a href="struct.Group.html"><code>Group</code></a>. The
+closest functionality is leaving it.</p>
+</div><h4 id='method.delete_message' class="method"><span id='delete_message.v' class='invisible'><code>fn <a href='#method.delete_message' class='fnname'>delete_message</a>&lt;M:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.MessageId.html" title="struct serenity::model::MessageId">MessageId</a>&gt;&gt;(&amp;self, message_id: M) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#114-116' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Deletes a <a href="struct.Message.html"><code>Message</code></a> given its Id.</p>
+
+<p>Refer to <a href="struct.Message.html#method.delete"><code>Message::delete</code></a> for more information.</p>
+
+<p>Requires the <a href="permissions/constant.MANAGE_MESSAGES.html">Manage Messages</a> permission, if the current user is not
+the author of the message.</p>
+</div><h4 id='method.delete_reaction' class="method"><span id='delete_reaction.v' class='invisible'><code>fn <a href='#method.delete_reaction' class='fnname'>delete_reaction</a>&lt;M, R&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;message_id: M, <br>&nbsp;&nbsp;&nbsp;&nbsp;user_id: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../serenity/model/struct.UserId.html" title="struct serenity::model::UserId">UserId</a>&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;reaction_type: R<br>) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;M: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.MessageId.html" title="struct serenity::model::MessageId">MessageId</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;R: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="enum" href="../../serenity/model/enum.ReactionType.html" title="enum serenity::model::ReactionType">ReactionType</a>&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#127-135' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Deletes the given <a href="struct.Reaction.html"><code>Reaction</code></a> from the channel.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.MANAGE_MESSAGES.html">Manage Messages</a> permission, <em>if</em> the current
+user did not perform the reaction.</p>
+</div><h4 id='method.edit_message' class="method"><span id='edit_message.v' class='invisible'><code>fn <a href='#method.edit_message' class='fnname'>edit_message</a>&lt;F, M&gt;(&amp;self, message_id: M, f: F) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="../../serenity/model/struct.Message.html" title="struct serenity::model::Message">Message</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a>) -&gt; <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;M: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.MessageId.html" title="struct serenity::model::MessageId">MessageId</a>&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#158-161' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Edits a <a href="struct.Message.html"><code>Message</code></a> in the channel given its Id.</p>
+
+<p>Message editing preserves all unchanged message data.</p>
+
+<p>Refer to the documentation for <a href="../builder/struct.CreateMessage.html"><code>CreateMessage</code></a> for more information
+regarding message restrictions and requirements.</p>
+
+<p><strong>Note</strong>: Requires that the current user be the author of the message.</p>
+
+<h1 id='errors' class='section-header'><a href='#errors'>Errors</a></h1>
+<p>Returns a <a href="enum.ModelError.html#variant.MessageTooLong"><code>ModelError::MessageTooLong</code></a> if the content of the message
+is over the <a href="../builder/struct.CreateMessage.html#method.content"><code>the limit</code></a>, containing the number of unicode code points
+over the limit.</p>
+</div><h4 id='method.is_nsfw' class="method"><span id='is_nsfw.v' class='invisible'><code>fn <a href='#method.is_nsfw' class='fnname'>is_nsfw</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#170-176' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Determines if the channel is NSFW.</p>
+
+<p>Refer to <a href="../utils/fn.is_nsfw.html"><code>utils::is_nsfw</code></a> for more details.</p>
+</div><h4 id='method.message' class="method"><span id='message.v' class='invisible'><code>fn <a href='#method.message' class='fnname'>message</a>&lt;M:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.MessageId.html" title="struct serenity::model::MessageId">MessageId</a>&gt;&gt;(&amp;self, message_id: M) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="../../serenity/model/struct.Message.html" title="struct serenity::model::Message">Message</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#185-187' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Gets a message from the channel.</p>
+
+<p>Requires the <a href="permissions/constant.READ_MESSAGE_HISTORY.html">Read Message History</a> permission.</p>
+</div><h4 id='method.messages' class="method"><span id='messages.v' class='invisible'><code>fn <a href='#method.messages' class='fnname'>messages</a>&lt;F&gt;(&amp;self, f: F) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../serenity/model/struct.Message.html" title="struct serenity::model::Message">Message</a>&gt;&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="struct" href="../../serenity/builder/struct.GetMessages.html" title="struct serenity::builder::GetMessages">GetMessages</a>) -&gt; <a class="struct" href="../../serenity/builder/struct.GetMessages.html" title="struct serenity::builder::GetMessages">GetMessages</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#207-210' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Gets messages from the channel.</p>
+
+<p>Requires the <a href="permissions/constant.READ_MESSAGE_HISTORY.html">Read Message History</a> permission.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">serenity</span>::<span class="ident">model</span>::<span class="ident">MessageId</span>;
+
+<span class="kw">let</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">MessageId</span>(<span class="number">81392407232380928</span>);
+
+<span class="comment">// Maximum is 100.</span>
+<span class="kw">let</span> <span class="ident">_messages</span> <span class="op">=</span> <span class="ident">channel</span>.<span class="ident">messages</span>(<span class="op">|</span><span class="ident">g</span><span class="op">|</span> <span class="ident">g</span>.<span class="ident">after</span>(<span class="ident">id</span>).<span class="ident">limit</span>(<span class="number">100</span>));</pre>
+</div><h4 id='method.reaction_users' class="method"><span id='reaction_users.v' class='invisible'><code>fn <a href='#method.reaction_users' class='fnname'>reaction_users</a>&lt;M, R, U&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;message_id: M, <br>&nbsp;&nbsp;&nbsp;&nbsp;reaction_type: R, <br>&nbsp;&nbsp;&nbsp;&nbsp;limit: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;after: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;U&gt;<br>) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../serenity/model/struct.User.html" title="struct serenity::model::User">User</a>&gt;&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;M: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.MessageId.html" title="struct serenity::model::MessageId">MessageId</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;R: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="enum" href="../../serenity/model/enum.ReactionType.html" title="enum serenity::model::ReactionType">ReactionType</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;U: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.UserId.html" title="struct serenity::model::UserId">UserId</a>&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#230-239' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Gets the list of <a href="struct.User.html"><code>User</code></a>s who have reacted to a <a href="struct.Message.html"><code>Message</code></a> with a
+certain <a href="struct.Emoji.html"><code>Emoji</code></a>.</p>
+
+<p>The default <code>limit</code> is <code>50</code> - specify otherwise to receive a different
+maximum number of users. The maximum that may be retrieve at a time is
+<code>100</code>, if a greater number is provided then it is automatically reduced.</p>
+
+<p>The optional <code>after</code> attribute is to retrieve the users after a certain
+user. This is useful for pagination.</p>
+
+<p><strong>Note</strong>: Requires the <a href="permissions/constant.READ_MESSAGE_HISTORY.html">Read Message History</a> permission.</p>
+</div><h4 id='method.id' class="method"><span id='id.v' class='invisible'><code>fn <a href='#method.id' class='fnname'>id</a>(&amp;self) -&gt; <a class="struct" href="../../serenity/model/struct.ChannelId.html" title="struct serenity::model::ChannelId">ChannelId</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#247-254' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Retrieves the Id of the inner <a href="struct.Group.html"><code>Group</code></a>, <a href="struct.GuildChannel.html"><code>GuildChannel</code></a>, or
+<a href="struct.PrivateChannel.html"><code>PrivateChannel</code></a>.</p>
+</div><h4 id='method.say' class="method"><span id='say.v' class='invisible'><code>fn <a href='#method.say' class='fnname'>say</a>(&amp;self, content: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="../../serenity/model/struct.Message.html" title="struct serenity::model::Message">Message</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sends a message with just the given message content in the channel.</p>
+
+<h1 id='errors-1' class='section-header'><a href='#errors-1'>Errors</a></h1>
+<p>Returns a <a href="enum.ModelError.html#variant.MessageTooLong"><code>ModelError::MessageTooLong</code></a> if the content of the message
+is over the above limit, containing the number of unicode code points
+over the limit.</p>
+</div><h4 id='method.send_files' class="method"><span id='send_files.v' class='invisible'><code>fn <a href='#method.send_files' class='fnname'>send_files</a>&lt;'a, F, T&gt;(&amp;self, files: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;T&gt;, f: F) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="../../serenity/model/struct.Message.html" title="struct serenity::model::Message">Message</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a>) -&gt; <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="enum" href="../../serenity/http/enum.AttachmentType.html" title="enum serenity::http::AttachmentType">AttachmentType</a>&lt;'a&gt;&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#290-293' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sends (a) file(s) along with optional message contents.</p>
+
+<p>Refer to <a href="struct.ChannelId.html#method.send_files"><code>ChannelId::send_files</code></a> for examples and more information.</p>
+
+<p>The <a href="permissions/constant.ATTACH_FILES.html">Attach Files</a> and <a href="permissions/constant.SEND_MESSAGES.html">Send Messages</a> permissions are required.</p>
+
+<p><strong>Note</strong>: Message contents must be under 2000 unicode code points.</p>
+
+<h1 id='errors-2' class='section-header'><a href='#errors-2'>Errors</a></h1>
+<p>If the content of the message is over the above limit, then a
+<a href="../client/enum.ClientError.html#variant.MessageTooLong"><code>ClientError::MessageTooLong</code></a> will be returned, containing the number
+of unicode code points over the limit.</p>
+</div><h4 id='method.send_message' class="method"><span id='send_message.v' class='invisible'><code>fn <a href='#method.send_message' class='fnname'>send_message</a>&lt;F&gt;(&amp;self, f: F) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="struct" href="../../serenity/model/struct.Message.html" title="struct serenity::model::Message">Message</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(<a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a>) -&gt; <a class="struct" href="../../serenity/builder/struct.CreateMessage.html" title="struct serenity::builder::CreateMessage">CreateMessage</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#316-319' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Sends a message to the channel.</p>
+
+<p>Refer to the documentation for <a href="../builder/struct.CreateMessage.html"><code>CreateMessage</code></a> for more information
+regarding message restrictions and requirements.</p>
+
+<p>The <a href="permissions/constant.SEND_MESSAGES.html">Send Messages</a> permission is required.</p>
+
+<p><strong>Note</strong>: Message contents must be under 2000 unicode code points.</p>
+
+<h1 id='errors-3' class='section-header'><a href='#errors-3'>Errors</a></h1>
+<p>Returns a <a href="enum.ModelError.html#variant.MessageTooLong"><code>ModelError::MessageTooLong</code></a> if the content of the message
+is over the above limit, containing the number of unicode code points
+over the limit.</p>
+</div><h4 id='method.unpin' class="method"><span id='unpin.v' class='invisible'><code>fn <a href='#method.unpin' class='fnname'>unpin</a>&lt;M:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../serenity/model/struct.MessageId.html" title="struct serenity::model::MessageId">MessageId</a>&gt;&gt;(&amp;self, message_id: M) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#329-331' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Unpins a <a href="struct.Message.html"><code>Message</code></a> in the channel given by its Id.</p>
+
+<p>Requires the <a href="permissions/constant.MANAGE_MESSAGES.html">Manage Messages</a> permission.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="enum" href="../../serenity/model/enum.Channel.html" title="enum serenity::model::Channel">Channel</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#35' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="enum" href="../../serenity/model/enum.Channel.html" title="enum serenity::model::Channel">Channel</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#35' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../../serenity/model/enum.Channel.html" title="enum serenity::model::Channel">Channel</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#35' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#35' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-Deserialize&lt;&#39;de&gt;' class='impl'><span class='in-band'><code>impl&lt;'de&gt; <a class="trait" href="../../serde/de/trait.Deserialize.html" title="trait serde::de::Deserialize">Deserialize</a>&lt;'de&gt; for <a class="enum" href="../../serenity/model/enum.Channel.html" title="enum serenity::model::Channel">Channel</a></code><a href='#impl-Deserialize&lt;&#39;de&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#334-359' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.deserialize' class="method"><span id='deserialize.v' class='invisible'><code>fn <a href='../../serde/de/trait.Deserialize.html#tymethod.deserialize' class='fnname'>deserialize</a>&lt;D:&nbsp;<a class="trait" href="../../serde/de/trait.Deserializer.html" title="trait serde::de::Deserializer">Deserializer</a>&lt;'de&gt;&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;deserializer: D<br>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">StdResult</a>&lt;Self, D::<a class="type" href="../../serde/de/trait.Deserializer.html#associatedtype.Error" title="type serde::de::Deserializer::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#335-358' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Deserialize this value from the given Serde deserializer. <a href="../../serde/de/trait.Deserialize.html#tymethod.deserialize">Read more</a></p>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="enum" href="../../serenity/model/enum.Channel.html" title="enum serenity::model::Channel">Channel</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#362-389' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">FmtResult</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/channel/mod.rs.html#376-388' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the channel into a &quot;mentioned&quot; string.</p>
+
+<p>This will return a different format for each type of channel:</p>
+
+<ul>
+<li><a href="struct.Group.html"><code>Group</code></a>s: the generated name retrievable via <a href="struct.Group.html#method.name"><code>Group::name</code></a>;</li>
+<li><a href="struct.PrivateChannel.html"><code>PrivateChannel</code></a>s: the recipient&#39;s name;</li>
+<li><a href="struct.GuildChannel.html"><code>GuildChannel</code></a>s: a string mentioning the channel that users who can
+see the channel can click on.</li>
+</ul>
+</div></div><h3 id='impl-Mentionable' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../serenity/model/trait.Mentionable.html" title="trait serenity::model::Mentionable">Mentionable</a> for <a class="enum" href="../../serenity/model/enum.Channel.html" title="enum serenity::model::Channel">Channel</a></code><a href='#impl-Mentionable' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/misc.rs.html#28-37' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.mention' class="method"><span id='mention.v' class='invisible'><code>fn <a href='../../serenity/model/trait.Mentionable.html#tymethod.mention' class='fnname'>mention</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/misc.rs.html#29-36' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Creates a mentionable string, that will be able to notify and/or create a link to the item. <a href="../../serenity/model/trait.Mentionable.html#tymethod.mention">Read more</a></p>
+</div></div><h3 id='impl-FromStr' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/str/trait.FromStr.html" title="trait core::str::FromStr">FromStr</a> for <a class="enum" href="../../serenity/model/enum.Channel.html" title="enum serenity::model::Channel">Channel</a></code><a href='#impl-FromStr' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/misc.rs.html#240-252' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Err' class="type"><span id='Err.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/str/trait.FromStr.html#associatedtype.Err' class="type">Err</a> = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a></code></span></h4>
+<div class='docblock'><p>The associated error which can be returned from parsing.</p>
+</div><h4 id='method.from_str' class="method"><span id='from_str.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/str/trait.FromStr.html#tymethod.from_str' class='fnname'>from_str</a>(s: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">StdResult</a>&lt;Self, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/misc.rs.html#243-251' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Parses a string <code>s</code> to return a value of this type. <a href="https://doc.rust-lang.org/nightly/core/str/trait.FromStr.html#tymethod.from_str">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

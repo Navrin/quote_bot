@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Config","The config object for the operation of the bot."],["Discord","Contains all fields related to discord, such as tokens."]]});

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Event` enum in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Event">
+
+    <title>serenity::model::event::Event - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Enum Event</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../../index.html'>serenity</a>::<wbr><a href='../index.html'>model</a>::<wbr><a href='index.html'>event</a></p><script>window.sidebarCurrent = {name: 'Event', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../../index.html'>serenity</a>::<wbr><a href='../index.html'>model</a>::<wbr><a href='index.html'>event</a>::<wbr><a class="enum" href=''>Event</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/serenity/model/event.rs.html#1119-1230' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum Event {
+    ChannelCreate(<a class="struct" href="../../../serenity/model/event/struct.ChannelCreateEvent.html" title="struct serenity::model::event::ChannelCreateEvent">ChannelCreateEvent</a>),
+    ChannelDelete(<a class="struct" href="../../../serenity/model/event/struct.ChannelDeleteEvent.html" title="struct serenity::model::event::ChannelDeleteEvent">ChannelDeleteEvent</a>),
+    ChannelPinsUpdate(<a class="struct" href="../../../serenity/model/event/struct.ChannelPinsUpdateEvent.html" title="struct serenity::model::event::ChannelPinsUpdateEvent">ChannelPinsUpdateEvent</a>),
+    ChannelRecipientAdd(<a class="struct" href="../../../serenity/model/event/struct.ChannelRecipientAddEvent.html" title="struct serenity::model::event::ChannelRecipientAddEvent">ChannelRecipientAddEvent</a>),
+    ChannelRecipientRemove(<a class="struct" href="../../../serenity/model/event/struct.ChannelRecipientRemoveEvent.html" title="struct serenity::model::event::ChannelRecipientRemoveEvent">ChannelRecipientRemoveEvent</a>),
+    ChannelUpdate(<a class="struct" href="../../../serenity/model/event/struct.ChannelUpdateEvent.html" title="struct serenity::model::event::ChannelUpdateEvent">ChannelUpdateEvent</a>),
+    GuildBanAdd(<a class="struct" href="../../../serenity/model/event/struct.GuildBanAddEvent.html" title="struct serenity::model::event::GuildBanAddEvent">GuildBanAddEvent</a>),
+    GuildBanRemove(<a class="struct" href="../../../serenity/model/event/struct.GuildBanRemoveEvent.html" title="struct serenity::model::event::GuildBanRemoveEvent">GuildBanRemoveEvent</a>),
+    GuildCreate(<a class="struct" href="../../../serenity/model/event/struct.GuildCreateEvent.html" title="struct serenity::model::event::GuildCreateEvent">GuildCreateEvent</a>),
+    GuildDelete(<a class="struct" href="../../../serenity/model/event/struct.GuildDeleteEvent.html" title="struct serenity::model::event::GuildDeleteEvent">GuildDeleteEvent</a>),
+    GuildEmojisUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildEmojisUpdateEvent.html" title="struct serenity::model::event::GuildEmojisUpdateEvent">GuildEmojisUpdateEvent</a>),
+    GuildIntegrationsUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildIntegrationsUpdateEvent.html" title="struct serenity::model::event::GuildIntegrationsUpdateEvent">GuildIntegrationsUpdateEvent</a>),
+    GuildMemberAdd(<a class="struct" href="../../../serenity/model/event/struct.GuildMemberAddEvent.html" title="struct serenity::model::event::GuildMemberAddEvent">GuildMemberAddEvent</a>),
+    GuildMemberRemove(<a class="struct" href="../../../serenity/model/event/struct.GuildMemberRemoveEvent.html" title="struct serenity::model::event::GuildMemberRemoveEvent">GuildMemberRemoveEvent</a>),
+    GuildMemberUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildMemberUpdateEvent.html" title="struct serenity::model::event::GuildMemberUpdateEvent">GuildMemberUpdateEvent</a>),
+    GuildMembersChunk(<a class="struct" href="../../../serenity/model/event/struct.GuildMembersChunkEvent.html" title="struct serenity::model::event::GuildMembersChunkEvent">GuildMembersChunkEvent</a>),
+    GuildRoleCreate(<a class="struct" href="../../../serenity/model/event/struct.GuildRoleCreateEvent.html" title="struct serenity::model::event::GuildRoleCreateEvent">GuildRoleCreateEvent</a>),
+    GuildRoleDelete(<a class="struct" href="../../../serenity/model/event/struct.GuildRoleDeleteEvent.html" title="struct serenity::model::event::GuildRoleDeleteEvent">GuildRoleDeleteEvent</a>),
+    GuildRoleUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildRoleUpdateEvent.html" title="struct serenity::model::event::GuildRoleUpdateEvent">GuildRoleUpdateEvent</a>),
+    GuildUnavailable(<a class="struct" href="../../../serenity/model/event/struct.GuildUnavailableEvent.html" title="struct serenity::model::event::GuildUnavailableEvent">GuildUnavailableEvent</a>),
+    GuildUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildUpdateEvent.html" title="struct serenity::model::event::GuildUpdateEvent">GuildUpdateEvent</a>),
+    MessageCreate(<a class="struct" href="../../../serenity/model/event/struct.MessageCreateEvent.html" title="struct serenity::model::event::MessageCreateEvent">MessageCreateEvent</a>),
+    MessageDelete(<a class="struct" href="../../../serenity/model/event/struct.MessageDeleteEvent.html" title="struct serenity::model::event::MessageDeleteEvent">MessageDeleteEvent</a>),
+    MessageDeleteBulk(<a class="struct" href="../../../serenity/model/event/struct.MessageDeleteBulkEvent.html" title="struct serenity::model::event::MessageDeleteBulkEvent">MessageDeleteBulkEvent</a>),
+    MessageUpdate(<a class="struct" href="../../../serenity/model/event/struct.MessageUpdateEvent.html" title="struct serenity::model::event::MessageUpdateEvent">MessageUpdateEvent</a>),
+    PresenceUpdate(<a class="struct" href="../../../serenity/model/event/struct.PresenceUpdateEvent.html" title="struct serenity::model::event::PresenceUpdateEvent">PresenceUpdateEvent</a>),
+    PresencesReplace(<a class="struct" href="../../../serenity/model/event/struct.PresencesReplaceEvent.html" title="struct serenity::model::event::PresencesReplaceEvent">PresencesReplaceEvent</a>),
+    ReactionAdd(<a class="struct" href="../../../serenity/model/event/struct.ReactionAddEvent.html" title="struct serenity::model::event::ReactionAddEvent">ReactionAddEvent</a>),
+    ReactionRemove(<a class="struct" href="../../../serenity/model/event/struct.ReactionRemoveEvent.html" title="struct serenity::model::event::ReactionRemoveEvent">ReactionRemoveEvent</a>),
+    ReactionRemoveAll(<a class="struct" href="../../../serenity/model/event/struct.ReactionRemoveAllEvent.html" title="struct serenity::model::event::ReactionRemoveAllEvent">ReactionRemoveAllEvent</a>),
+    Ready(<a class="struct" href="../../../serenity/model/event/struct.ReadyEvent.html" title="struct serenity::model::event::ReadyEvent">ReadyEvent</a>),
+    Resumed(<a class="struct" href="../../../serenity/model/event/struct.ResumedEvent.html" title="struct serenity::model::event::ResumedEvent">ResumedEvent</a>),
+    TypingStart(<a class="struct" href="../../../serenity/model/event/struct.TypingStartEvent.html" title="struct serenity::model::event::TypingStartEvent">TypingStartEvent</a>),
+    UserUpdate(<a class="struct" href="../../../serenity/model/event/struct.UserUpdateEvent.html" title="struct serenity::model::event::UserUpdateEvent">UserUpdateEvent</a>),
+    VoiceStateUpdate(<a class="struct" href="../../../serenity/model/event/struct.VoiceStateUpdateEvent.html" title="struct serenity::model::event::VoiceStateUpdateEvent">VoiceStateUpdateEvent</a>),
+    VoiceServerUpdate(<a class="struct" href="../../../serenity/model/event/struct.VoiceServerUpdateEvent.html" title="struct serenity::model::event::VoiceServerUpdateEvent">VoiceServerUpdateEvent</a>),
+    WebhookUpdate(<a class="struct" href="../../../serenity/model/event/struct.WebhookUpdateEvent.html" title="struct serenity::model::event::WebhookUpdateEvent">WebhookUpdateEvent</a>),
+    Unknown(<a class="struct" href="../../../serenity/model/event/struct.UnknownEvent.html" title="struct serenity::model::event::UnknownEvent">UnknownEvent</a>),
+}</pre><div class='docblock'><p>Event received over a websocket connection</p>
+</div><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id='variant.ChannelCreate' class='variant'><span id='ChannelCreate.v' class='invisible'><code>ChannelCreate(<a class="struct" href="../../../serenity/model/event/struct.ChannelCreateEvent.html" title="struct serenity::model::event::ChannelCreateEvent">ChannelCreateEvent</a>)</code></span></span><div class='docblock'><p>A <a href="../enum.Channel.html"><code>Channel</code></a> was created.</p>
+
+<p>Fires the <a href="../../client/struct.Client.html#on_channel_create"><code>Client::on_channel_create</code></a> event.</p>
+</div><span id='variant.ChannelDelete' class='variant'><span id='ChannelDelete.v' class='invisible'><code>ChannelDelete(<a class="struct" href="../../../serenity/model/event/struct.ChannelDeleteEvent.html" title="struct serenity::model::event::ChannelDeleteEvent">ChannelDeleteEvent</a>)</code></span></span><div class='docblock'><p>A <a href="../enum.Channel.html"><code>Channel</code></a> has been deleted.</p>
+
+<p>Fires the [<code>Client::on_channel_delete</code>] event.</p>
+</div><span id='variant.ChannelPinsUpdate' class='variant'><span id='ChannelPinsUpdate.v' class='invisible'><code>ChannelPinsUpdate(<a class="struct" href="../../../serenity/model/event/struct.ChannelPinsUpdateEvent.html" title="struct serenity::model::event::ChannelPinsUpdateEvent">ChannelPinsUpdateEvent</a>)</code></span></span><div class='docblock'><p>The pins for a <a href="../enum.Channel.html"><code>Channel</code></a> have been updated.</p>
+
+<p>Fires the <a href="../../client/struct.Client.html#on_channel_pins_update"><code>Client::on_channel_pins_update</code></a> event.</p>
+</div><span id='variant.ChannelRecipientAdd' class='variant'><span id='ChannelRecipientAdd.v' class='invisible'><code>ChannelRecipientAdd(<a class="struct" href="../../../serenity/model/event/struct.ChannelRecipientAddEvent.html" title="struct serenity::model::event::ChannelRecipientAddEvent">ChannelRecipientAddEvent</a>)</code></span></span><div class='docblock'><p>A <a href="../struct.User.html"><code>User</code></a> has been added to a [<code>Group</code>].</p>
+
+<p>Fires the <a href="../../client/struct.Client.html#on_recipient_add"><code>Client::on_recipient_add</code></a> event.</p>
+</div><span id='variant.ChannelRecipientRemove' class='variant'><span id='ChannelRecipientRemove.v' class='invisible'><code>ChannelRecipientRemove(<a class="struct" href="../../../serenity/model/event/struct.ChannelRecipientRemoveEvent.html" title="struct serenity::model::event::ChannelRecipientRemoveEvent">ChannelRecipientRemoveEvent</a>)</code></span></span><div class='docblock'><p>A <a href="../struct.User.html"><code>User</code></a> has been removed from a [<code>Group</code>].</p>
+
+<p>Fires the <a href="../../client/struct.Client.html#on_recipient_remove"><code>Client::on_recipient_remove</code></a> event.</p>
+</div><span id='variant.ChannelUpdate' class='variant'><span id='ChannelUpdate.v' class='invisible'><code>ChannelUpdate(<a class="struct" href="../../../serenity/model/event/struct.ChannelUpdateEvent.html" title="struct serenity::model::event::ChannelUpdateEvent">ChannelUpdateEvent</a>)</code></span></span><div class='docblock'><p>A [<code>Channel</code>] has been updated.</p>
+
+<p>Fires the <a href="../../client/struct.Client.html#on_channel_update"><code>Client::on_channel_update</code></a> event.</p>
+</div><span id='variant.GuildBanAdd' class='variant'><span id='GuildBanAdd.v' class='invisible'><code>GuildBanAdd(<a class="struct" href="../../../serenity/model/event/struct.GuildBanAddEvent.html" title="struct serenity::model::event::GuildBanAddEvent">GuildBanAddEvent</a>)</code></span></span><span id='variant.GuildBanRemove' class='variant'><span id='GuildBanRemove.v' class='invisible'><code>GuildBanRemove(<a class="struct" href="../../../serenity/model/event/struct.GuildBanRemoveEvent.html" title="struct serenity::model::event::GuildBanRemoveEvent">GuildBanRemoveEvent</a>)</code></span></span><span id='variant.GuildCreate' class='variant'><span id='GuildCreate.v' class='invisible'><code>GuildCreate(<a class="struct" href="../../../serenity/model/event/struct.GuildCreateEvent.html" title="struct serenity::model::event::GuildCreateEvent">GuildCreateEvent</a>)</code></span></span><span id='variant.GuildDelete' class='variant'><span id='GuildDelete.v' class='invisible'><code>GuildDelete(<a class="struct" href="../../../serenity/model/event/struct.GuildDeleteEvent.html" title="struct serenity::model::event::GuildDeleteEvent">GuildDeleteEvent</a>)</code></span></span><span id='variant.GuildEmojisUpdate' class='variant'><span id='GuildEmojisUpdate.v' class='invisible'><code>GuildEmojisUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildEmojisUpdateEvent.html" title="struct serenity::model::event::GuildEmojisUpdateEvent">GuildEmojisUpdateEvent</a>)</code></span></span><span id='variant.GuildIntegrationsUpdate' class='variant'><span id='GuildIntegrationsUpdate.v' class='invisible'><code>GuildIntegrationsUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildIntegrationsUpdateEvent.html" title="struct serenity::model::event::GuildIntegrationsUpdateEvent">GuildIntegrationsUpdateEvent</a>)</code></span></span><span id='variant.GuildMemberAdd' class='variant'><span id='GuildMemberAdd.v' class='invisible'><code>GuildMemberAdd(<a class="struct" href="../../../serenity/model/event/struct.GuildMemberAddEvent.html" title="struct serenity::model::event::GuildMemberAddEvent">GuildMemberAddEvent</a>)</code></span></span><span id='variant.GuildMemberRemove' class='variant'><span id='GuildMemberRemove.v' class='invisible'><code>GuildMemberRemove(<a class="struct" href="../../../serenity/model/event/struct.GuildMemberRemoveEvent.html" title="struct serenity::model::event::GuildMemberRemoveEvent">GuildMemberRemoveEvent</a>)</code></span></span><span id='variant.GuildMemberUpdate' class='variant'><span id='GuildMemberUpdate.v' class='invisible'><code>GuildMemberUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildMemberUpdateEvent.html" title="struct serenity::model::event::GuildMemberUpdateEvent">GuildMemberUpdateEvent</a>)</code></span></span><div class='docblock'><p>A member&#39;s roles have changed</p>
+</div><span id='variant.GuildMembersChunk' class='variant'><span id='GuildMembersChunk.v' class='invisible'><code>GuildMembersChunk(<a class="struct" href="../../../serenity/model/event/struct.GuildMembersChunkEvent.html" title="struct serenity::model::event::GuildMembersChunkEvent">GuildMembersChunkEvent</a>)</code></span></span><span id='variant.GuildRoleCreate' class='variant'><span id='GuildRoleCreate.v' class='invisible'><code>GuildRoleCreate(<a class="struct" href="../../../serenity/model/event/struct.GuildRoleCreateEvent.html" title="struct serenity::model::event::GuildRoleCreateEvent">GuildRoleCreateEvent</a>)</code></span></span><span id='variant.GuildRoleDelete' class='variant'><span id='GuildRoleDelete.v' class='invisible'><code>GuildRoleDelete(<a class="struct" href="../../../serenity/model/event/struct.GuildRoleDeleteEvent.html" title="struct serenity::model::event::GuildRoleDeleteEvent">GuildRoleDeleteEvent</a>)</code></span></span><span id='variant.GuildRoleUpdate' class='variant'><span id='GuildRoleUpdate.v' class='invisible'><code>GuildRoleUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildRoleUpdateEvent.html" title="struct serenity::model::event::GuildRoleUpdateEvent">GuildRoleUpdateEvent</a>)</code></span></span><span id='variant.GuildUnavailable' class='variant'><span id='GuildUnavailable.v' class='invisible'><code>GuildUnavailable(<a class="struct" href="../../../serenity/model/event/struct.GuildUnavailableEvent.html" title="struct serenity::model::event::GuildUnavailableEvent">GuildUnavailableEvent</a>)</code></span></span><div class='docblock'><p>When a guild is unavailable, such as due to a Discord server outage.</p>
+</div><span id='variant.GuildUpdate' class='variant'><span id='GuildUpdate.v' class='invisible'><code>GuildUpdate(<a class="struct" href="../../../serenity/model/event/struct.GuildUpdateEvent.html" title="struct serenity::model::event::GuildUpdateEvent">GuildUpdateEvent</a>)</code></span></span><span id='variant.MessageCreate' class='variant'><span id='MessageCreate.v' class='invisible'><code>MessageCreate(<a class="struct" href="../../../serenity/model/event/struct.MessageCreateEvent.html" title="struct serenity::model::event::MessageCreateEvent">MessageCreateEvent</a>)</code></span></span><span id='variant.MessageDelete' class='variant'><span id='MessageDelete.v' class='invisible'><code>MessageDelete(<a class="struct" href="../../../serenity/model/event/struct.MessageDeleteEvent.html" title="struct serenity::model::event::MessageDeleteEvent">MessageDeleteEvent</a>)</code></span></span><span id='variant.MessageDeleteBulk' class='variant'><span id='MessageDeleteBulk.v' class='invisible'><code>MessageDeleteBulk(<a class="struct" href="../../../serenity/model/event/struct.MessageDeleteBulkEvent.html" title="struct serenity::model::event::MessageDeleteBulkEvent">MessageDeleteBulkEvent</a>)</code></span></span><span id='variant.MessageUpdate' class='variant'><span id='MessageUpdate.v' class='invisible'><code>MessageUpdate(<a class="struct" href="../../../serenity/model/event/struct.MessageUpdateEvent.html" title="struct serenity::model::event::MessageUpdateEvent">MessageUpdateEvent</a>)</code></span></span><div class='docblock'><p>A message has been edited, either by the user or the system</p>
+</div><span id='variant.PresenceUpdate' class='variant'><span id='PresenceUpdate.v' class='invisible'><code>PresenceUpdate(<a class="struct" href="../../../serenity/model/event/struct.PresenceUpdateEvent.html" title="struct serenity::model::event::PresenceUpdateEvent">PresenceUpdateEvent</a>)</code></span></span><div class='docblock'><p>A member&#39;s presence state (or username or avatar) has changed</p>
+</div><span id='variant.PresencesReplace' class='variant'><span id='PresencesReplace.v' class='invisible'><code>PresencesReplace(<a class="struct" href="../../../serenity/model/event/struct.PresencesReplaceEvent.html" title="struct serenity::model::event::PresencesReplaceEvent">PresencesReplaceEvent</a>)</code></span></span><div class='docblock'><p>The precense list of the user&#39;s friends should be replaced entirely</p>
+</div><span id='variant.ReactionAdd' class='variant'><span id='ReactionAdd.v' class='invisible'><code>ReactionAdd(<a class="struct" href="../../../serenity/model/event/struct.ReactionAddEvent.html" title="struct serenity::model::event::ReactionAddEvent">ReactionAddEvent</a>)</code></span></span><div class='docblock'><p>A reaction was added to a message.</p>
+
+<p>Fires the <a href="../client/struct.Client.html#method.on_message_reaction_add"><code>on_message_reaction_add</code></a> event handler.</p>
+</div><span id='variant.ReactionRemove' class='variant'><span id='ReactionRemove.v' class='invisible'><code>ReactionRemove(<a class="struct" href="../../../serenity/model/event/struct.ReactionRemoveEvent.html" title="struct serenity::model::event::ReactionRemoveEvent">ReactionRemoveEvent</a>)</code></span></span><div class='docblock'><p>A reaction was removed to a message.</p>
+
+<p>Fires the <a href="../client/struct.Client.html#method.on_message_reaction_remove"><code>on_message_reaction_remove</code></a> event handler.</p>
+</div><span id='variant.ReactionRemoveAll' class='variant'><span id='ReactionRemoveAll.v' class='invisible'><code>ReactionRemoveAll(<a class="struct" href="../../../serenity/model/event/struct.ReactionRemoveAllEvent.html" title="struct serenity::model::event::ReactionRemoveAllEvent">ReactionRemoveAllEvent</a>)</code></span></span><div class='docblock'><p>A request was issued to remove all <a href="struct.Reaction.html"><code>Reaction</code></a>s from a <a href="struct.Message.html"><code>Message</code></a>.</p>
+
+<p>Fires the <a href="../client/struct.Clint.html#method.on_reaction_remove_all"><code>on_reaction_remove_all</code></a> event handler.</p>
+</div><span id='variant.Ready' class='variant'><span id='Ready.v' class='invisible'><code>Ready(<a class="struct" href="../../../serenity/model/event/struct.ReadyEvent.html" title="struct serenity::model::event::ReadyEvent">ReadyEvent</a>)</code></span></span><div class='docblock'><p>The first event in a connection, containing the initial ready cache.</p>
+
+<p>May also be received at a later time in the event of a reconnect.</p>
+</div><span id='variant.Resumed' class='variant'><span id='Resumed.v' class='invisible'><code>Resumed(<a class="struct" href="../../../serenity/model/event/struct.ResumedEvent.html" title="struct serenity::model::event::ResumedEvent">ResumedEvent</a>)</code></span></span><div class='docblock'><p>The connection has successfully resumed after a disconnect.</p>
+</div><span id='variant.TypingStart' class='variant'><span id='TypingStart.v' class='invisible'><code>TypingStart(<a class="struct" href="../../../serenity/model/event/struct.TypingStartEvent.html" title="struct serenity::model::event::TypingStartEvent">TypingStartEvent</a>)</code></span></span><div class='docblock'><p>A user is typing; considered to last 5 seconds</p>
+</div><span id='variant.UserUpdate' class='variant'><span id='UserUpdate.v' class='invisible'><code>UserUpdate(<a class="struct" href="../../../serenity/model/event/struct.UserUpdateEvent.html" title="struct serenity::model::event::UserUpdateEvent">UserUpdateEvent</a>)</code></span></span><div class='docblock'><p>Update to the logged-in user&#39;s information</p>
+</div><span id='variant.VoiceStateUpdate' class='variant'><span id='VoiceStateUpdate.v' class='invisible'><code>VoiceStateUpdate(<a class="struct" href="../../../serenity/model/event/struct.VoiceStateUpdateEvent.html" title="struct serenity::model::event::VoiceStateUpdateEvent">VoiceStateUpdateEvent</a>)</code></span></span><div class='docblock'><p>A member&#39;s voice state has changed</p>
+</div><span id='variant.VoiceServerUpdate' class='variant'><span id='VoiceServerUpdate.v' class='invisible'><code>VoiceServerUpdate(<a class="struct" href="../../../serenity/model/event/struct.VoiceServerUpdateEvent.html" title="struct serenity::model::event::VoiceServerUpdateEvent">VoiceServerUpdateEvent</a>)</code></span></span><div class='docblock'><p>Voice server information is available</p>
+</div><span id='variant.WebhookUpdate' class='variant'><span id='WebhookUpdate.v' class='invisible'><code>WebhookUpdate(<a class="struct" href="../../../serenity/model/event/struct.WebhookUpdateEvent.html" title="struct serenity::model::event::WebhookUpdateEvent">WebhookUpdateEvent</a>)</code></span></span><div class='docblock'><p>A webhook for a <a href="struct.GuildChannel.html">channel</a> was updated in a <a href="struct.Guild.html"><code>Guild</code></a>.</p>
+</div><span id='variant.Unknown' class='variant'><span id='Unknown.v' class='invisible'><code>Unknown(<a class="struct" href="../../../serenity/model/event/struct.UnknownEvent.html" title="struct serenity::model::event::UnknownEvent">UnknownEvent</a>)</code></span></span><div class='docblock'><p>An event type not covered by the above</p>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="enum" href="../../../serenity/model/event/enum.Event.html" title="enum serenity::model::event::Event">Event</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/event.rs.html#1118' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="enum" href="../../../serenity/model/event/enum.Event.html" title="enum serenity::model::event::Event">Event</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/event.rs.html#1118' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../../../serenity/model/event/enum.Event.html" title="enum serenity::model::event::Event">Event</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/event.rs.html#1118' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/serenity/model/event.rs.html#1118' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

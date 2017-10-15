@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["plain","Posts formatted text displaying each individual command group and its commands."],["with_embeds","Posts an embed showing each individual command group and its commands."]]});

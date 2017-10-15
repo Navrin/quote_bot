@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Emoji` struct in crate `serenity`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Emoji">
+
+    <title>serenity::model::Emoji - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct Emoji</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>serenity</a>::<wbr><a href='index.html'>model</a></p><script>window.sidebarCurrent = {name: 'Emoji', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>serenity</a>::<wbr><a href='index.html'>model</a>::<wbr><a class="struct" href=''>Emoji</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#21-39' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Emoji {
+    pub id: <a class="struct" href="../../serenity/model/struct.EmojiId.html" title="struct serenity::model::EmojiId">EmojiId</a>,
+    pub name: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    pub managed: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    pub require_colons: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+    pub roles: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a>&gt;,
+}</pre><div class='docblock'><p>Represents a custom guild emoji, which can either be created using the API,
+or via an integration. Emojis created using the API only work within the
+guild it was created in.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id='structfield.id' class="structfield">
+                           <span id='id.v' class='invisible'>
+                           <code>id: <a class="struct" href="../../serenity/model/struct.EmojiId.html" title="struct serenity::model::EmojiId">EmojiId</a></code>
+                           </span></span><div class='docblock'><p>The Id of the emoji.</p>
+</div><span id='structfield.name' class="structfield">
+                           <span id='name.v' class='invisible'>
+                           <code>name: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code>
+                           </span></span><div class='docblock'><p>The name of the emoji. It must be at least 2 characters long and can
+only contain alphanumeric characters and underscores.</p>
+</div><span id='structfield.managed' class="structfield">
+                           <span id='managed.v' class='invisible'>
+                           <code>managed: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span><div class='docblock'><p>Whether the emoji is managed via an <a href="struct.Integration.html"><code>Integration</code></a> service.</p>
+</div><span id='structfield.require_colons' class="structfield">
+                           <span id='require_colons.v' class='invisible'>
+                           <code>require_colons: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code>
+                           </span></span><div class='docblock'><p>Whether the emoji name needs to be surrounded by colons in order to be
+used by the client.</p>
+</div><span id='structfield.roles' class="structfield">
+                           <span id='roles.v' class='invisible'>
+                           <code>roles: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../serenity/model/struct.RoleId.html" title="struct serenity::model::RoleId">RoleId</a>&gt;</code>
+                           </span></span><div class='docblock'><p>A list of <a href="struct.Role.html"><code>Role</code></a>s that are allowed to use the emoji. If there are no
+roles specified, then usage is unrestricted.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../serenity/model/struct.Emoji.html" title="struct serenity::model::Emoji">Emoji</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#42-187' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.delete' class="method"><span id='delete.v' class='invisible'><code>fn <a href='#method.delete' class='fnname'>delete</a>(&amp;self) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#73-78' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Deletes the emoji.</p>
+
+<p><strong>Note</strong>: The <a href="permissions/constant.MANAGE_EMOJIS.html">Manage Emojis</a> permission is required.</p>
+
+<p><strong>Note</strong>: Only user accounts may use this method.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>Delete a given emoji:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="comment">// assuming emoji has been set already</span>
+<span class="kw">match</span> <span class="ident">emoji</span>.<span class="ident">delete</span>() {
+    <span class="prelude-val">Ok</span>(()) <span class="op">=&gt;</span> <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Emoji deleted.&quot;</span>),
+    <span class="prelude-val">Err</span>(_) <span class="op">=&gt;</span> <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Could not delete emoji.&quot;</span>)
+}</pre>
+</div><h4 id='method.edit' class="method"><span id='edit.v' class='invisible'><code>fn <a href='#method.edit' class='fnname'>edit</a>(&amp;mut self, name: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="type" href="../../serenity/type.Result.html" title="type serenity::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#108-126' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Edits the emoji by updating it with a new name.</p>
+
+<p><strong>Note</strong>: The <a href="permissions/constant.MANAGE_EMOJIS.html">Manage Emojis</a> permission is required.</p>
+
+<p><strong>Note</strong>: Only user accounts may use this method.</p>
+
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<p>Change the name of an emoji:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="comment">// assuming emoji has been set already</span>
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">emoji</span>.<span class="ident">edit</span>(<span class="string">&quot;blobuwu&quot;</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">emoji</span>.<span class="ident">name</span>, <span class="string">&quot;blobuwu&quot;</span>);</pre>
+</div><h4 id='method.find_guild_id' class="method"><span id='find_guild_id.v' class='invisible'><code>fn <a href='#method.find_guild_id' class='fnname'>find_guild_id</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../serenity/model/struct.GuildId.html" title="struct serenity::model::GuildId">GuildId</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#153-163' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Finds the <a href="struct.Guild.html"><code>Guild</code></a> that owns the emoji by looking through the Cache.</p>
+
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
+<p>Print the guild id that owns this emoji:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="comment">// assuming emoji has been set already</span>
+<span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">guild_id</span>) <span class="op">=</span> <span class="ident">emoji</span>.<span class="ident">find_guild_id</span>() {
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{} is owned by {}&quot;</span>, <span class="ident">emoji</span>.<span class="ident">name</span>, <span class="ident">guild_id</span>);
+}</pre>
+</div><h4 id='method.url' class="method"><span id='url.v' class='invisible'><code>fn <a href='#method.url' class='fnname'>url</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#186' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Generates a URL to the emoji&#39;s image.</p>
+
+<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
+<p>Print the direct link to the given emoji:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="comment">// assuming emoji has been set already</span>
+<span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Direct link to emoji image: {}&quot;</span>, <span class="ident">emoji</span>.<span class="ident">url</span>());</pre>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../serenity/model/struct.Emoji.html" title="struct serenity::model::Emoji">Emoji</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#20' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../serenity/model/struct.Emoji.html" title="struct serenity::model::Emoji">Emoji</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#20' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../serenity/model/struct.Emoji.html" title="struct serenity::model::Emoji">Emoji</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#20' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#20' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="../../serenity/model/struct.Emoji.html" title="struct serenity::model::Emoji">Emoji</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#189-201' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">FmtResult</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/guild/emoji.rs.html#194-200' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the emoji into a string that will cause Discord clients to
+render the emoji.</p>
+
+<p>This is in the format of: <code>&lt;:NAME:EMOJI_ID&gt;</code>.</p>
+</div></div><h3 id='impl-Mentionable' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../serenity/model/trait.Mentionable.html" title="trait serenity::model::Mentionable">Mentionable</a> for <a class="struct" href="../../serenity/model/struct.Emoji.html" title="struct serenity::model::Emoji">Emoji</a></code><a href='#impl-Mentionable' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/misc.rs.html#39-41' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.mention' class="method"><span id='mention.v' class='invisible'><code>fn <a href='../../serenity/model/trait.Mentionable.html#tymethod.mention' class='fnname'>mention</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serenity/model/misc.rs.html#40' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Creates a mentionable string, that will be able to notify and/or create a link to the item. <a href="../../serenity/model/trait.Mentionable.html#tymethod.mention">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "serenity";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
