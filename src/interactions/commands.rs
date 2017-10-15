@@ -29,6 +29,57 @@ pub fn invite_link(ctx: &mut Context, message: &Message, _: Args) -> Result<(), 
     Ok(())
 }
 
+pub fn command_delete_quote(ctx: &mut Context, message: &Message, mut args: Args) -> Result<(), CommandError> {
+    let msg_id = match args.single::<i32>() {
+        Ok(v) => v,
+        Err(_) => {
+            message.reply("No message id was given, example command `!quote delete 30`")?;
+            return Ok(());
+        }   
+    };
+
+    let conn = {
+        let data = ctx.data.lock();
+        let connector = data.get::<Connector>().unwrap();
+        connector
+            .get_conn()
+            .map_err(|_| "Could not get a connection to the db!")?        
+    };
+
+    let quote = match find_quote(&conn, msg_id) {
+        Ok(v) => match v {
+            Some(q) => q,
+            None => {
+                message.reply(&format!("A quote with the id of {} was not found.", msg_id))?;
+                return Ok(());
+            }
+        }, 
+        Err(_) => {
+            message.reply("Error while accessing quote database!")?;
+            return Ok(());
+        }   
+    };
+
+
+    let author_id = message.author.id.0.to_string();
+
+    if author_id != quote.created_by_id && author_id != quote.quoted_by_id {
+        message.reply("Due to company policy, you must be either the person being quoted or the person who quoted to delete a quote.")?;
+        return Ok(());
+    }
+
+    match delete_quote(&conn, &quote) {
+        Ok(deleted) if deleted => {
+            message.reply("Quote was successfully deleted!")?;
+            return Ok(());
+        }
+        Ok(_) | Err(_) => {
+            message.reply("Error while deleting message!")?;
+            return Ok(());
+        }
+    }
+}
+
 pub fn command_from(
     ctx: &mut Context,
     message: &Message,
@@ -37,7 +88,7 @@ pub fn command_from(
     let author = match args.single::<User>() {
         Ok(v) => v,
         Err(_) => {
-            let _ = message.reply("No user was mentioned? Does the void make quotes? pls tell");
+            let _ = message.reply("No user was mentioned!");
             return Ok(());
         }
     };
@@ -70,11 +121,13 @@ pub fn command_from(
 }
 
 fn rand_quote(ctx: &mut Context, message: &Message, author: &User, _: Args) -> Result<(), String> {
-    let data = ctx.data.lock();
-    let connector = data.get::<Connector>().unwrap();
-    let conn = connector
-        .get_conn()
-        .map_err(|_| "Could not get a connection to the db!")?;
+    let conn = {
+        let data = ctx.data.lock();
+        let connector = data.get::<Connector>().unwrap();
+        connector
+            .get_conn()
+            .map_err(|_| "Could not get a connection to the db!")?        
+    };
 
     let guild_id = message
         .guild_id()
@@ -98,11 +151,13 @@ fn rand_quote(ctx: &mut Context, message: &Message, author: &User, _: Args) -> R
 }
 
 fn contains_quotes(ctx: &mut Context, message: &Message, author: &User, args: Args) -> Result<(), String> {
-    let data = ctx.data.lock();
-    let connector = data.get::<Connector>().unwrap();
-    let conn = connector
-        .get_conn()
-        .map_err(|_| "Could not get a connection to the db!")?;
+    let conn = {
+        let data = ctx.data.lock();
+        let connector = data.get::<Connector>().unwrap();
+        connector
+            .get_conn()
+            .map_err(|_| "Could not get a connection to the db!")?        
+    };
 
     let guild_id = message
         .guild_id()
@@ -132,11 +187,13 @@ fn contains_quotes(ctx: &mut Context, message: &Message, author: &User, args: Ar
 }
 
 fn list_quotes(ctx: &mut Context, message: &Message, author: &User, args: Args) -> Result<(), String> {
-    let data = ctx.data.lock();
-    let connector = data.get::<Connector>().unwrap();
-    let conn = connector
-        .get_conn()
-        .map_err(|_| "Could not get a connection to the db!")?;
+    let conn = {
+        let data = ctx.data.lock();
+        let connector = data.get::<Connector>().unwrap();
+        connector
+            .get_conn()
+            .map_err(|_| "Could not get a connection to the db!")?        
+    };
 
     let guild_id = message
         .guild_id()
@@ -171,7 +228,7 @@ fn list_quotes(ctx: &mut Context, message: &Message, author: &User, args: Args) 
         .ok_or("This channel is fake!")?
         .send_message(|reply| reply.embed(|f| 
             f.thumbnail(&author.avatar_url().unwrap_or(DEFAULT_DISCORD_AVATAR.to_string()))
-             .title(format!("A collection of quotes from {} page {} amount {}.", author.name, page.unwrap_or(1), amount.unwrap_or(5)))
+             .title(format!("A collection of quotes from {}, page: {} max: {}.", author.name, page.unwrap_or(1), amount.unwrap_or(5)))
              .fields(create_quote_embed_section(quotes, &guild_id))
         ))
         .map_err(|e| format!("Could not send message! Error: {:?}", e))?;
@@ -189,12 +246,13 @@ fn create_quote_embed_section(quotes: Vec<Quote>, guild: &GuildId) -> Vec<Create
                 .inline(false)
                 .name(
                     format!(
-                        "{}, quoted by {}", 
+                        "ID {}, on {}, quoted by {}.", 
+                        quote.id,
                         MessageId(quote.message_id
                             .parse::<u64>()
                             .unwrap())
                             .created_at()
-                            .format("%m-%d @ %H:%S"), 
+                            .format("%a %e %b"), 
                         guild
                             .member(quote.quoted_by_id.parse::<u64>().unwrap())
                             .map(|m| m.display_name().to_string())

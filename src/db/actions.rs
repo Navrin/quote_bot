@@ -1,4 +1,5 @@
 use diesel;
+use diesel::delete;
 use diesel::prelude::*;
 use db::models::*;
 use rand::{thread_rng, Rng};
@@ -10,6 +11,23 @@ pub fn create_quote(conn: &PgConnection, quote: &NewQuote) -> Result<Quote, dies
     find_author(conn, quote.quoted_by_id)?;
     find_author(conn, quote.created_by_id)?;
     diesel::insert(quote).into(quotes::table).get_result(conn)
+}
+
+/// Find a quote, return Some(Quote) if found or None, else an error.
+pub fn find_quote(conn: &PgConnection, id_target: i32) -> Result<Option<Quote>, DieselError> {
+    use db::schema::quotes::dsl::*;
+
+    let quote_res = quotes.find(id_target).first(conn);
+
+    match quote_res {
+        Ok(v) => Ok(Some(v)),
+        Err(ref e) if *e == DieselError::NotFound => Ok(None),
+        Err(e) => Err(e),
+    }
+}
+
+pub fn delete_quote(conn: &PgConnection, quote_target: &Quote) -> Result<bool, DieselError> {
+    delete(quote_target).execute(conn).map(|n| n > 0)
 }
 
 /// Finds an author in the database, if they do not exist, create a new one.

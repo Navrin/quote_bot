@@ -5,7 +5,7 @@ pub struct Author {
     pub id: String,
 }
 
-#[derive(Identifiable, Queryable, Associations)]
+#[derive(Identifiable, Queryable, Associations, Clone)]
 #[belongs_to(Author, foreign_key = "created_by_id")]
 pub struct Quote {
     /// Autogen `SERIAL PRIMARY KEY`
@@ -22,18 +22,18 @@ pub struct Quote {
     pub guild_id: String,
 }
 
-impl Clone for Quote {
-    fn clone(&self) -> Quote {
-        Quote {
-            id: self.id,
-            message_id: self.message_id.to_string(),
-            quote: self.quote.to_string(),
-            created_by_id: self.created_by_id.to_string(),
-            quoted_by_id: self.quoted_by_id.to_string(),
-            guild_id: self.guild_id.to_string(),
-        }
-    }
-}
+// impl Clone for Quote {
+//     fn clone(&self) -> Quote {
+//         Quote {
+//             id: self.id,
+//             message_id: self.message_id.to_string(),
+//             quote: self.quote.to_string(),
+//             created_by_id: self.created_by_id.to_string(),
+//             quoted_by_id: self.quoted_by_id.to_string(),
+//             guild_id: self.guild_id.to_string(),
+//         }
+//     }
+// }
 
 #[derive(Insertable)]
 #[table_name = "quotes"]

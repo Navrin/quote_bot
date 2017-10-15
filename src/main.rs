@@ -72,7 +72,7 @@ pub mod db;
 use db::Connector;
 use config::Config;
 use interactions::handler::Handler;
-use interactions::commands::{command_from, invite_link};
+use interactions::commands::{command_from, invite_link, command_delete_quote};
 
 fn main() {
     let mut raw_config = String::new();
@@ -103,6 +103,11 @@ fn main() {
             c.desc("Get the invite link for this bot!")
              .example("!quote invite")
              .exec(invite_link)
+        )
+        .command("delete", |c| 
+            c.desc("Delete a quote with it's ID.")
+             .example("!quote delete 42")
+             .exec(command_delete_quote)
         )
         .command("from", |c| {
             c.desc("Gets a command from the user, can be either `list`, `rand` or `contains`")
